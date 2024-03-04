@@ -1,0 +1,42 @@
+
+/* About Us section styles */
+#about {
+    background-color: #f2f2f2; /* Background color for the section */
+    padding: 50px 0; /* Add some padding for spacing */
+    text-align: left; /* Align text to the left */
+}
+
+.about-content {
+    display: flex;
+    flex-direction: column; /* Stack image and text vertically */
+    align-items: center; /* Center align items horizontally */
+    max-width: 800px; /* Set a maximum width for the content */
+    margin: 0 auto; /* Center the section horizontally */
+    padding: 20px; /* Add some padding to the sides */
+    text-align: center; /* Center align text */
+    background-color: rgba(0, 0, 255, 0.5); /* Blue background color with 50% opacity */
+}
+
+.about-image {
+    width: 400px; /* Set width of the image */
+    height: 400px; /* Set height of the image */
+    border-radius: 50%; /* Make the image round */
+    margin-right: 30px; /* Add some spacing between image and text */
+}
+
+.about-text {
+    margin-top: 20px; /* Add some space between the image and text */
+    font-size: 20px; /* Adjust the font size for readability */
+    line-height: 1.5; /* Set the line height for better spacing */
+    color: white; /* Set text color to white for better contrast */
+}
+.about-text h2 {
+    mmargin-top: 20px; /* Add some space between the image and text */
+    font-size: 40px; /* Adjust the font size for readability */
+    line-height: 1.5; /* Set the line height for better spacing */
+    color: white; /* Set text color to white for better contrast */
+
+.about-text p {
+    font-size: 30px;
+    text-align: left; 
+}

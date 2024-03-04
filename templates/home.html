@@ -1,0 +1,97 @@
+<!--home.html--> 
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE FORK</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/about.css' %}"> 
+    <link rel="stylesheet" type="text/css" href="{% static 'css/gallery.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/location.css' %}">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1 class="logo">THE FORK</h1>
+            <nav>
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#location">Location</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="{% url 'menu' %}">Menu</a></li>
+                    <li><a href="{% url 'reservation' %}">Reservation</a></li>
+                    <li><a href="{% url 'reviews' %}">Reviews</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
+    <section id="about">
+        <div class="about-content">
+            <img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809874/fork.jpg" alt="About Us" class="about-image">
+            <div class="about-text">
+                <h2>About Us</h2>
+                <p>We are a newly opened restaurant where your palates will be excited to taste the finest and freshest food you'll ever get. 
+                   We specialize in desserts and Italian Cuisine. We are also located at the heart of Stockholm City, Sweden.
+                   Come and have a great time at The Fork Restaurant!!!</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery">
+        <h2>Gallery</h2>
+        <div class="gallery-content">
+            <div class="gallery-images">
+                <img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809910/pancake_qtecba.jpg" alt="pancake">
+                <img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809936/salad_owwemr.jpg" alt="salad">
+                <img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809941/slicedcake_jajzwj.jpg" alt="sliced_cake">
+                <img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809943/steak_u2plrv.jpg" alt="steak">
+                <img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809913/pasta_qz2ndg.jpg" alt="pasta">
+                <img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809920/prepfood2_j2yipj.jpg" alt="Italian">
+                <img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809923/preparation_eprhrw.jpg" alt="food">
+                <img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809900/location4_lxwnaf.jpg" alt="outdoors">
+                <img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809890/insidelocation6_tb1azn.jpg" alt="indoors">
+                <img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809888/insidelocation5_agynax.jpg" alt="ambiance">
+                <img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809892/lecheflan_jq6fa7.jpg" alt="Flan">
+                <img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809877/icecream_ouue3d.jpg" alt="Ice_cream">
+            </div>
+        </div>
+        
+    </section>
+        <section id="location">
+            <h2>Location</h2>
+            <div class="location-content">
+                <div class="contact-info">
+                    <h3>How to Contact Us:</h3>
+                    <p>Email: thefork@gmail.com</p>
+                    <p>Phone: 0769258525</p>
+                    <p>Address: Eriksgrand 15, 17754 Stockholm City, Sweden</p>
+                    <a href="{% url 'reservation' %}">Make a Reservation</a>
+                </div>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d203287.8242936968!2d18.063240085694854!3d59.33459114215899!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f76436abacecf%3A0x4007f44ef17f5a1!2sStockholm%2C%20Sweden!5e0!3m2!1sen!2sus!4v1646055671067!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </section>
+    
+        
+    
+    
+
+    <footer>
+        <!-- Facebook and Instagram icons -->
+        <div class="social-icons-footer">
+            <a href="https://www.facebook.com"><img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1709145560/facebook_si0l95.png" alt="Facebook"></a>
+            <a href="https://www.instagram.com"><img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1709145560/instagram_kywtcn.png" alt="Instagram"></a>
+        </div>
+        <!-- Copyright notice -->
+        <p>&copy; 2024 THE FORK. All rights reserved.</p>
+    </footer>
+
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+/* styles.css */
+
+/* Header styles */
+header {
+    background-image: url('https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809874/fork.jpg');
+    background-size: cover;
+    padding: 40px 0; /* Increase padding to create larger space for the navigation links */
+    text-align: center; /* Center align content */
+}
+
+.header-content {
+    margin-bottom: 40px; /* Increase margin to create larger space at the bottom of the header */
+}
+
+.logo {
+    color: white; /* Color for THE FORK text */
+    margin: 0; /* Reset margin */
+    font-size: 50px; /* Adjust font size */
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex; /* Make the list items display horizontally */
+    justify-content: center; /* Center align navigation links */
+    margin: 0; /* Reset margin */
+    padding: 0; /* Reset padding */
+}
+
+nav li {
+    margin-right: 40px; /* Increase margin between menu items */
+}
+
+nav a {
+    color: white; /* Color for navigation links */
+    text-decoration: none; /* Remove underline */
+}
+
+.center-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#location,
+#gallery {
+    max-width: 800px;
+    margin: 20px 0;
+}
+
+/* Footer styles */
+footer {
+    margin-top: 50px; /* Push the footer down */
+    background-color: #f2f2f2; /* Gray background color */
+    text-align: center; /* Center align content */
+}
+
+/* Social icons and copyright styles */
+.social-icons-footer,
+.copyright {
+    margin-top: 20px; /* Add margin to separate icons and copyright from each other */
+}
+
+/* Facebook and Instagram icon styles */
+.social-icons-footer a img {
+    width: 30px; /* Adjust the width of the icons */
+    height: 30px; /* Adjust the height of the icons */
+    margin-right: 10px; /* Add margin between icons */
+}
