@@ -15,23 +15,10 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 #urls.py
-
-
-# Import necessary modules
 from django.contrib import admin
-from django.urls import path
-from restaurant.views import home, menu_view, reservation_view, reviews_view
+from django.urls import path, include  # Import include function
 
-# Define the contact view function
-def contact_view(request):
-    return HttpResponse("This is the contact page")  # Example response, replace with your own logic
-
-# Define URL patterns
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home, name='home'), 
-    path('menu/', menu_view, name='menu'),
-    path('reservation/', reservation_view, name='reservation'),  
-    path('reviews/', reviews_view, name='reviews'),
-    path('contact/', contact_view, name='contact'),  # Define a URL pattern for the contact page
+    path('', include('restaurant.urls')),  # Include restaurant app URLs
 ]

@@ -1,40 +1,24 @@
 // script.js
-
-
-<!-- JavaScript for dynamically aligning images -->
-<script>
 window.addEventListener('load', function() {
-    alignImages();
+    adjustImagePlacement();
 });
 
-window.addEventListener('resize', function() {
-    alignImages();
-});
-
-function alignImages() {
+function adjustImagePlacement() {
     var gallery = document.getElementById('gallery');
-    var galleryImages = gallery.querySelectorAll('.gallery-images img');
+    var images = gallery.getElementsByTagName('img');
 
-    // Get the width of the container
-    var containerWidth = gallery.offsetWidth;
+    var totalWidth = 0;
+    for (var i = 0; i < images.length; i++) {
+        totalWidth += images[i].offsetWidth;
+    }
 
-    // Get the width of each image
-    var imageWidth = galleryImages[0].offsetWidth;
+    var availableWidth = gallery.offsetWidth;
+    var imagesPerRow = Math.floor(availableWidth / (images[0].offsetWidth + 20));
 
-    // Calculate the number of images per row
-    var imagesPerRow = Math.floor(containerWidth / imageWidth);
+    var margin = (availableWidth - (imagesPerRow * images[0].offsetWidth)) / (6 * imagesPerRow);
 
-    // Calculate the margin between images
-    var margin = (containerWidth - (imagesPerRow * imageWidth)) / (imagesPerRow - 1);
-
-    // Apply margin to images except for the last one in each row
-    for (var i = 0; i < galleryImages.length; i++) {
-        if (i % imagesPerRow !== imagesPerRow - 1) {
-            galleryImages[i].style.marginRight = margin + 'px';
-        } else {
-            galleryImages[i].style.marginRight = 0;
-        }
+    for (var i = 0; i < images.length; i++) {
+        images[i].style.marginLeft = margin + 'px';
+        images[i].style.marginRight = margin + 'px';
     }
 }
-</script>
-

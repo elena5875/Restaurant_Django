@@ -1,4 +1,5 @@
-<!--home.html--> 
+<!-- home.html -->
+
 
 {% load static %}
 <!DOCTYPE html>
@@ -21,29 +22,37 @@
                     <li><a href="#about">About Us</a></li>
                     <li><a href="#location">Location</a></li>
                     <li><a href="#gallery">Gallery</a></li>
-                    <li><a href="{% url 'menu' %}">Menu</a></li>
-                    <li><a href="{% url 'reservation' %}">Reservation</a></li>
-                    <li><a href="{% url 'reviews' %}">Reviews</a></li>
+                    <li><a href="{% url 'menu' %}" target="_blank">Menu</a></li> 
+                    <li><a href="{% url 'reservation' %}" target="_blank">Reservation</a></li> 
+                    <li><a href="{% url 'reviews' %}" target="_blank">Reviews</a></li> 
                 </ul>
             </nav>
         </div>
     </header>
 
 
-    <section id="about">
+    <<section id="about">
         <div class="about-content">
-            <img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809874/fork.jpg" alt="About Us" class="about-image">
             <div class="about-text">
                 <h2>About Us</h2>
-                <p>We are a newly opened restaurant where your palates will be excited to taste the finest and freshest food you'll ever get. 
-                   We specialize in desserts and Italian Cuisine. We are also located at the heart of Stockholm City, Sweden.
-                   Come and have a great time at The Fork Restaurant!!!</p>
+                <p>We are a newly opened restaurant where your palates will be excited to taste the finest and freshest food you'll ever get.</p>
+                <p> We specialize in desserts and Italian Cuisine. We are also located at the heart of Stockholm City, Sweden.</p>
+                <p>Come and have a great time at The Fork Restaurant!!!</p>
+            </div>
+            <div class="open-hours-section">
+                <img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809908/opensign_x6isu3.jpg" alt="Open" class="open">
+                <div class="opening-hours">
+                    <h2>OPENING HOURS</h2>
+                    <p>Tuesday till Sunday</p>
+                    <p>5pm till 12 midnight</p>
+                    <p> For inquiries: Phone: 0769258525</p>
+                </div>
             </div>
         </div>
     </section>
-
+    
     <section id="gallery">
-        <h2>Gallery</h2>
+        <h2 class="gallery-heading">Gallery</h2>
         <div class="gallery-content">
             <div class="gallery-images">
                 <img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809910/pancake_qtecba.jpg" alt="pancake">

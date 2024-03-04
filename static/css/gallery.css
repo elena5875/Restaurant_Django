@@ -1,43 +1,50 @@
 #gallery {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: justify;
     text-align: center;
-    height: 100vh; /* Set height to cover the entire viewport */
+    height: 100vh; 
     margin: 0;
     padding: 0;
 }
 
 .gallery-content {
-    max-width: 800px; /* Set a maximum width for the content */
-    padding: 20px; /* Add some padding to the sides */
-    margin: 0 auto; /* Center the section horizontally */
+    max-width: 800px; 
+    padding: 20px; 
+    margin: 0 auto; 
+}
+
+.gallery-heading {
+    font-size: 24px; /* Set font size to 24px */
+    font-weight: bold; /* Make the font bold */
 }
 
 .gallery-images {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center; /* Center align images horizontally */
-    gap: 20px; /* Add gap between gallery images */
+    justify-content: space-between; 
+    gap: 80px;
+    flex-direction: row;
+    width: 100%;
 }
 
 .gallery-images img {
-    width: 200px; /* Set a fixed width for the images */
-    height: 200px; /* Set a fixed height for the images */
-    object-fit: cover; /* Ensure the images cover the entire space */
-    border-radius: 10px; /* Make images slightly round */
-    transition: transform 0.3s ease; /* Add smooth transition effect */
-    border: 2px solid #ccc; /* Add border to images */
-    box-sizing: border-box; /* Include border in image dimensions */
+    width: 200px; 
+    height: 200px; 
+    object-fit: cover; 
+    border-radius: 10px; 
+    transition: transform 0.3s ease; 
+    border: 2px solid #ccc; 
+    box-sizing: border-box; 
 }
 
 .gallery-images img:hover {
-    transform: scale(1.4); /* Increase size of image on hover */
+    transform: scale(1.4); 
 }
 
 @media (max-width: 600px) {
     .gallery-images img {
-        width: 100px; /* Adjust width for smaller screens */
-        height: 100px; /* Adjust height for smaller screens */
+        width: 100px; 
+        height: 100px; 
     }
 }
