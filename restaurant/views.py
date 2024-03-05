@@ -1,10 +1,9 @@
 #views.py
+from django.shortcuts import render, redirect
+from .forms import ReviewForm
+from .models import Review
 
-
-from django.shortcuts import render
-from django.http import HttpResponse
-
-# Create your views here.
+# Your existing views
 def home(request):
     return render(request, 'home.html')
 
@@ -40,3 +39,16 @@ def reservation(request):
         return HttpResponse('Reservation successfully made!')
 
     return render(request, 'reservation.html')
+
+# New function for handling review submission
+def review(request):
+    if request.method == 'POST':
+        form = ReviewForm(request.POST)
+        if form.is_valid():
+            review = form.save(commit=False)
+            # Additional processing if needed
+            review.save()
+            return redirect('home')  # Redirect to home page after submission
+    else:
+        form = ReviewForm()
+    return render(request, 'review.html', {'form': form})

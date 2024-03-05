@@ -11,31 +11,26 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 #settings.py
 
-from pathlib import Path
 import os
+from pathlib import Path
 import dj_database_url
-if os.path.isfile('env.py'):
-    import env
+from django.core.exceptions import ImproperlyConfigured
+from dotenv import load_dotenv
 import cloudinary
-import cloudinary.uploader
-import cloudinary.api
 
+# Load environment variables from .env file
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
-
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get("SECRET_KEY")
+SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['8000-elena5875-restaurantdja-q0nywiov9od.ws-eu108.gitpod.io','.herokuapp.com']
-
 
 # Application definition
 
@@ -79,22 +74,16 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'mainproject.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-#DATABASES = {
-#   'default': {
-#      'ENGINE': 'django.db.backends.sqlite3',
-#     'NAME': BASE_DIR / 'db.sqlite3',
-#}
-#}
-
-
-DATABASES = {
-    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
-}
-
+database_url = os.getenv("DATABASE_URL")
+if database_url:
+    DATABASES = {
+        'default': dj_database_url.parse(database_url),
+    }
+else:
+    raise ImproperlyConfigured("DATABASE_URL environment variable is not set")
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -114,7 +103,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
@@ -126,15 +114,12 @@ USE_I18N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = '/static/'
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'
-
- #Additional locations of static files
 
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
@@ -146,9 +131,12 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Configure Cloudinary
-cloudinary.config(
-    cloud_name='dh5i9qtjf',
-    api_key='771193164774472',
-    api_secret='7ekPLUqJq0Od4eD2zBi5gufWl7w'
-)
-
+if os.path.isfile('cloudinary_settings.py'):
+    from cloudinary_settings import *
+else:
+    # Configure Cloudinary with hardcoded values if cloudinary_settings.py is missing
+    cloudinary.config(
+        cloud_name='dh5i9qtjf',
+        api_key='771193164774472',
+        api_secret='7ekPLUqJq0Od4eD2zBi5gufWl7w'
+    )
