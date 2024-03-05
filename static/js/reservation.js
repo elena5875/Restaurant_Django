@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("reservation-form").addEventListener("submit", function(event) {
-        event.preventDefault(); // Prevent default form submission
+        event.preventDefault();
+
         
         // Get form data
         const formData = new FormData(this);
@@ -21,10 +22,9 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 function validateReservation(data) {
-    // Perform validation here (e.g., check if the date, time, etc., are valid)
-    // You can implement custom validation rules based on your requirements
 
-    // Here's a simple example just checking if all fields are filled
+
+    // checking if all fields are filled
     if (!data.date || !data.time || !data.people || !data.email || !data.phone) {
         alert("Please fill in all fields.");
         return false;
