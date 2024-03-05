@@ -1,0 +1,43 @@
+
+/* About Us section styles */
+#about {
+    background-color: #f2f2f2;
+    padding: 50px 0; 
+    text-align: left; 
+}
+
+.about-content {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    margin: 0 auto; 
+    padding: 20px; 
+    text-align: center; 
+    background-color: rgba(0, 0, 255, 0.5); 
+}
+
+.about-image {
+    width: 400px; 
+    height: 400px; 
+    border-radius: 50%; 
+    margin: 20px auto;
+
+}
+
+.about-text {
+    margin-top: 20px; 
+    font-size: 20px; 
+    line-height: 1.5; 
+    color: white; 
+}
+.about-text h2 {
+    mmargin-top: 20px; 
+    font-size: 40px; 
+    line-height: 1.5; 
+    color: white; 
+
+.about-text p {
+    font-size: 30px;
+    text-align: left; 
+}
+

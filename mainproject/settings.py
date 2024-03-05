@@ -28,9 +28,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['8000-elena5875-restaurantdja-q0nywiov9od.ws-eu108.gitpod.io','.herokuapp.com']
+
+# Security settings
+CSRF_TRUSTED_ORIGINS = ['https://8000-elena5875-restaurantdja-q0nywiov9od.ws-eu108.gitpod.io']
 
 # Application definition
 
@@ -42,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'restaurant',
+    'debug_toolbar',
 ]
 
 MIDDLEWARE = [
@@ -52,6 +56,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
+
 ]
 
 ROOT_URLCONF = 'mainproject.urls'
@@ -140,3 +146,13 @@ else:
         api_key='771193164774472',
         api_secret='7ekPLUqJq0Od4eD2zBi5gufWl7w'
     )
+
+INTERNAL_IPS = [
+    '127.0.0.1',
+    '::1',
+    '8000-elena5875-restaurantdja-q0nywiov9od.ws-eu108.gitpod.io',  
+]
+
+DEBUG_TOOLBAR_CONFIG = {
+    'SHOW_TOOLBAR_CALLBACK': lambda request: True,
+}

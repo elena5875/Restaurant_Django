@@ -1,6 +1,17 @@
+
 from django.db import models
 
-# Create your models here.
+class Reservation(models.Model):
+    date = models.DateField()
+    time = models.CharField(max_length=5)
+    people = models.IntegerField()
+    email = models.EmailField()
+    phone = models.CharField(max_length=15)  # Adjust max_length as needed
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Reservation {self.id} - {self.date} {self.time}"
+
 class Review(models.Model):
     email = models.EmailField()
     review_text = models.TextField()
@@ -8,4 +19,4 @@ class Review(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.email  
+        return self.email
