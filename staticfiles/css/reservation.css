@@ -1,0 +1,74 @@
+/* reservation.css */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809932/reserved_ri1tln.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh; /* Ensure full height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white; /* Set font color to white */
+}
+
+.reservation-box {
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Drop shadow */
+    max-width: 400px;
+    width: 100%;
+}
+
+.reservation-box h2 {
+    text-align: center;
+    font-weight: bold; /* Make font bold */
+}
+
+.reservation-box form {
+    display: flex;
+    flex-direction: column;
+}
+
+.reservation-box form input[type="date"],
+.reservation-box form input[type="time"],
+.reservation-box form select {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+.reservation-box form input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.reservation-box form input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+/* reservation.css */
+
+/* Add space between phone input and submit button */
+#phone, input[type="submit"] {
+    margin-top: 10px;
+}
+
+/* Add space between form elements */
+label, select, input[type="email"], input[type="tel"] {
+    margin-bottom: 10px;
+    color: black;
+}
+
+.note {
+    color: black;
+}

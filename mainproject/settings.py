@@ -37,6 +37,9 @@ import cloudinary.api
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Read the PORT environment variable provided by Heroku
+PORT = int(os.environ.get('PORT', 8000))
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
@@ -44,9 +47,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['8000-elena5875-restaurantdja-q0nywiov9od.ws-eu108.gitpod.io','.herokuapp.com']
+ALLOWED_HOSTS = ['djagnoresto-267ab1695d73.herokuapp.com', '8000-elena5875-restaurantdja-q0nywiov9od.ws-eu108.gitpod.io']
 
 # Application definition
 
