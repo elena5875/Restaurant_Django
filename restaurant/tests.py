@@ -1,3 +1,4 @@
+#tests.py
 from django.test import TestCase
 
 # Create your tests here.
@@ -22,3 +23,5 @@ class ReservationFormTest(TestCase):
 
         # Check if the confirmation message is present in the response content
         self.assertContains(response, 'Reservation successful!')
+
+        

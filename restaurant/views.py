@@ -1,10 +1,7 @@
 #views.py
-
-
 from django.shortcuts import render
 from django.http import HttpResponse
 
-# Create your views here.
 def home(request):
     return render(request, 'home.html')
 
@@ -31,7 +28,7 @@ def reservation(request):
         people = request.POST.get('people')
 
         # Perform server-side validation
-        if not date or not time or not people:
+        if not (date and time and people):
             return HttpResponse('All fields are required.', status=400)
 
         # Additional validation logic can be added here
@@ -39,4 +36,4 @@ def reservation(request):
         # Reservation successful
         return HttpResponse('Reservation successfully made!')
 
-    return render(request, 'reservation.html')
+    return HttpResponse('Invalid request method.', status=405)

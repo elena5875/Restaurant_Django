@@ -47,7 +47,7 @@ PORT = int(os.environ.get('PORT', 8000))
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = TRUE
 
 ALLOWED_HOSTS = ['djagnoresto-267ab1695d73.herokuapp.com', '8000-elena5875-restaurantdja-q0nywiov9od.ws-eu108.gitpod.io']
 
