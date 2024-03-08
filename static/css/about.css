@@ -1,4 +1,3 @@
-
 /* About Us section styles */
 #about {
     background-color: #f2f2f2;
@@ -31,7 +30,7 @@
     color: white; 
 }
 .about-text h2 {
-    margin-top: 20px; 
+    mmargin-top: 20px; 
     font-size: 40px; 
     line-height: 1.5; 
     color: white; 
@@ -40,5 +39,3 @@
     font-size: 30px;
     text-align: left; 
 }
-
-
