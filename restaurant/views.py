@@ -1,19 +1,32 @@
 #views.py
+import logging  
+
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Reservation
 from django.core.mail import send_mail
 from django.conf import settings
-import logging
 
 
 # Create your views here.
+def reviews(request):
+    reviews = Review.objects.all()
+    return render(request, 'reviews.html', {'reviews': reviews})
+
+def submit_review(request):
+    if request.method == 'POST':
+        # Logic to handle review submission
+        return HttpResponse('Review submitted successfully!')
+    else:
+        # Handle GET request (if needed)
+        return HttpResponse('Method not allowed.', status=405)
+
 def home(request):
     return render(request, 'home.html')
 
 def menu_view(request):
     # Logic to fetch menu data from the database or any other source
-    # For demonstration purposes 
+    
     menu_items = ['Item 1', 'Item 2', 'Item 3']
     return render(request, 'menu.html', {'menu_items': menu_items})
     
@@ -23,7 +36,7 @@ def reservation_view(request):
 
 def reviews_view(request):
     # Logic to fetch reviews data from the database or any other source
-    # For demonstration purposes 
+   
     reviews = ['Review 1', 'Review 2', 'Review 3']
     return render(request, 'reviews.html', {'reviews': reviews})
 

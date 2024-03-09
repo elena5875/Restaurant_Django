@@ -1,7 +1,8 @@
 # admin.py
+
 from django.contrib import admin
 from django.core.mail import send_mail
-from .models import Reservation
+from .models import Reservation, Review
 
 class ReservationAdmin(admin.ModelAdmin):
     list_display = ['name', 'email', 'phone_number', 'date', 'time', 'number_of_people', 'status']
@@ -56,4 +57,10 @@ class ReservationAdmin(admin.ModelAdmin):
 
     actions = [confirm_reservation, cancel_reservation]
 
+class ReviewAdmin(admin.ModelAdmin):
+    list_display = ['title', 'rating', 'created_at']
+    search_fields = ['title']
+    list_filter = ['created_at']
+
 admin.site.register(Reservation, ReservationAdmin)
+admin.site.register(Review, ReviewAdmin)
