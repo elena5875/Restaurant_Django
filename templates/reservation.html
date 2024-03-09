@@ -1,5 +1,4 @@
-<!-- reservation.html -->
-<!-- reservation.html -->
+<!--reservation.html-->
 
 {% load static %}
 
@@ -10,11 +9,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reservation</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/reservation.css' %}">
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script src="{% static 'js/reservation.js' %}"></script>
 </head>
 <body>
     <div class="reservation-box">
         <h2 class="note">Reservation Form</h2>
-        <form id="reservation-form">
+        <form id="reservation-form" method="post" action="{% url 'reservation' %}">
+            <!-- Form fields -->
             <label for="date">Date:</label>
             <input type="date" id="date" name="date" required>
             
@@ -27,6 +29,7 @@
                 <option value="21:00">9:00 PM</option>
                 <option value="22:00">10:00 PM</option>
                 <option value="23:00">11:00 PM</option>
+                
             </select>
             
             <label for="people">Number of People:</label>
@@ -41,7 +44,6 @@
                 <option value="8">8</option>
                 <option value="9">9</option>
             </select>
-            <p class="note">If your party is more than 9 people, please call the restaurant at 0769258525.</p>
             
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" required>

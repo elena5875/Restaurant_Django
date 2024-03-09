@@ -1,8 +1,11 @@
 #views.py
-
-
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from .models import Reservation
+from django.core.mail import send_mail
+from django.conf import settings
+import logging
+
 
 # Create your views here.
 def home(request):
@@ -24,19 +27,53 @@ def reviews_view(request):
     reviews = ['Review 1', 'Review 2', 'Review 3']
     return render(request, 'reviews.html', {'reviews': reviews})
 
+# Configure logging
+logging.basicConfig(level=logging.INFO)  # Set logging level to INFO
+
 def reservation(request):
     if request.method == 'POST':
+        # Retrieve form data
         date = request.POST.get('date')
         time = request.POST.get('time')
         people = request.POST.get('people')
+        email = request.POST.get('email')
+        phone = request.POST.get('phone')
+
+        # Log the form data
+        logging.info("Received form data:")
+        logging.info("Date: %s", date)
+        logging.info("Time: %s", time)
+        logging.info("Number of People: %s", people)
+        logging.info("Email: %s", email)
+        logging.info("Phone: %s", phone)
 
         # Perform server-side validation
-        if not date or not time or not people:
+        if not (date and time and people and email and phone):
             return HttpResponse('All fields are required.', status=400)
 
-        # Additional validation logic can be added here
-        
-        # Reservation successful
-        return HttpResponse('Reservation successfully made!')
+        # Create a new Reservation object and save it to the database
+        reservation = Reservation.objects.create(date=date, time=time, number_of_people=people, email=email, phone_number=phone)
+
+        # Send email to the user
+        send_mail(
+            'Reservation Confirmation',
+            f'Thank you for your reservation!\n\nHere are your reservation details:\n\nDate: {date}\nTime: {time}\nNumber of People: {people}',
+            settings.DEFAULT_FROM_EMAIL,
+            [email],
+            fail_silently=False,
+        )
+
+        # Optionally, send email notification to the admin
+        send_mail(
+            'New Reservation',
+            f'A new reservation has been made.\n\nReservation Details:\n\nDate: {date}\nTime: {time}\nNumber of People: {people}\nEmail: {email}\nPhone: {phone}',
+            settings.DEFAULT_FROM_EMAIL,
+            [settings.ADMIN_EMAIL],  # Replace ADMIN_EMAIL with the actual admin email address
+            fail_silently=False,
+        )
+
+        # Redirect to a thank you page or any other page
+        return HttpResponse('Reservation successfully made! Thank you.')
 
     return render(request, 'reservation.html')
+    

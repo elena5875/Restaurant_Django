@@ -159,3 +159,5 @@ cloudinary.config(
 
 # Add CSRF trusted origins
 CSRF_TRUSTED_ORIGINS = ['https://8000-elena5875-restaurantdja-3bsxhmvzmgn.ws-eu108.gitpod.io']
+
+
