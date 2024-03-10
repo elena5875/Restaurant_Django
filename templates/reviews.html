@@ -1,3 +1,6 @@
+<!--reviews.html-->
+
+{% url 'submit_review' %}, 
 {% load static %}
 
 <!DOCTYPE html>
@@ -5,11 +8,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-eval';">
     <title>Reviews</title>
-    <!-- Link to the review.css file -->
-    <link rel="stylesheet" type="text/css" href="{% static 'css/review.css' %}">
-    <!-- Include any other CSS stylesheets or external libraries here -->
-    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/reviews.css' %}">
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
+
+
 </head>
 <body>
     <header>

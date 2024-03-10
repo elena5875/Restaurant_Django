@@ -1,14 +1,16 @@
-// Initialize EmailJS with your user ID
-
-emailjs.init('Owrv1SDMAjElxr32G');
+// reservation.js
 
 // Function to send email using EmailJS
 function sendEmail(formData) {
     emailjs.send('service_6mvg1rq', 'template_a8d0erf', formData)
         .then(function(response) {
             console.log('Email sent successfully:', response);
-            displayConfirmation(formData); // Display confirmation message after email is sent successfully
+            displayConfirmation(formData); 
         })
+        .catch(function(error) {
+            console.error('Error sending email:', error);
+            alert('There was an error sending your reservation. Please try again later.');
+        });
         .catch(function(error) {
             console.error('Error sending email:', error);
             alert('There was an error sending your reservation. Please try again later.');
@@ -16,6 +18,7 @@ function sendEmail(formData) {
 }
 
 // Function to validate reservation form data
+
 function validateReservation(data) {
     // checking if all fields are filled
     if (!data.date || !data.time || !data.people || !data.email || !data.phone) {
@@ -26,8 +29,15 @@ function validateReservation(data) {
     // Check if the phone number contains only numbers and has a maximum of 9 digits
     const phoneRegex = /^\d{1,9}$/;
     if (!phoneRegex.test(data.phone)) {
-        alert("Please enter a valid phone number (maximum 9 digits).");
+        alert("Please enter a valid phone number (maximum 10 digits).");
         return false;
+    }
+
+    // Check if the number of people is more than 9
+    if (parseInt(data.people) > 9) {
+        document.getElementById("note").style.display = "block";
+    } else {
+        document.getElementById("note").style.display = "none";
     }
 
     return true;

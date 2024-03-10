@@ -31,9 +31,18 @@ def menu_view(request):
     return render(request, 'menu.html', {'menu_items': menu_items})
     
 def reservation_view(request):
-    # Logic for reservation view
-    return render(request, 'reservation.html')
-
+    if request.method == 'POST':
+        # Handle form submission
+        return HttpResponse("Reservation submitted successfully!")
+    else:
+        # Handle GET request
+        # Render the reservation form template with context variables
+        context = {
+            'hours_range': range(17, 24),
+            'people_range': range(1, 10),
+        }
+        return render(request, 'reservation.html', context)
+        
 def reviews_view(request):
     # Logic to fetch reviews data from the database or any other source
    

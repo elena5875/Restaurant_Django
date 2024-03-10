@@ -1,0 +1,28 @@
+* gallery.css */
+
+/* Center the gallery heading */
+.gallery-heading {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Horizontally align the gallery images */
+.gallery-images {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Set margin between gallery images */
+.gallery-images img {
+    margin: 10px;
+}
+
+@media (max-width: 600px) {
+    .gallery-images img {
+        width: 100px; 
+        height: 100px; 
+    }
+}

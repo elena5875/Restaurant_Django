@@ -1,5 +1,5 @@
 /* reservation.css */
-/* reservation.css */
+
 
 body {
     margin: 0;
@@ -71,5 +71,32 @@ label, select, input[type="email"], input[type="tel"] {
 }
 
 .note {
-    color: black;
+    color: black; 
+    font-size: smaller; /* Reduce font size */
+}
+
+/* Centered message box */
+.success-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ensure full height */
+    background-image: url('https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809932/reserved_ri1tln.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.message-box {
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Drop shadow */
+    border: 2px solid #4CAF50; /* Green border */
+}
+
+/* Style the message text */
+.message-text {
+    text-align: center;
+    font-weight: bold; /* Make font bold */
+    color: black; /* Set font color to black */
 }

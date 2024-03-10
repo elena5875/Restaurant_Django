@@ -10,6 +10,7 @@ urlpatterns = [
     path('menu/', views.menu_view, name='menu'),
     path('reservation/', views.reservation_view, name='reservation'),  
     path('reviews/', views.reviews_view, name='reviews'),
-    path('submit_review/', views.submit_review, name='submit_review'),
-    
+    path('reservation/', reservation_view, name='reservation_view'),
+    path('submit_review/', views.submit_review, name='submit_review')
+
 ]

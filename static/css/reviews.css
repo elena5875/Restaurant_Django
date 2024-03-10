@@ -1,3 +1,5 @@
+/*reviews.css*/
+
 /* Styles for reviews */
 .review {
     border: 1px solid #ccc;
@@ -12,10 +14,6 @@
     border-radius: 8px;
     padding: 20px;
     margin-top: 20px;
-}
-
-/* Center the form horizontally and vertically */
-.submit-review {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -66,4 +64,30 @@ body {
     flex-wrap: wrap;
     justify-content: space-around;
     margin: 20px;
+    flex: 1; /* Expand to fill remaining vertical space */
+}
+
+/* Footer styles */
+footer {
+    margin-top: 50px; /* Push the footer down */
+    background-color: #444; 
+    text-align: center; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    margin-top: auto; /* Automatically push footer to the bottom */
+}
+
+/* Social icons and copyright styles */
+.social-icons-footer,
+.copyright {
+    margin-top: 20px;
+    color: white;
+}
+
+/* Facebook and Instagram icon styles */
+.social-icons-footer a img {
+    width: 80px;
+    height: 80px;
+    margin-right: 10px;
 }
