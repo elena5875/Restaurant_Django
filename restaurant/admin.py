@@ -3,8 +3,10 @@
 from django.contrib import admin
 from django.core.mail import send_mail
 from .models import Reservation, Review
+from .models import Review, Reservation
 
 
+# Define ReservationAdmin class
 class ReservationAdmin(admin.ModelAdmin):
     list_display = ['name', 'email', 'phone_number', 'date', 'time', 'number_of_people', 'status']
     search_fields = ['name', 'email', 'phone_number']
@@ -58,10 +60,28 @@ class ReservationAdmin(admin.ModelAdmin):
 
     actions = [confirm_reservation, cancel_reservation]
 
+# Define ReviewAdmin class
 class ReviewAdmin(admin.ModelAdmin):
-    list_display = ['title', 'rating', 'created_at']
-    search_fields = ['title']
-    list_filter = ['created_at']
+    list_display = ('title', 'content', 'rating', 'status')
+    actions = ['approve_reviews', 'cancel_reviews', 'delete_reviews']
 
+    def approve_reviews(self, request, queryset):
+        queryset.update(status=Review.APPROVED)
+
+    approve_reviews.short_description = "Approve selected reviews"
+
+    def cancel_reviews(self, request, queryset):
+        queryset.update(status=Review.CANCELLED)
+
+    cancel_reviews.short_description = "Cancel selected reviews"
+
+    def delete_reviews(self, request, queryset):
+        queryset.delete()
+
+    delete_reviews.short_description = "Delete selected reviews"
+
+# Register Reservation model with ReservationAdmin
 admin.site.register(Reservation, ReservationAdmin)
+
+# Register Review model with ReviewAdmin
 admin.site.register(Review, ReviewAdmin)

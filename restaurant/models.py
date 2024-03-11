@@ -3,15 +3,6 @@
 from django.db import models
 from django.utils import timezone
 
-class Review(models.Model):
-    title = models.CharField(max_length=100)
-    content = models.TextField()
-    rating = models.IntegerField()
-    created_at = models.DateTimeField(auto_now_add=True)
-
-    def __str__(self):
-        return self.title
-
 class Reservation(models.Model):
     PENDING = 'pending'
     CONFIRMED = 'confirmed'
@@ -33,3 +24,24 @@ class Reservation(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Review(models.Model):
+    PENDING = 'pending'
+    APPROVED = 'approved'
+    CANCELLED = 'cancelled'
+    
+    STATUS_CHOICES = [
+        (PENDING, 'Pending'),
+        (APPROVED, 'Approved'),
+        (CANCELLED, 'Cancelled'),
+    ]
+    
+    title = models.CharField(max_length=100)
+    content = models.TextField()
+    rating = models.IntegerField()
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default=PENDING)
+
+    def __str__(self):
+        return self.title
+
