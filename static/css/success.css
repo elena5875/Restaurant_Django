@@ -1,0 +1,20 @@
+/* success.css*//
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+.success-message {
+    width: 100%;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.success-message p {
+    font-size: 24px;
+    color: #4CAF50;
+}
+

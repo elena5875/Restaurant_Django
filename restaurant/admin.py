@@ -4,6 +4,7 @@ from django.contrib import admin
 from django.core.mail import send_mail
 from .models import Reservation, Review
 
+
 class ReservationAdmin(admin.ModelAdmin):
     list_display = ['name', 'email', 'phone_number', 'date', 'time', 'number_of_people', 'status']
     search_fields = ['name', 'email', 'phone_number']

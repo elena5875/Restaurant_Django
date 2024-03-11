@@ -54,8 +54,7 @@ nav a {
     font-family: sans-serif;
 }
 
-
-..about-content {
+.about-content {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -78,8 +77,6 @@ nav a {
     color: white;
     margin-left: 20px; /* Add some space between the image and text */
 }
-
-
 
 
 

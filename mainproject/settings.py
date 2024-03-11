@@ -43,7 +43,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 # settings.py
 
@@ -80,7 +80,9 @@ ROOT_URLCONF = 'mainproject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],
+        'DIRS': [BASE_DIR / 'templates',
+            
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -170,4 +172,24 @@ cloudinary.config(
 
 # Add CSRF trusted origins
 CSRF_TRUSTED_ORIGINS = ['https://8000-elena5875-restaurantdja-3bsxhmvzmgn.ws-eu108.gitpod.io']
+
+# Set the email backend to use SMTP
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+# SMTP server settings
+EMAIL_HOST = 'smtp.example.com'        # SMTP server address
+EMAIL_PORT = 587                        # Port for SMTP server (587 for TLS)
+EMAIL_USE_TLS = True                    # Use TLS (secure connection)
+EMAIL_USE_SSL = False                   # Use SSL (secure connection) - Set to False if using TLS
+EMAIL_TIMEOUT = None                    # Timeout for SMTP connection (optional)
+
+# Email account credentials
+EMAIL_HOST_USER = 'elenafreire75@gmail.com'   # Your email address
+EMAIL_HOST_PASSWORD = 'Gwapalagiko5804!'   # Your email password or app-specific password
+
+# Default email address to use for sending emails
+DEFAULT_FROM_EMAIL = 'TheFORKrestaurant@gmail.com'
+
+# Optional: Email subject prefix
+EMAIL_SUBJECT_PREFIX = '[The Fork Restaurant]'
 
