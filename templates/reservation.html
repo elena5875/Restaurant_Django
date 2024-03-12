@@ -6,8 +6,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-eval' https://cdn.emailjs.com;">
-
+    <!-- Content Security Policy meta tag -->
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' 'unsafe-eval';">
+    
     <title>Reservation</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/reservation.css' %}">
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
@@ -37,9 +38,10 @@
                 {% for number in people_range %}
                      <option value="{{ number }}">{{ number }}</option>
                 {% endfor %}
-            </select
+            </select>
             
-            <label>Note: If booking for more than 9 people, please contact the restaurant.</label>
+            <label class="note">Note: If booking for more than 9 people, please contact the restaurant.</label>
+            
             
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" required autocomplete="email">

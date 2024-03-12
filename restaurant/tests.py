@@ -22,3 +22,4 @@ class ReservationFormTest(TestCase):
 
         # Check if the confirmation message is present in the response content
         self.assertContains(response, 'Reservation successful!')
+        
