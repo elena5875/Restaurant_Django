@@ -27,20 +27,17 @@ class Reservation(models.Model):
 
 
 class Review(models.Model):
-    PENDING = 'pending'
-    APPROVED = 'approved'
-    CANCELLED = 'cancelled'
-    
-    STATUS_CHOICES = [
-        (PENDING, 'Pending'),
-        (APPROVED, 'Approved'),
-        (CANCELLED, 'Cancelled'),
-    ]
-    
     title = models.CharField(max_length=100)
-    content = models.TextField()
     rating = models.IntegerField()
-    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default=PENDING)
+    content = models.TextField()
+    approved = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+
 
     def __str__(self):
-        return self.title
+        return f"{self.author} - {self.created_at}"
+    
+    def send_rejection_email(self):
+        subject = 'Review Rejection Notification'
+        message = f"Dear {self.author},\n\nWe regret to inform you that your review has been rejected for administrative reasons. For further complaints or suggestions, please contact the restaurant.\n\nBest regards,\nRestaurant Management"
+        send_mail(subject, message, 'restaurant@example.com', [self.author_email])

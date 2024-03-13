@@ -1,9 +1,8 @@
 # admin.py
-
 from django.contrib import admin
 from django.core.mail import send_mail
 from .models import Reservation, Review
-from .models import Review, Reservation
+from .utils import reject_review
 
 
 # Define ReservationAdmin class
@@ -48,40 +47,7 @@ class ReservationAdmin(admin.ModelAdmin):
             reservation.status = 'canceled'
             reservation.save()
 
-            # Send cancellation email
-            send_mail(
-                'Reservation Canceled',
-                'Your reservation has been canceled.',
-                'from@example.com',
-                [reservation.email],
-                fail_silently=False,
-            )
-    cancel_reservation.short_description = "Cancel selected reservations"
 
-    actions = [confirm_reservation, cancel_reservation]
-
-# Define ReviewAdmin class
-class ReviewAdmin(admin.ModelAdmin):
-    list_display = ('title', 'content', 'rating', 'status')
-    actions = ['approve_reviews', 'cancel_reviews', 'delete_reviews']
-
-    def approve_reviews(self, request, queryset):
-        queryset.update(status=Review.APPROVED)
-
-    approve_reviews.short_description = "Approve selected reviews"
-
-    def cancel_reviews(self, request, queryset):
-        queryset.update(status=Review.CANCELLED)
-
-    cancel_reviews.short_description = "Cancel selected reviews"
-
-    def delete_reviews(self, request, queryset):
-        queryset.delete()
-
-    delete_reviews.short_description = "Delete selected reviews"
-
-# Register Reservation model with ReservationAdmin
+# Register models with admin site
 admin.site.register(Reservation, ReservationAdmin)
-
-# Register Review model with ReviewAdmin
-admin.site.register(Review, ReviewAdmin)
+admin.site.register(Review)

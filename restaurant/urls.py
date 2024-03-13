@@ -2,7 +2,10 @@
 from django.urls import path
 from . import views
 from .views import reservation_view
-from .views import review_form, reviews_list
+from .views import ReviewForm
+from .views import reviews_list
+
+
 
 
 urlpatterns = [
