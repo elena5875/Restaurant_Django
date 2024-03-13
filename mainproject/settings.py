@@ -1,3 +1,6 @@
+#settings.py
+
+
 from pathlib import Path
 import os
 import dj_database_url
@@ -24,8 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     '8000-elena5875-restaurantdja-3bsxhmvzmgn.ws-eu108.gitpod.io',
-    'djagnoresto-267ab1695d73.herokuapp.com',  # Heroku domain
-]
+    'djagnoresto-267ab1695d73.herokuapp.com', '*', ]
 
 # Application definition
 
@@ -132,8 +134,12 @@ cloudinary.config(
 )
 
 # Add CSRF trusted origins
-CSRF_TRUSTED_ORIGINS = ['https://8000-elena5875-restaurantdja-3bsxhmvzmgn.ws-eu108.gitpod.io']
+CSRF_TRUSTED_ORIGINS = ['https://8000-elena5875-restaurantdja-3bsxhmvzmgn.ws-eu110.gitpod.io']
+
 
 # Email settings
 DEFAULT_FROM_EMAIL = 'theforkrestaurant@yahoo.com'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# Define the admin email address
+ADMIN_EMAIL = 'theforkrestaurant@gmail.com'

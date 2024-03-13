@@ -1,4 +1,3 @@
-# views.py
 import logging
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
@@ -10,37 +9,28 @@ from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 
 
-# Create your views here.
-
-
 def your_reviews_view(request):
     # Your view logic goes here
-
     # Render the reviews template
     response = render(request, 'reviews.html')
-
     # Set the Content-Security-Policy header in the response
     response['Content-Security-Policy'] = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval';"
-
     return response
 
 
 def your_reservation_view(request):
     # Your view logic goes here
-
     # Render the reservation template
     response = render(request, 'reservation.html')
-
     # Set the Content-Security-Policy header in the response
     response['Content-Security-Policy'] = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval';"
-
     return response
-
 
 
 def reviews(request):
     reviews = Review.objects.all()
     return render(request, 'reviews.html', {'reviews': reviews})
+
 
 def submit_review(request):
     if request.method == 'POST':
@@ -52,25 +42,31 @@ def submit_review(request):
         form = ReviewForm()
     return render(request, 'review_form.html', {'form': form})
 
+
 def home(request):
     return render(request, 'home.html')
+
 
 def menu_view(request):
     # Logic to fetch menu data from the database or any other source
     menu_items = ['Item 1', 'Item 2', 'Item 3']
     return render(request, 'menu.html', {'menu_items': menu_items})
 
+
 def reviews_view(request):
     # Logic to fetch reviews data from the database or any other source
     reviews = ['Review 1', 'Review 2', 'Review 3']
     return render(request, 'reviews.html', {'reviews': reviews})
 
+
 def reviews_list(request):
     reviews = Review.objects.all()
     return render(request, 'reviews_list.html', {'reviews': reviews})
 
+
 # Configure logging
 logging.basicConfig(level=logging.INFO)  # Set logging level to INFO
+
 
 def review_form(request):
     if request.method == 'POST':
@@ -90,7 +86,7 @@ def review_form(request):
         form = ReviewForm()
     return render(request, 'review_form.html', {'form': form})
 
-# View for handling reservation form submission
+
 def reservation_view(request):
     if request.method == 'POST':
         # Extract form data
@@ -129,7 +125,7 @@ def reservation_view(request):
         send_mail(
             'New Reservation',
             f'A new reservation has been made.\n\nReservation Details:\n\nDate: {date}\nTime: {time}\nNumber of People: {people}\nEmail: {email}\nPhone: {phone}',
-            settings.elenafreire75@gmail.com,
+            settings.ADMIN_EMAIL,
             [settings.DEFAULT_FROM_EMAIL],
             fail_silently=False,
         )
@@ -139,39 +135,33 @@ def reservation_view(request):
 
     return render(request, 'reservation.html', {'hours_range': range(17, 24), 'people_range': range(1, 10)})
 
-# Utility function to send reservation confirmation email
+
 def send_reservation_confirmation_email(email, date, time, people):
     subject = 'Reservation Confirmation'
-    html_message = render_to_string('reservation_confirmation_email.html', {'date': date, 'time': time, 'people': people})
+    html_message = render_to_string('reservation_confirmation_email.html',
+                                    {'date': date, 'time': time, 'people': people})
     plain_message = strip_tags(html_message)
     send_mail(subject, plain_message, settings.DEFAULT_FROM_EMAIL, [email], html_message=html_message)
 
-# Utility function to send reservation cancellation email
+
 def send_reservation_cancellation_email(email):
     subject = 'Reservation Cancellation'
     html_message = render_to_string('reservation_cancellation_email.html')
     plain_message = strip_tags(html_message)
     send_mail(subject, plain_message, settings.DEFAULT_FROM_EMAIL, [email], html_message=html_message)
 
-# Utility function to send review submission confirmation email
+
 def send_review_submission_confirmation_email(email):
     subject = 'Review Submission Confirmation'
     html_message = render_to_string('review_submission_confirmation_email.html')
     plain_message = strip_tags(html_message)
     send_mail(subject, plain_message, settings.DEFAULT_FROM_EMAIL, [email], html_message=html_message)
 
-# Utility function to send review approval confirmation email
+
 def send_review_approval_confirmation_email(email):
     subject = 'Review Approval Confirmation'
     html_message = render_to_string('review_approval_confirmation_email.html')
     plain_message = strip_tags(html_message)
     send_mail(subject, plain_message, settings.DEFAULT_FROM_EMAIL, [email], html_message=html_message)
 
-# Utility function to send review rejection notification email
-def send_review_rejection_notification_email(email):
-    subject = 'Review Rejection Notification'
-    html_message = render_to_string('review_rejection_notification_email.html')
-    plain_message = strip_tags(html_message)
-    send_mail(subject, plain_message, settings.DEFAULT_FROM_EMAIL, [email], html_message=html_message)
 
-    
