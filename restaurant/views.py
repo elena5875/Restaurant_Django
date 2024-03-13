@@ -1,10 +1,20 @@
+#Views.py
+
 import logging
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.core.mail import send_mail
 from django.conf import settings
 from .models import Reservation, Review
+from .models import Review
+from django.contrib import messages
 from .forms import ReviewForm
+from django.template.loader import render_to_string
+from .utils import (
+    send_reservation_confirmation_email,
+    send_reservation_cancellation_email
+)
+from django.core.mail import EmailMessage
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 
@@ -28,20 +38,23 @@ def your_reservation_view(request):
 
 
 def reviews(request):
-    reviews = Review.objects.all()
-    return render(request, 'reviews.html', {'reviews': reviews})
+    # Retrieve approved reviews from the database
+    approved_reviews = Review.objects.filter(approved=True)
+    return render(request, 'reviews.html', {'reviews': approved_reviews})
 
 
 def submit_review(request):
     if request.method == 'POST':
-        form = ReviewForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('reviews')  # Redirect to the reviews page after submission
+        # Process the form submission
+        
+        # Assuming the form is valid and review is saved successfully
+        messages.success(request, "Review submitted successfully!")
+        
+        # Redirect the user to the reviews page or any other appropriate page
+        return redirect('reviews')
     else:
-        form = ReviewForm()
-    return render(request, 'review_form.html', {'form': form})
-
+        # Handle GET request if needed
+        pass
 
 def home(request):
     return render(request, 'home.html')
@@ -86,6 +99,9 @@ def review_form(request):
         form = ReviewForm()
     return render(request, 'review_form.html', {'form': form})
 
+
+from django.conf import settings
+from django.core.mail import send_mail
 
 def reservation_view(request):
     if request.method == 'POST':
@@ -136,6 +152,7 @@ def reservation_view(request):
     return render(request, 'reservation.html', {'hours_range': range(17, 24), 'people_range': range(1, 10)})
 
 
+
 def send_reservation_confirmation_email(email, date, time, people):
     subject = 'Reservation Confirmation'
     html_message = render_to_string('reservation_confirmation_email.html',
@@ -163,5 +180,15 @@ def send_review_approval_confirmation_email(email):
     html_message = render_to_string('review_approval_confirmation_email.html')
     plain_message = strip_tags(html_message)
     send_mail(subject, plain_message, settings.DEFAULT_FROM_EMAIL, [email], html_message=html_message)
+
+def send_rejection_email(email, review_title):
+    subject = 'Your review has been rejected'
+    context = {'review_title': review_title}
+    html_content = render_to_string('reviews_rejection.html', context)
+    text_content = strip_tags(html_content)  
+    email = EmailMessage(subject, text_content, to=[email])
+    email.attach_alternative(html_content, "text/html")
+    email.send()
+
 
 
