@@ -59,3 +59,4 @@ class EmailSendingTestCase(TestCase):
     # Override the database user for tests
     DATABASES['default']['USER'] = 'test_database_user'
     DATABASES['default']['PASSWORD'] = 'test_database_password'
+    

@@ -6,10 +6,10 @@ from django.contrib import messages
 from django.conf import settings
 from django.core.mail import send_mail
 from django.http import HttpResponse
-from .models import Reservation, Review
-from .forms import ReviewForm, ReservationForm
 from .models import Reservation
+from .forms import ReservationForm
 from datetime import datetime
+from django.views.generic import FormView
 
 def home(request):
     return render(request, 'home.html')
@@ -21,8 +21,6 @@ def menu_view(request):
 
 def your_reservation_view(request):
     return render(request, 'reservation.html')
-
-from .forms import ReservationForm
 
 def reservation_view(request):
     if request.method == 'POST':
@@ -50,42 +48,24 @@ def reservation_view(request):
 
     return render(request, 'reservation.html', {'form': form})
 
+class ReservationFormView(FormView):
+    template_name = 'reservation_form.html'  # Template for the reservation form
+    form_class = ReservationForm  # Your reservation form class
+    success_url = '/thank-you/'  # URL to redirect after successful form submission
+
+    def form_valid(self, form):
+        # Handle form submission logic here
+        # For example, save the form data to the database
+        form.save()
+        return super().form_valid(form)
+
+def reservation_list_view(request):
+    # Retrieve all reservations from the database
+    reservations = Reservation.objects.all()
+    # Pass the reservations data to the reservation.html template
+    return render(request, 'reservation.html', {'reservations': reservations})
+
+
 def reviews(request):
-    approved_reviews = Review.objects.filter(approved=True)
-    return render(request, 'reviews.html', {'reviews': approved_reviews})
-
-def submit_review(request):
-    if request.method == 'POST':
-        form = ReviewForm(request.POST)
-        if form.is_valid():
-            review = form.save()
-            messages.success(request, 'Review submitted successfully!')
-            return redirect('reviews')
-    else:
-        form = ReviewForm()
-    return render(request, 'review_form.html', {'form': form})
-
-def review_detail(request, review_id):
-    review = get_object_or_404(Review, id=review_id)
-    return render(request, 'review_detail.html', {'review': review})
-
-def reject_review(request, review_id):
-    review = get_object_or_404(Review, id=review_id)
-    review.rejected = True
-    review.save()
-    # Mock email for review rejection
-    send_mail(
-        'Review Rejection Notification',
-        f'Your review titled "{review.title}" has been rejected.',
-        settings.DEFAULT_FROM_EMAIL,
-        [review.submitted_by],
-        fail_silently=False,
-    )
-    return redirect('admin_dashboard')
-
-def review_list(request):
-    approved_reviews = Review.objects.filter(approved=True)
-    return render(request, 'reviews.html', {'reviews': approved_reviews})
-
-def review_form(request):
-    return render(request, 'review_form.html')
+    # Your view logic here
+    pass

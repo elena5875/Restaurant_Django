@@ -1,32 +1,52 @@
 from django.contrib import admin
 from django.core.mail import send_mail
-from .models import Reservation, Review
-from .utils import reject_review
+from django.template.loader import render_to_string
+from django.utils.html import strip_tags
+from django.conf import settings
+from django.contrib.admin.widgets import AdminTimeWidget
+from django import forms
+from .models import Reservation
 
-@admin.register(Reservation)
+class ReservationAdminForm(forms.ModelForm):
+    class Meta:
+        model = Reservation
+        fields = '__all__'
+        widgets = {
+            'time': AdminTimeWidget(format='%I:%M %p'),
+        }
+
 class ReservationAdmin(admin.ModelAdmin):
+    form = ReservationAdminForm
     list_display = ['name', 'email', 'phone_number', 'date', 'time', 'number_of_people', 'status']
     list_filter = ['date', 'time', 'status']
     search_fields = ['name', 'email', 'phone_number']
-    actions = ['approve_reservations', 'reject_reservations', 'cancel_reservation']
+    actions = ['approve_reservations', 'reject_reservations', 'delete_reservations']
 
     def approve_reservations(self, request, queryset):
-        queryset.update(approved=True)
+        queryset.update(status='confirmed')
+        self.send_approval_email(queryset)
 
     def reject_reservations(self, request, queryset):
-        queryset.update(approved=False)
+        queryset.update(status='canceled')
+        self.send_rejection_email(queryset)
 
-    def cancel_reservation(self, request, queryset):
-        for reservation in queryset:
-            # Update reservation status to canceled
-            reservation.status = 'canceled'
-            reservation.save()
+    def delete_reservations(self, request, queryset):
+        queryset.delete()
 
-    approve_reservations.short_description = "Approve selected reservations"
-    reject_reservations.short_description = "Reject selected reservations"
-    cancel_reservation.short_description = "Cancel selected reservations"
+    def send_rejection_email(self, reservations):
+        subject = 'Reservation Rejected'
+        for reservation in reservations:
+            message = render_to_string('reservation_rejected_email.html', {'reservation': reservation})
+            plain_message = strip_tags(message)
+            send_mail(subject, plain_message, settings.DEFAULT_FROM_EMAIL, [reservation.email], html_message=message)
+    
+    def send_approval_email(self, reservations):
+        subject = 'Reservation Approved'
+        for reservation in reservations:
+            message = render_to_string('reservation_approved_email.html', {'reservation': reservation})
+            plain_message = strip_tags(message)
+            send_mail(subject, plain_message, settings.DEFAULT_FROM_EMAIL, [reservation.email], html_message=message)
 
-@admin.register(Review)
-class ReviewAdmin(admin.ModelAdmin):
-    list_display = ['title', 'rating', 'approved', 'created_at']
-    actions = [reject_review]
+admin.site.register(Reservation, ReservationAdmin)
+
+

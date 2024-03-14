@@ -1,4 +1,5 @@
 <!-- reservation.html -->
+
 {% load static %}
 
 <!DOCTYPE html>
@@ -6,54 +7,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Content Security Policy meta tag -->
-    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' 'unsafe-eval';">
-    
-    <title>Reservation</title>
+    <title></title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/reservation.css' %}">
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script src="{% static 'js/reservation.js' %}"></script>
 </head>
 <body>
     <div class="reservation-box">
-        <!-- Form content -->
         <h2 class="note">Reservation Form</h2>
-        <form id="reservation-form" method="post" action="{% url 'reservation_view' %}">
+        <form id="reservation-form" method="post" action="{% url 'reservation' %}">
             {% csrf_token %}
-            <!-- Form fields -->
-            <label for="date">Date:</label>
-            <input type="date" id="date" name="date" required autocomplete="off">
+            {{ form.as_p }}
             
-            <label for="time">Time:</label>
-            <select id="time" name="time" required autocomplete="off">
-                <!-- Options for time -->
-                {% for hour in hours_range %}
-                    <option value="{{ hour }}:00">{{ hour }}:00 PM</option>
-                {% endfor %}
-            </select>
+            <label class="note">If you are reserving more than 9 people, please contact the restaurant.</label>
 
-
-            <label for="people">Number of People:</label>
-            <select id="people" name="people" required autocomplete="off">
-                <!-- Options for number of people -->
-                {% for number in people_range %}
-                     <option value="{{ number }}">{{ number }}</option>
-                {% endfor %}
-            </select>
-            
-            <label class="note">Note: If booking for more than 9 people, please contact the restaurant.</label>
-            
-            
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required autocomplete="email">
-            
-            <label for="phone">Phone:</label>
-            <input type="tel" id="phone" name="phone" pattern="[0-9]{9}" required autocomplete="tel">
-            
             <input type="submit" value="Submit">
         </form>
     </div>
- 
-    
+
+    <h1>Reservations</h1>
+    <ul>
+        {% for reservation in reservations %}
+            <li>{{ reservation.name }} - {{ reservation.date }} - {{ reservation.time }}</li>
+        {% endfor %}
+    </ul>
+
     <script src="{% static 'js/reservation.js' %}"></script>
 </body>
 </html>
