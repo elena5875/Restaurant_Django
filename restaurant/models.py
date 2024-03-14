@@ -2,6 +2,9 @@
 
 from django.db import models
 from django.utils import timezone
+from django.core.validators import RegexValidator
+from django.core.validators import RegexValidator, MinValueValidator, MaxValueValidator
+
 
 class Reservation(models.Model):
     PENDING = 'pending'
@@ -16,14 +19,14 @@ class Reservation(models.Model):
 
     name = models.CharField(max_length=100)
     email = models.EmailField()
-    phone_number = models.CharField(max_length=15)
-    date = models.DateField(auto_now_add=True)  # Automatically set the date to the current date
-    time = models.TimeField(choices=[(timezone.datetime.strptime(f'{hour}:00', '%H:%M').time(), f'{hour}:00 PM') for hour in range(17, 24)])  # Limit time choices from 5pm to 11pm
-    number_of_people = models.IntegerField(choices=[(i, i) for i in range(1, 10)], default=1)  # Limit number of people from 1 to 9
+    phone_number = models.CharField(max_length=20, validators=[RegexValidator(regex=r'^\+?1?\d{9,15}$', message="Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed.")])
+    date = models.DateField()
+    time = models.TimeField(choices=[(f'{hour}:00', f'{hour}:00 PM') for hour in range(17, 24)], validators=[RegexValidator(regex=r'^([1][7-9]|20|21|22|23):00$', message="Time must be between 5:00 PM and 11:00 PM")])
+    number_of_people = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(9)])
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default=PENDING)
 
     def __str__(self):
-        return self.name
+        return f"{self.name} - {self.date} at {self.time}"
 
 
 class Review(models.Model):
@@ -33,11 +36,6 @@ class Review(models.Model):
     approved = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
 
-
     def __str__(self):
-        return f"{self.author} - {self.created_at}"
-    
-    def send_rejection_email(self):
-        subject = 'Review Rejection Notification'
-        message = f"Dear {self.author},\n\nWe regret to inform you that your review has been rejected for administrative reasons. For further complaints or suggestions, please contact the restaurant.\n\nBest regards,\nRestaurant Management"
-        send_mail(subject, message, 'restaurant@example.com', [self.author_email])
+        return f"{self.title} - {self.created_at}"
+

@@ -148,6 +148,4 @@ CSRF_TRUSTED_ORIGINS = ['https://8000-elena5875-restaurantdja-3bsxhmvzmgn.ws-eu1
 # Email settings
 DEFAULT_FROM_EMAIL = 'theforkrestaurant@yahoo.com'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
-# Define the admin email address
 ADMIN_EMAIL = 'theforkrestaurant@gmail.com'

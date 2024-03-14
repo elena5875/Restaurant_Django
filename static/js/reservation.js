@@ -1,24 +1,15 @@
-// reservation.js
-// Initialize EmailJS with your user ID
+// Function to send a mock email (replace this with your actual email sending logic)
+function sendMockEmail(formData) {
+    // Log the email details to the console
+    console.log('Mock email sent:', formData);
 
-emailjs.init('Owrv1SDMAjElxr32G');
-
-// Function to send email using EmailJS
-function sendEmail(formData) {
-    emailjs.send('service_6mvg1rq', 'template_a8d0erf', formData)
-        .then(function(response) {
-            console.log('Email sent successfully:', response);
-            displayConfirmation(formData); // Display confirmation message after email is sent successfully
-        })
-        .catch(function(error) {
-            console.error('Error sending email:', error);
-            alert('There was an error sending your reservation. Please try again later.');
-        });
+    // Display a confirmation message to the user
+    displayConfirmation(formData);
 }
 
 // Function to validate reservation form data
 function validateReservation(data) {
-    // checking if all fields are filled
+    // Checking if all fields are filled
     if (!data.date || !data.time || !data.people || !data.email || !data.phone) {
         alert("Please fill in all fields.");
         return false;
@@ -34,9 +25,9 @@ function validateReservation(data) {
     return true;
 }
 
-// Function to display confirmation message
+// Function to display a confirmation message
 function displayConfirmation(data) {
-    // Construct confirmation message
+    // Construct the confirmation message
     const confirmationMessage = `Reservation successful!\n\nReservation Details:
         Date: ${data.date}
         Time: ${data.time}
@@ -44,11 +35,11 @@ function displayConfirmation(data) {
         Email: ${data.email}
         Phone: ${data.phone}`;
 
-    // Display confirmation message to the user
+    // Display the confirmation message to the user
     alert(confirmationMessage);
 }
 
-// Add event listener to reservation form submission
+// Add an event listener to the reservation form submission
 document.getElementById("reservation-form").addEventListener("submit", function(event) {
     event.preventDefault();
 
@@ -63,8 +54,8 @@ document.getElementById("reservation-form").addEventListener("submit", function(
 
     // Validate form data
     if (validateReservation(formData)) {
-        // If validation passes, send email using EmailJS
-        sendEmail(formData);
+        // If validation passes, send a mock email
+        sendMockEmail(formData);
     } else {
         // Optionally, show an error message to the user
     }
