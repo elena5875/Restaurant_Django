@@ -6,7 +6,7 @@ We specialize in desserts and Italian Cuisine. We are also located at the heart 
 
 # Header
 The website will have a header with a green background with the following navigation links for the user to see 
-![Alt text]("https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710487146/homepage_django_vn2t75.jpg")
+![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710487146/homepage_django_vn2t75.jpg)
 
 
 # About Us. 
@@ -55,7 +55,7 @@ The reservation form contains the following :
 # Inception.
 Before I started creating the website I had to visualize first what needs to be done. 
 The outline of the website is like this 
-![Alt text]("https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710487146/sketchomepage_azdo6s.jpg")
+![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710487146/sketchomepage_azdo6s.jpg)
 ![Alt text]("https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710487146/sketchmenu_d909wj.jpg")
 ![Alt text]("https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710487146/scketchreservationpage_k8axeu.jpg")
 
@@ -168,6 +168,9 @@ djagnoresto-267ab1695d73.herokuapp.com
 
 If you want to deploy locally here is the Url
 8000-elena5875-restaurantdja-3bsxhmvzmgn.ws-eu108.gitpod.io
+
+# Test
+Most of my test were done manually and locally from gitpod
 
 # Credits
 
