@@ -52,7 +52,7 @@ In the administrial side. The admin gets to approve, delete or reject the reserv
 
 
 
-# Inception.
+# Wireframing
 Before I started creating the website I had to visualize first what needs to be done. 
 The outline of the website is like this 
 ![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710487146/sketchomepage_azdo6s.jpg)
