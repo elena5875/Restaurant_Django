@@ -64,37 +64,37 @@ The outline of the website is like this
 The directory of the website should look like this 
 
 restaurant_django/
-   manage.py
-   env.py
-   requirements
-   Procfile
+                  manage.py
+                  env.py
+                  requirements
+                  Procfile
    mainproject/
-      __init__.py
-      settings.py
-      urls.py
-      wsgi.py
-    asgi.py
+               __init__.py
+               settings.py
+               urls.py
+               wsgi.py
+               asgi.py
 
    templates/
-      home.html  
-      navigation.html
-      menu.html
-      reservation.html
-      contacts..html
-      reservation_approved_email.html
-      reservation_rejected_email.html
-      reservation_success.html
+             home.html  
+             navigation.html
+             menu.html
+             reservation.html
+             contacts..html
+             reservation_approved_email.html
+             reservation_rejected_email.html
+             reservation_success.html
 
 
    static/
-      css/
-         styles.css   
-         about.css
-         gallery.css
-         location.css
-         menu.css
-         location.css
-         success.css
+         css/
+            styles.css   
+            about.css
+            gallery.css
+            location.css
+            menu.css
+            location.css
+            success.css
 
       js/
          script.js
@@ -102,18 +102,18 @@ restaurant_django/
 
 
    restaurant/
-      __init__.py
-      admin.py
-      apps.py
-      migrations
-      models.py
-      tests.py
-      urls.py
-      views.py   
-      forms.py
-      models.py
-      apps.py
-      admin.py
+               __init__.py
+               admin.py
+               apps.py
+               migrations
+               models.py
+               tests.py
+               urls.py
+               views.py   
+               forms.py
+               models.py
+               apps.py
+               admin.py
 
 
 # Dependencies
