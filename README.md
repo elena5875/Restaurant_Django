@@ -6,7 +6,11 @@ We specialize in desserts and Italian Cuisine. We are also located at the heart 
 
 
 The website will have a header with a green background with the following navigation links for the user to see 
+<<<<<<< HEAD
 ![Alt text]("https://res.cloudinary.com/your-cloud-name/image/upload/your-image.jpg")
+=======
+![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710487146/homepage_django_vn2t75.jpg)
+>>>>>>> 14f3c54 (add more pictures)
 
 
 # About Us. 
