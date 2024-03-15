@@ -26,6 +26,15 @@ Once the user clicks this navigation tool. It will open into a new page where th
 
 # Reservation.
 This will open up to a new page and the user will be prompted to a site where the user will be asked for its name, email and telephone number. The User can then choose the data, time and how many people will come to eat at the restaurant. Once the user submits the form and has successfully submit it. The user will be prompted with a notice that its reservation has been a success and will await for approval.The approval email is only sent thru a mock email.
+The reservation form contains the following :
+            Name:
+            Email:
+            Phone number:
+            Date:
+            Time: (user gets to choose between 5 pm till 11 pm)
+            Number of people (user gets to choose from 1 till 9 people)
+        a note will say if more than 9 people are coming please call the restaurant.
+
 ![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710487146/reservationformdjango_yfh2cx.jpg)
 
 # Footer: 
@@ -42,15 +51,6 @@ In the administrial side. The admin gets to approve, delete or reject the reserv
 ![Alt text]("https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710487146/delete_approve_reject_fkwjwe.jpg")
 
 
-# The Reservation Form. 
-The reservation form contains the following :
-            Name:
-            Email:
-            Phone number:
-            Date:
-            Time: (user gets to choose between 5 pm till 11 pm)
-            Number of people (user gets to choose from 1 till 9 people)
-        a note will say if more than 9 people are coming please call the restaurant.
 
 # Inception.
 Before I started creating the website I had to visualize first what needs to be done. 
