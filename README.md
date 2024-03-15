@@ -60,61 +60,6 @@ The outline of the website is like this
 ![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710487146/scketchreservationpage_k8axeu.jpg)
 
 
-# Directory
-The directory of the website should look like this 
-
-restaurant_django/
-                  manage.py
-                  env.py
-                  requirements
-                  Procfile
-   mainproject/
-               __init__.py
-               settings.py
-               urls.py
-               wsgi.py
-               asgi.py
-
-   templates/
-             home.html  
-             navigation.html
-             menu.html
-             reservation.html
-             contacts..html
-             reservation_approved_email.html
-             reservation_rejected_email.html
-             reservation_success.html
-
-
-   static/
-         css/
-            styles.css   
-            about.css
-            gallery.css
-            location.css
-            menu.css
-            location.css
-            success.css
-
-      js/
-         script.js
-         reservation.js
-
-
-   restaurant/
-               __init__.py
-               admin.py
-               apps.py
-               migrations
-               models.py
-               tests.py
-               urls.py
-               views.py   
-               forms.py
-               models.py
-               apps.py
-               admin.py
-
 
 # Dependencies
 The project relies on several tools and packages to function properly. Here's a list of the main dependencies:
@@ -187,6 +132,8 @@ No matter what code I do the dropdown menu would not work in the website but wou
 
 All my pictures are downloaded from pexel.com
 https://www.pexels.com/
+And all the pictures were stored in cloudinary account
+https://console.cloudinary.com/pm/c-27ce96169f2fa7ccae6699f09c4863/developer-dashboard
 
 
 # References:
