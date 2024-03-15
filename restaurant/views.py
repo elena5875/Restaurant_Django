@@ -1,14 +1,11 @@
 #views.py
 
-import logging
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.conf import settings
 from django.core.mail import send_mail
-from django.http import HttpResponse
 from .models import Reservation
-from .forms import ReservationForm
-from datetime import datetime
+from .forms import ReservationAdminForm
 from django.views.generic import FormView
 
 def home(request):
@@ -19,19 +16,14 @@ def menu_view(request):
     menu_items = ['Item 1', 'Item 2', 'Item 3']
     return render(request, 'menu.html', {'menu_items': menu_items})
 
-def your_reservation_view(request):
-    return render(request, 'reservation.html')
-
 def reservation_view(request):
     if request.method == 'POST':
-        form = ReservationForm(request.POST)
+        form = ReservationAdminForm(request.POST)
         if form.is_valid():
-            # Save the reservation to the database
             reservation = form.save(commit=False)
-            reservation.time = form.cleaned_data['time']  # Use cleaned_data to access validated data
+            reservation.time = form.cleaned_data['time']
             reservation.save()
 
-            # Mock email notification
             send_mail(
                 'Reservation Received',
                 'Your reservation has been received successfully.',
@@ -40,32 +32,37 @@ def reservation_view(request):
                 fail_silently=False,
             )
 
-            # Display success message
             messages.success(request, 'Reservation submitted successfully!')
-            return redirect('reservation_view')  # Redirect to the same page to clear the form
+            return redirect('reservation_view')
     else:
-        form = ReservationForm()
+        form = ReservationAdminForm()
 
     return render(request, 'reservation.html', {'form': form})
 
 class ReservationFormView(FormView):
-    template_name = 'reservation_form.html'  # Template for the reservation form
-    form_class = ReservationForm  # Your reservation form class
-    success_url = '/thank-you/'  # URL to redirect after successful form submission
+    template_name = 'reservation_form.html'
+    form_class = ReservationAdminForm
+    success_url = '/thank-you/'
 
     def form_valid(self, form):
-        # Handle form submission logic here
-        # For example, save the form data to the database
         form.save()
         return super().form_valid(form)
 
 def reservation_list_view(request):
-    # Retrieve all reservations from the database
     reservations = Reservation.objects.all()
-    # Pass the reservations data to the reservation.html template
     return render(request, 'reservation.html', {'reservations': reservations})
 
-
-def reviews(request):
-    # Your view logic here
-    pass
+def handle_form_submission(request):
+    if request.method == 'POST':
+        form = ReservationForm(request.POST)
+        if form.is_valid():
+            # If form data is valid, save it to the database
+            form.save()
+            # Redirect to a success page or any other desired URL
+            return redirect('success_page')
+    else:
+        # If request method is not POST, create a new form instance
+        form = ReservationForm()
+    
+    # Render the template with the form
+    return render(request, 'reservation_form.html', {'form': form})

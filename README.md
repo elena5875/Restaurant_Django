@@ -1,39 +1,123 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+THE FORK RESTAURANT
 
-Welcome,
+This mock restaurant a newly opened restaurant where your palates will be excited to taste the finest and freshest food you'll ever get.
 
-This is the Code Institute student template for Codeanywhere. If you are using Gitpod then you need [this template](https://github.com/Code-Institute-Org/gitpod-full-template) instead.  We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+We specialize in desserts and Italian Cuisine. We are also located at the heart of Stockholm City, Sweden.
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Codeanywhere and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **August 30th, 2023**
+The website will have a header with a green background with the following navigation links for the user to see 
 
-## Codeanywhere Reminders
+About Us. Is a short preview of what the restaurant is all about. It has a picture of a fork in a round border.It also shows the opening hours of the restaurant with a pictuer of an OPEN word could be seen.
 
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere, in the terminal, type:
+Location: It will show you the address, tel. number, and email address. User will also be shown how a google map and see where the restaurant is located
 
-`python3 -m http.server`
+Gallery. The user will see some great photo of what the restaurant is serving. It will also show the character and ambiance of the restaurant. If you hover the mouse in the photo it will increase its size to 5%
 
-A button should appear to click: _Open Preview_ or _Open Browser_.
+Menu. Once the user clicks this navigation tool. It will open into a new page where the user will be shown the full list of what food the restuarant has to offer. It will show the price and what kind of food they prepare in the restaurant.
 
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere with no-cache, you can use this alias for `python3 -m http.server`.
+Reservation. This will open up to a new page and the user will be prompted to a site where the user will be asked for its name, email and telephone number. The User can then choose the data, time and how many people will come to eat at the restaurant. Once the user submits the form and has successfully submit it. The user will be prompted with a notice that its reservation has been a success and will await for approval.The approval email is only sent thru a mock email.
 
-`http_server`
+Footer: In here you will see the icon of both facebook and instagram. If you click the icons you will be redirected to the restaurant's socila media sites. Another thing the user will see is the copy right of the fork Logo. 
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+Django Administration. In the administrial side. The admin gets to approve, delete or reject the reservations done by the customers. An automatic email will be generated once the admin has decide to approve or reject the reservation
 
-A button should appear to click: _Open Preview_ or _Open Browser_.
+The Reservation Form. The reservation form contains the following :
+            Name:
+            Email:
+            Phone number:
+            Date:
+            Time: (user gets to choose between 5 pm till 11 pm)
+            Number of people (user gets to choose from 1 till 9 people)
+        a note will say if more than 9 people are coming please call the restaurant.
 
-In Codeanywhere you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+Inception. Before I started creating the website I had to visualize first what needs to be done. 
+The outline of the website is like this 
 
-To log into the Heroku toolbelt CLI:
+The SetUP. In setting up the website it started with the following:
+install the django app using the command in github
 
-1. Log in to your Heroku account and go to _Account Settings_ in the menu under your avatar.
-2. Scroll down to the _API Key_ and click _Reveal_
-3. Copy the key
-4. In Codeanywhere, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+pip install django
+t
+The directory of the website should look like this 
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+restaurant_django/
+│
+├── mainproject/
+│   ├── __init__.py
+│   ├── settings.py
+│   ├── urls.py
+│   └── wsgi.py
+│   └── asgi.py
+│
+├── templates/
+│   ├── home.html  
+│   ├── navigation.html
+│   ├── menu.html
+│   ├── reservation.html
+│   ├── contacts..html
+│   ├── reservation_approved_email.html
+│   ├── reservation_rejected_email.html
+│   ├── reservation_success.html
+│	
+│
+├── static/
+│   └── css/
+│       ├── styles.css   
+│       ├──about.css
+│       ├──gallery.css
+│       ├──location.css
+│       ├──menu.css
+│       ├──location.css
+│       └──siccess.css
+│
+│     └──js
+│       ├──script.js
+│	    ├── reservation.js
+│
+│
+│└── restaurant/
+│    ├── __init__.py
+│    ├── admin.py
+│    ├── apps.py
+│    ├── migrations/
+│    ├── models.py
+│    ├── tests.py
+│    ├── urls.py
+│    ├──views.py   
+│    ├── forms.py
+│    ├──models.py
+│    ├──apps.py
+│    ├──admin.py
+│
+│
+├──manage.py
+├──env.py
+├──requirements
+├──Procfile
 
----
 
-Happy coding!
+
+
+Dependencies
+The project relies on several tools and packages to function properly. Here's a list of the main dependencies:
+   Django
+   Heroku
+   Gitpod 
+   Github
+   cloudinary
+   posrtgreSQL
+Additionally, the project utilizes the following Python packages/modules:
+   django-crispy-form
+   django-environ
+   django-extensions
+   gunicorn
+   whitenoise
+   psycopg2
+
+These dependencies were installed using the pip command
+
+Deployment
+
+Credits
+
+References:
+https://docs.djangoproject.com/en/5.0/ref/contrib/admin/

@@ -8,12 +8,23 @@ from django import forms
 from .models import Reservation
 
 class ReservationAdminForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['time'].widget = forms.Select(choices=self.get_time_choices())
+
+    def get_time_choices(self):
+        time_slots = []
+        start_time = 17  # 5:00 PM in 24-hour format
+        end_time = 23    # 11:00 PM in 24-hour format
+        for hour in range(start_time, end_time + 1):
+            for minute in ['00', '30']:
+                time = f"{hour}:{minute}"
+                time_slots.append((time, f"{hour}:{minute}"))  # Appending tuple of (value, label)
+        return time_slots
+
     class Meta:
         model = Reservation
         fields = '__all__'
-        widgets = {
-            'time': AdminTimeWidget(format='%I:%M %p'),
-        }
 
 class ReservationAdmin(admin.ModelAdmin):
     form = ReservationAdminForm
@@ -48,5 +59,6 @@ class ReservationAdmin(admin.ModelAdmin):
             send_mail(subject, plain_message, settings.DEFAULT_FROM_EMAIL, [reservation.email], html_message=message)
 
 admin.site.register(Reservation, ReservationAdmin)
+
 
 

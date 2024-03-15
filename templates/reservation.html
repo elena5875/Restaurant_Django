@@ -24,14 +24,6 @@
             <input type="submit" value="Submit">
         </form>
     </div>
-
-    <h1>Reservations</h1>
-    <ul>
-        {% for reservation in reservations %}
-            <li>{{ reservation.name }} - {{ reservation.date }} - {{ reservation.time }}</li>
-        {% endfor %}
-    </ul>
-
     <script src="{% static 'js/reservation.js' %}"></script>
 </body>
 </html>

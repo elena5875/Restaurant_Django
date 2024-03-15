@@ -1,12 +1,11 @@
 #forms.py
-
 from django.contrib.admin.widgets import AdminTimeWidget
 from django import forms
 from .models import Reservation
 
 class CustomAdminTimeWidget(AdminTimeWidget):
     def __init__(self, attrs=None, format=None):
-        default_attrs = {'step': '3600'}  # Set step to 1 hour (3600 seconds)
+        default_attrs = {'step': '1800'}  # Set step to 30 minutes (1800 seconds)
         if attrs:
             default_attrs.update(attrs)
         super().__init__(default_attrs, format=format)
@@ -40,38 +39,3 @@ class ReservationAdminForm(forms.ModelForm):
         if number_of_people > 9:
             raise forms.ValidationError("You can reserve a maximum of 9 people. For larger groups, please call the restaurant at 012365498.")
         return number_of_people
-
-class ReservationForm(forms.ModelForm):
-    date = forms.DateField(widget=forms.SelectDateWidget)
-    time = forms.TimeField(widget=CustomAdminTimeWidget())
-
-    class Meta:
-        model = Reservation
-        fields = ['name', 'email', 'phone_number', 'date', 'time', 'number_of_people']
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.fields['number_of_people'].widget = forms.Select(choices=[(i, i) for i in range(1, 10)])
-
-    def clean_number_of_people(self):
-        number_of_people = self.cleaned_data['number_of_people']
-        if number_of_people > 9:
-            raise forms.ValidationError("You can reserve a maximum of 9 people. For larger groups, please call the restaurant at 012365498.")
-        return number_of_people
-class ReservationForm(forms.ModelForm):
-    date = forms.DateField(widget=forms.SelectDateWidget)
-    
-    class Meta:
-        model = Reservation
-        fields = ['name', 'email', 'phone_number', 'date', 'time', 'number_of_people']
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.fields['number_of_people'].widget = forms.Select(choices=[(i, i) for i in range(1, 10)])
-
-    def clean_number_of_people(self):
-        number_of_people = self.cleaned_data['number_of_people']
-        if number_of_people > 9:
-            raise forms.ValidationError("You can reserve a maximum of 9 people. For larger groups, please call the restaurant at 012365498.")
-        return number_of_people
-        
