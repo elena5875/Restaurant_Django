@@ -172,6 +172,22 @@ If you want to deploy locally here is the Url
 # Test
 Most of my test were done manually and locally from gitpod
 
+The automated test should some failure with regard to restaurant/models.py code. 
+I have yet to address this issue
+
+# Issues
+IDE's would sometimes not open or worst my work would just suddenly disappear. 
+I used codeanywhere and gitpod but both had alot of issue during the time I was building my website
+
+Due to time constraints, I was not able to link my reservation form to django administration. 
+Django administration is working as I want it to be but my reservation form has a lot of issues, namely:
+  time: the user was supposed to see a dropdown menu where the user can choose between 5pm till 11 pm
+No matter what code I do the dropdown menu would not work in the website but would work in django administration.
+
+  Submit button: When the user clicks the submit button, it should automatically store the data to django admin
+     and at the same time create a mock email stating that the reservation has been successful.
+
+
 # Credits
 
 All my pictures are downloaded from pexel.com
