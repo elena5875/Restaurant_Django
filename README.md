@@ -63,20 +63,20 @@ The outline of the website is like this
 
 # Dependencies
 The project relies on several tools and packages to function properly. Here's a list of the main dependencies:
-   Django
-   Heroku
-   Gitpod 
-   Github
-   cloudinary
-   posrtgreSQL
+Django
+Heroku
+Gitpod 
+Github
+cloudinary
+posrtgreSQL
 
 Additionally, the project utilizes the following Python packages/modules:
-   django-crispy-form
-   django-environ
-   django-extensions
-   gunicorn
-   whitenoise
-   psycopg2
+django-crispy-form
+django-environ
+django-extensions
+gunicorn
+whitenoise
+psycopg2
 
 # INSTALLATION and DEPLOYMENT
 
