@@ -11,32 +11,32 @@ The website will have a header with a green background with the following naviga
 
 # About Us. 
 Is a short preview of what the restaurant is all about. It has a picture of a fork in a round border.It also shows the opening hours of the restaurant with a pictuer of an OPEN word could be seen.
-![Alt text]("https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710487147/about_us-django_s9eqbl.jpg")
-![Alt text]("https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710487146/openinghours_django_mwhnbu.jpg")
+![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710487147/about_us-django_s9eqbl.jpg)
+![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710487146/openinghours_django_mwhnbu.jpg)
 # Location: 
 It will show you the address, tel. number, and email address. User will also be shown how a google map and see where the restaurant is located
-![Alt text]("https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710487146/location_django_c1lzzc.jpg")
+![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710487146/location_django_c1lzzc.jpg)
 
 # Gallery. 
 The user will see some great photo of what the restaurant is serving. It will also show the character and ambiance of the restaurant. If you hover the mouse in the photo it will increase its size to 5%
-![Alt text]("https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710491385/gallery_django2_khq1lp.jpg")
+![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710491385/gallery_django2_khq1lp.jpg)
 # Menu.
 Once the user clicks this navigation tool. It will open into a new page where the user will be shown the full list of what food the restuarant has to offer. It will show the price and what kind of food they prepare in the restaurant.
-![Alt text]("https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710487146/menu-django_idvtfi.jpg")
+![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710487146/menu-django_idvtfi.jpg)
 
 # Reservation.
 This will open up to a new page and the user will be prompted to a site where the user will be asked for its name, email and telephone number. The User can then choose the data, time and how many people will come to eat at the restaurant. Once the user submits the form and has successfully submit it. The user will be prompted with a notice that its reservation has been a success and will await for approval.The approval email is only sent thru a mock email.
-![Alt text]("https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710487146/reservationformdjango_yfh2cx.jpg")
+![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710487146/reservationformdjango_yfh2cx.jpg)
 
 # Footer: 
 In here you will see the icon of both facebook and instagram. If you click the icons you will be redirected to the restaurant's socila media sites. Another thing the user will see is the copy right of the fork Logo. 
-![Alt text]("https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710491385/footer_django_ytfmgn.jpg")
+![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710491385/footer_django_ytfmgn.jpg)
 
 # Django Administration. 
 In the administrial side. The admin gets to approve, delete or reject the reservations done by the customers. An automatic email will be generated once the admin has decide to approve or reject the reservation
-![Alt text]("https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710487146/site_adminreservation_jo6vgd.jpg")
+![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710487146/site_adminreservation_jo6vgd.jpg)
 
-![Alt text]("https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710487146/djangoadmin1_g8eaun.jpg")
+![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710487146/djangoadmin1_g8eaun.jpg)
 
 
 ![Alt text]("https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710487146/delete_approve_reject_fkwjwe.jpg")
@@ -56,8 +56,8 @@ The reservation form contains the following :
 Before I started creating the website I had to visualize first what needs to be done. 
 The outline of the website is like this 
 ![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710487146/sketchomepage_azdo6s.jpg)
-![Alt text]("https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710487146/sketchmenu_d909wj.jpg")
-![Alt text]("https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710487146/scketchreservationpage_k8axeu.jpg")
+![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710487146/sketchmenu_d909wj.jpg)
+![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710487146/scketchreservationpage_k8axeu.jpg)
 
 
 # Directory
