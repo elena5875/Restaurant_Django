@@ -79,6 +79,15 @@ Additionally, the project utilizes the following Python packages/modules:
    psycopg2
 
 # INSTALLATION and DEPLOYMENT
+<details>
+  <summary>Before getting started, make sure you have the following:</summary>
+- A GitHub account
+- A Gitpod account 
+- A Heroku account
+- A Cloudinary account
+- Access to a PostgreSQL database
+</details>
+
 Before getting started, make sure you have the following:
 
 - A GitHub account
