@@ -28,9 +28,4 @@ class Reservation(models.Model):
     def __str__(self):
         return f"{self.name} - {self.date} at {self.time}"
 
-class Review(models.Model):
-    content = models.TextField()
-    approved = models.BooleanField(default=False)
 
-    def __str__(self):
-        return self.content

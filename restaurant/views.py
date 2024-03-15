@@ -1,4 +1,4 @@
-#views.py
+## views.py
 
 from django.shortcuts import render, redirect
 from django.contrib import messages
@@ -6,7 +6,6 @@ from django.conf import settings
 from django.core.mail import send_mail
 from .models import Reservation
 from .forms import ReservationAdminForm
-from django.views.generic import FormView
 
 def home(request):
     return render(request, 'home.html')
@@ -20,18 +19,9 @@ def reservation_view(request):
     if request.method == 'POST':
         form = ReservationAdminForm(request.POST)
         if form.is_valid():
-            reservation = form.save(commit=False)
-            reservation.time = form.cleaned_data['time']
-            reservation.save()
-
-            send_mail(
-                'Reservation Received',
-                'Your reservation has been received successfully.',
-                settings.DEFAULT_FROM_EMAIL,
-                [reservation.email],
-                fail_silently=False,
-            )
-
+            reservation = form.save()  # Save the form data to the database
+            # Send a success email using mock email
+            send_mock_email(reservation)
             messages.success(request, 'Reservation submitted successfully!')
             return redirect('reservation_view')
     else:
@@ -39,30 +29,35 @@ def reservation_view(request):
 
     return render(request, 'reservation.html', {'form': form})
 
-class ReservationFormView(FormView):
-    template_name = 'reservation_form.html'
-    form_class = ReservationAdminForm
-    success_url = '/thank-you/'
+def send_mock_email(reservation):
+    # Mock email content
+    subject = 'Reservation Received'
+    message = f'Your reservation for {reservation.date} at {reservation.time} has been received successfully.'
+    sender_email = settings.DEFAULT_FROM_EMAIL
+    recipient_email = reservation.email
+    # Send the mock email
+    send_mail(subject, message, sender_email, [recipient_email], fail_silently=False)
 
-    def form_valid(self, form):
-        form.save()
-        return super().form_valid(form)
+def approve_reservation(request, reservation_id):
+    reservation = get_object_or_404(Reservation, pk=reservation_id)
+    reservation.status = 'confirmed'
+    reservation.save()
+    send_approval_email(reservation)
+    messages.success(request, 'Reservation approved successfully!')
+    return redirect('reservation_detail', reservation_id=reservation_id)
 
-def reservation_list_view(request):
-    reservations = Reservation.objects.all()
-    return render(request, 'reservation.html', {'reservations': reservations})
+def reject_reservation(request, reservation_id):
+    reservation = get_object_or_404(Reservation, pk=reservation_id)
+    reservation.status = 'canceled'
+    reservation.save()
+    send_rejection_email(reservation)
+    messages.success(request, 'Reservation rejected successfully!')
+    return redirect('reservation_detail', reservation_id=reservation_id)
 
-def handle_form_submission(request):
-    if request.method == 'POST':
-        form = ReservationForm(request.POST)
-        if form.is_valid():
-            # If form data is valid, save it to the database
-            form.save()
-            # Redirect to a success page or any other desired URL
-            return redirect('success_page')
-    else:
-        # If request method is not POST, create a new form instance
-        form = ReservationForm()
+def delete_reservation(request, reservation_id):
+    reservation = get_object_or_404(Reservation, pk=reservation_id)
+    reservation.delete()
+    messages.success(request, 'Reservation deleted successfully!')
+    return redirect('reservation_list')
+
     
-    # Render the template with the form
-    return render(request, 'reservation_form.html', {'form': form})
