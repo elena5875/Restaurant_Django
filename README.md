@@ -110,6 +110,26 @@ djagnoresto-267ab1695d73.herokuapp.com
 If you want to deploy locally here is the Url
 8000-elena5875-restaurantdja-3bsxhmvzmgn.ws-eu108.gitpod.io
 
+OPENING thru Heroku
+
+1. Install Heroku CLI using this code
+  curl https://cli-assets.heroku.com/install.sh | sh
+2. Login to Heroku using this code
+  heroku login -i
+3. You will be asked to enter email and password
+  email is elenafreire75@gmail.com
+  password is HRKU-3e5a6715-3b88-4520-b0b8-bc3aa1e90124
+4. To access the file write the code 
+  heroku git:remote -a restaurantdjango
+5. Push our code to Heroku using this code 
+  git push heroku main
+6. To run the code use 
+  heroku run bash -a restaurantdjango
+
+
+
+
+
 # Test
 Most of my test were done manually and locally from gitpod
 
