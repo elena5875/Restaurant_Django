@@ -1,30 +1,17 @@
 #forms.py
-from django.contrib.admin.widgets import AdminTimeWidget
 from django import forms
 from .models import Reservation
-
-class CustomAdminTimeWidget(AdminTimeWidget):
-    def __init__(self, attrs=None, format=None):
-        default_attrs = {'step': '1800'}  # Set step to 30 minutes (1800 seconds)
-        if attrs:
-            default_attrs.update(attrs)
-        super().__init__(default_attrs, format=format)
-
-    def get_context(self, name, value, attrs):
-        context = super().get_context(name, value, attrs)
-        context['widget']['is_hidden'] = self.is_hidden
-        context['widget']['required'] = self.is_required
-        context['widget']['value'] = self.format_value(value)
-
-        # Limit time range to 5 PM to 11 PM
-        context['widget']['attrs']['min'] = '17:00'  # 5 PM
-        context['widget']['attrs']['max'] = '23:00'  # 11 PM
-
-        return context
+import datetime
 
 class ReservationAdminForm(forms.ModelForm):
     date = forms.DateField(widget=forms.SelectDateWidget)
-    time = forms.TimeField(widget=CustomAdminTimeWidget())
+
+    # Define the time choices for the dropdown
+    TIME_CHOICES = [
+        (datetime.time(hour, minute).strftime('%H:%M'), datetime.time(hour, minute).strftime('%I:%M %p'))
+        for hour in range(15, 24) for minute in (0, 30)
+    ]
+    time = forms.ChoiceField(choices=TIME_CHOICES)
 
     class Meta:
         model = Reservation
@@ -39,3 +26,12 @@ class ReservationAdminForm(forms.ModelForm):
         if number_of_people > 9:
             raise forms.ValidationError("You can reserve a maximum of 9 people. For larger groups, please call the restaurant at 012365498.")
         return number_of_people
+
+    def clean_time(self):
+        time_str = self.cleaned_data['time']
+        time = datetime.datetime.strptime(time_str, '%H:%M').time()
+        min_time = datetime.time(15, 0)  # 3 PM
+        max_time = datetime.time(23, 0)  # 11 PM
+        if time < min_time or time > max_time:
+            raise forms.ValidationError("Please select a time between 3 PM and 11 PM.")
+        return time
