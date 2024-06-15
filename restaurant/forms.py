@@ -1,4 +1,5 @@
 #forms.py
+# forms.py
 from django import forms
 from .models import Reservation
 import datetime
@@ -6,7 +7,7 @@ import datetime
 class ReservationAdminForm(forms.ModelForm):
     date = forms.DateField(widget=forms.SelectDateWidget)
 
-    # Define the time choices for the dropdown
+    # Define the time choices for the dropdown, from 3 PM to 11 PM
     TIME_CHOICES = [
         (datetime.time(hour, minute).strftime('%H:%M'), datetime.time(hour, minute).strftime('%I:%M %p'))
         for hour in range(15, 24) for minute in (0, 30)

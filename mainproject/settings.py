@@ -1,27 +1,17 @@
 #settings.py
-
 from pathlib import Path
 import os
 import dj_database_url
-
-# Load environment variables from env.py if it exists
-if os.path.isfile('env.py'):
-    import env
-
+from dotenv import load_dotenv
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
 
-# Import the necessary module
-from django.core.mail.backends.console import EmailBackend
+# Load environment variables from .env if it exists
+load_dotenv()
 
-# Load environment variables from env.py if it exists
-if os.path.isfile('env.py'):
-    import env
-    print("env.py loaded")  # Add this line for debugging
-
-print("DATABASE_URL:", os.environ.get("DATABASE_URL"))  # Add this line for debugging
-
+# Print DATABASE_URL to debug
+print("DATABASE_URL:", os.environ.get("DATABASE_URL"))
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -87,10 +77,8 @@ WSGI_APPLICATION = 'mainproject.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-
-
 DATABASES = {
-    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+    'default': dj_database_url.parse(os.environ.get("DATABASE_URL", ""))
 }
 
 # Password validation
@@ -149,8 +137,8 @@ cloudinary.config(
 
 # Add CSRF trusted origins
 CSRF_TRUSTED_ORIGINS = [
-    'https://8000-elena5875-restaurantdja-3bsxhmvzmgn.ws-eu110.gitpod.io',
-    'https://8000-elena5875-restaurantdja-tn5wu6uup8z.ws-eu114.gitpod.io',
+    'https://8000-elena5875-restaurantdja-3bsxhmvzmgn.ws-eu108.gitpod.io',
+    'https://8000-elena5875-restaurantdja-fnkip85ehhz.ws-eu114.gitpod.io',
 ]
 
 # Email settings

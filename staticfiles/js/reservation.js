@@ -1,24 +1,17 @@
 // reservation.js
-// Initialize EmailJS with your user ID
 
-emailjs.init('Owrv1SDMAjElxr32G');
+// Function to send a mock email (replace this with your actual email sending logic)
+function sendMockEmail(formData) {
+    // Log the email details to the console
+    console.log('Mock email sent:', formData);
 
-// Function to send email using EmailJS
-function sendEmail(formData) {
-    emailjs.send('service_6mvg1rq', 'template_a8d0erf', formData)
-        .then(function(response) {
-            console.log('Email sent successfully:', response);
-            displayConfirmation(formData); // Display confirmation message after email is sent successfully
-        })
-        .catch(function(error) {
-            console.error('Error sending email:', error);
-            alert('There was an error sending your reservation. Please try again later.');
-        });
+    // Display a confirmation message to the user
+    displayConfirmation(formData);
 }
 
 // Function to validate reservation form data
 function validateReservation(data) {
-    // checking if all fields are filled
+    // Checking if all fields are filled
     if (!data.date || !data.time || !data.people || !data.email || !data.phone) {
         alert("Please fill in all fields.");
         return false;
@@ -34,9 +27,9 @@ function validateReservation(data) {
     return true;
 }
 
-// Function to display confirmation message
+// Function to display a confirmation message
 function displayConfirmation(data) {
-    // Construct confirmation message
+    // Construct the confirmation message
     const confirmationMessage = `Reservation successful!\n\nReservation Details:
         Date: ${data.date}
         Time: ${data.time}
@@ -44,28 +37,36 @@ function displayConfirmation(data) {
         Email: ${data.email}
         Phone: ${data.phone}`;
 
-    // Display confirmation message to the user
+    // Display the confirmation message to the user
     alert(confirmationMessage);
 }
 
-// Add event listener to reservation form submission
-document.getElementById("reservation-form").addEventListener("submit", function(event) {
-    event.preventDefault();
+// Add an event listener to the reservation form submission
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById("reservation-form");
 
-    // Get form data
-    const formData = {
-        date: document.getElementById('date').value,
-        time: document.getElementById('time').value,
-        people: document.getElementById('people').value,
-        email: document.getElementById('email').value,
-        phone: document.getElementById('phone').value
-    };
+    if (form) {
+        form.addEventListener("submit", function(event) {
+            event.preventDefault();
 
-    // Validate form data
-    if (validateReservation(formData)) {
-        // If validation passes, send email using EmailJS
-        sendEmail(formData);
+            // Get form data
+            const formData = {
+                date: document.getElementById('date').value,
+                time: document.getElementById('time').value,
+                people: document.getElementById('people').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value
+            };
+
+            // Validate form data
+            if (validateReservation(formData)) {
+                // If validation passes, send a mock email
+                sendMockEmail(formData);
+            } else {
+                // Optionally, show an error message to the user
+            }
+        });
     } else {
-        // Optionally, show an error message to the user
+        console.error('Form not found.');
     }
 });
