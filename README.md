@@ -88,6 +88,57 @@ Before getting started, make sure you have the following:
 - A Cloudinary account
 - Access to a PostgreSQL database
 
+## Setup Environment Variables
+
+This project requires some environment variables to be set. You can use the `.env.example` file as a template.
+
+1. Copy the `.env.example` file to `.env`:
+
+   SECRET_KEY=your-secret-key
+  DEBUG=True
+  DATABASE_URL=postgres://username:password@localhost:5432/mydatabase
+  ALLOWED_HOSTS=your-allowed-hosts
+  CLOUDINARY_CLOUD_NAME=your-cloudinary-cloud-name
+  CLOUDINARY_API_KEY=your-cloudinary-api-key
+  CLOUDINARY_API_SECRET=your-cloudinary-api-secret
+  CSRF_TRUSTED_ORIGINS=your-csrf-trusted-origins
+  DEFAULT_FROM_EMAIL=your-default-from-email
+  EMAIL_BACKEND=django.core.mail.backends.console.EmailBackend
+  ADMIN_EMAIL=your-admin-email
+
+2. Load the environment variables by running the init_env.sh script:
+  ./init_env.sh
+
+3. Verify that the environment variables are set:
+  echo $DATABASE_URL
+  echo $SECRET_KEY
+
+
+
+4. Ensure `init_env.sh` is Correct
+
+Make sure your `init_env.sh` script is set up to load the environment variables.
+
+**Example `init_env.sh` Script:**
+
+```sh
+#!/bin/bash
+if [ -f .env ]; then
+    export $(cat .env | xargs)
+fi
+
+Run the script to make it executable
+
+5. Apply migrations and start the server:
+  python3 manage.py migrate
+  python3 manage.py runserver
+
+
+6. Ensure your settings.py is correctly set up to read from the environment variables.
+
+7. To run the application use the command 
+  python3 manage.py runserver
+
 IDE was gitpod. I started with the following steps to install everything
 1. Create a New Directory
 2. Navigate to the Project Directory
@@ -110,6 +161,8 @@ djagnoresto-267ab1695d73.herokuapp.com
 If you want to deploy locally here is the Url
 8000-elena5875-restaurantdja-3bsxhmvzmgn.ws-eu108.gitpod.io
 
+
+
 OPENING thru Heroku
 
 1. Install Heroku CLI using this code
@@ -125,9 +178,6 @@ OPENING thru Heroku
   git push heroku main
 6. To run the code use 
   heroku run bash -a restaurantdjango
-
-
-
 
 
 # Test

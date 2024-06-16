@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,8 +8,6 @@
 </head>
 <body>
     <h1>Reservation Rejected</h1>
-    <p>Dear {{ reservation.name }},</p>
-    <p>We regret to inform you that your reservation for {{ reservation.date }} at {{ reservation.time }} has been rejected.</p>
-    <p>If you have any questions, please feel free to contact us.</p>
+    <p>Your reservation for {{ reservation.date }} at {{ reservation.time }} has been rejected.</p>
 </body>
 </html>

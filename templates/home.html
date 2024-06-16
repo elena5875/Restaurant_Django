@@ -3,6 +3,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,8 +15,13 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/gallery.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/location.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/review.css' %}">
-    <script src="{% static 'js/jquery.min.js' %}"></script>
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+    <!-- Use CDN for jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLR1Tfoq5+5zeLgBqJ6X7s6ZZ7r4Zz6F6ch0O9oZ5Z" crossorigin="anonymous"></script>
+
+    <!-- Use CDN for Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ775eu5yJmzih6MZ8TTpG44E8T8pN9FZDp6" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
@@ -27,12 +33,12 @@
                     <li><a href="#location">Location</a></li>
                     <li><a href="#gallery">Gallery</a></li>
                     <li><a href="{% url 'menu' %}" target="_blank">Menu</a></li> 
-                    <li><a href="{% url 'reservation' %}" target="_blank">Reservation</a></li> 
+                    <li><a href="{% url 'reservation' %}" target="_blank">Reservation</a></li>
+                    <li><a href="{% url 'review_create' %}" target="_blank">Write a Review</a></li> <!-- Add this line -->
                 </ul>
             </nav>
         </div>
     </header>
-
    
 
     <section id="about">

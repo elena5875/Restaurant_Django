@@ -1,13 +1,12 @@
 ## views.py
-
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
-from django.conf import settings
-from django.core.mail import send_mail
-from .models import Reservation
-from .forms import ReservationAdminForm
+from .models import Reservation, Review, Comment
+from .forms import ReservationForm, ReviewForm, CommentForm
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
+from django.conf import settings
+from django.core.mail import send_mail
 
 def home(request):
     return render(request, 'home.html')
@@ -18,21 +17,16 @@ def menu_view(request):
 
 def reservation_view(request):
     if request.method == 'POST':
-        print("Form submission received")  # Debug statement
-        print("POST data:", request.POST)  # Debug statement
-        form = ReservationAdminForm(request.POST)
+        form = ReservationForm(request.POST)
         if form.is_valid():
-            print("Form is valid")  # Debug statement
             reservation = form.save()
             send_reservation_confirmation_email(reservation)
-            messages.success(request, 'Reservation submitted successfully!')
-            return redirect('reservation')
+            messages.success(request, 'Reservation submitted successfully and is pending approval!')
+            return redirect('reservation_success')
         else:
-            print("Form is invalid", form.errors)  # Debug statement
+            messages.error(request, 'There was an error with your submission. Please correct the errors and try again.')
     else:
-        form = ReservationAdminForm()
-        print("Rendering reservation form")  # Debug statement
-
+        form = ReservationForm()
     return render(request, 'reservation.html', {'form': form})
 
 def send_reservation_confirmation_email(reservation):
@@ -42,6 +36,9 @@ def send_reservation_confirmation_email(reservation):
     sender_email = settings.DEFAULT_FROM_EMAIL
     recipient_email = reservation.email
     send_mail(subject, plain_message, sender_email, [recipient_email], html_message=html_message)
+
+def reservation_success(request):
+    return render(request, 'reservation_success.html')
 
 def approve_reservation(request, reservation_id):
     reservation = get_object_or_404(Reservation, pk=reservation_id)
@@ -78,3 +75,34 @@ def delete_reservation(request, reservation_id):
     reservation.delete()
     messages.success(request, 'Reservation deleted successfully!')
     return redirect('reservation_list')
+
+def review_list(request):
+    reviews = Review.objects.filter(is_approved=True).order_by('-created_at')
+    return render(request, 'review_list.html', {'reviews': reviews})
+
+def review_create(request):
+    if request.method == 'POST':
+        form = ReviewForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Review submitted successfully and is pending approval!')
+            return redirect('review_list')
+        else:
+            messages.error(request, 'There was an error with your submission. Please correct the errors and try again.')
+    else:
+        form = ReviewForm()
+    return render(request, 'review_form.html', {'form': form})
+
+def review_detail(request, pk):
+    review = get_object_or_404(Review, pk=pk)
+    comments = review.comments.all()
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.review = review
+            comment.save()
+            return redirect('review_detail', pk=review.pk)
+    else:
+        form = CommentForm()
+    return render(request, 'review_detail.html', {'review': review, 'comments': comments, 'form': form})

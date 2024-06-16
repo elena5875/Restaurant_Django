@@ -23,13 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get("SECRET_KEY", '(buk#6n2v%(rh_#nouc79jlt*4lbk-nh=(c_5^ihx+lggn8akt')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get("DEBUG", "True") == "True"
 
-ALLOWED_HOSTS = [
-    '8000-elena5875-restaurantdja-3bsxhmvzmgn.ws-eu108.gitpod.io',
-    'djagnoresto-267ab1695d73.herokuapp.com',
-    '*',
-]
+ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", '*').split(',')
 
 # Application definition
 
@@ -53,6 +49,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
+
 
 ROOT_URLCONF = 'mainproject.urls'
 
@@ -78,7 +75,7 @@ WSGI_APPLICATION = 'mainproject.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.parse(os.environ.get("DATABASE_URL", ""))
+    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
 
 # Password validation
@@ -130,18 +127,18 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Configure Cloudinary
 cloudinary.config(
-    cloud_name='dh5i9qtjf',
-    api_key='771193164774472',
-    api_secret='7ekPLUqJq0Od4eD2zBi5gufWl7w'
+    cloud_name=os.environ.get('CLOUDINARY_CLOUD_NAME', 'dh5i9qtjf'),
+    api_key=os.environ.get('CLOUDINARY_API_KEY', '771193164774472'),
+    api_secret=os.environ.get('CLOUDINARY_API_SECRET', '7ekPLUqJq0Od4eD2zBi5gufWl7w')
 )
 
 # Add CSRF trusted origins
-CSRF_TRUSTED_ORIGINS = [
-    'https://8000-elena5875-restaurantdja-3bsxhmvzmgn.ws-eu108.gitpod.io',
-    'https://8000-elena5875-restaurantdja-fnkip85ehhz.ws-eu114.gitpod.io',
-]
+CSRF_TRUSTED_ORIGINS = os.environ.get('CSRF_TRUSTED_ORIGINS', '').split(',')
+GITPOD_WORKSPACE_URL = os.environ.get('GITPOD_WORKSPACE_URL')
+if GITPOD_WORKSPACE_URL:
+    CSRF_TRUSTED_ORIGINS.append(GITPOD_WORKSPACE_URL)
 
 # Email settings
-DEFAULT_FROM_EMAIL = 'theforkrestaurant@yahoo.com'
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-ADMIN_EMAIL = 'theforkrestaurant@gmail.com'
+DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL', 'theforkrestaurant@yahoo.com')
+EMAIL_BACKEND = os.environ.get('EMAIL_BACKEND', 'django.core.mail.backends.console.EmailBackend')
+ADMIN_EMAIL = os.environ.get('ADMIN_EMAIL', 'theforkrestaurant@gmail.com')

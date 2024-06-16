@@ -5,28 +5,8 @@ from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 from django.conf import settings
-from django.contrib.admin.widgets import AdminTimeWidget
-from django import forms
-from .models import Reservation
-
-class ReservationAdminForm(forms.ModelForm):
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.fields['time'].widget = forms.Select(choices=self.get_time_choices())
-
-    def get_time_choices(self):
-        time_slots = []
-        start_time = 17  # 5:00 PM in 24-hour format
-        end_time = 23    # 11:00 PM in 24-hour format
-        for hour in range(start_time, end_time + 1):
-            for minute in ['00', '30']:
-                time = f"{hour}:{minute}"
-                time_slots.append((time, f"{hour}:{minute}"))  # Appending tuple of (value, label)
-        return time_slots
-
-    class Meta:
-        model = Reservation
-        fields = '__all__'
+from .models import Reservation, Review, Comment
+from .forms import ReservationAdminForm
 
 class ReservationAdmin(admin.ModelAdmin):
     form = ReservationAdminForm
@@ -60,7 +40,22 @@ class ReservationAdmin(admin.ModelAdmin):
             plain_message = strip_tags(message)
             send_mail(subject, plain_message, settings.DEFAULT_FROM_EMAIL, [reservation.email], html_message=message)
 
+
+class CommentInline(admin.TabularInline):
+    model = Comment
+    extra = 1
+
+class ReviewAdmin(admin.ModelAdmin):
+    list_display = ['name', 'email', 'is_approved', 'created_at']
+    list_filter = ['is_approved', 'created_at']
+    search_fields = ['name', 'email']
+    inlines = [CommentInline]
+    actions = ['approve_reviews']
+
+    def approve_reviews(self, request, queryset):
+        queryset.update(is_approved=True)
+    approve_reviews.short_description = "Approve selected reviews"
+
 admin.site.register(Reservation, ReservationAdmin)
-
-
-
+admin.site.register(Review, ReviewAdmin)
+admin.site.register(Comment)

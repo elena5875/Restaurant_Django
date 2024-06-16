@@ -1,0 +1,20 @@
+<!-- review_detail.html -->
+
+{% extends "base.html" %}
+{% block content %}
+<h1>{{ review.name }}</h1>
+<p>{{ review.review_text }}</p>
+<h2>Comments</h2>
+<ul>
+    {% for comment in comments %}
+    <li>{{ comment.comment_text }}</li>
+    {% endfor %}
+</ul>
+<h2>Leave a Comment</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit</button>
+</form>
+<a href="{% url 'review_list' %}">Back to reviews</a>
+{% endblock %}

@@ -1,5 +1,6 @@
+#models.py
+# models.py
 from django.db import models
-from django.utils import timezone
 from django.core.validators import RegexValidator, MinValueValidator, MaxValueValidator
 
 class Reservation(models.Model):
@@ -24,4 +25,20 @@ class Reservation(models.Model):
     def __str__(self):
         return f"{self.name} - {self.date} at {self.time}"
 
+class Review(models.Model):
+    name = models.CharField(max_length=255)
+    email = models.EmailField()
+    review_text = models.TextField()
+    is_approved = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
 
+    def __str__(self):
+        return self.name
+
+class Comment(models.Model):
+    review = models.ForeignKey(Review, related_name='comments', on_delete=models.CASCADE)
+    comment_text = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'Comment on {self.review.name}'
