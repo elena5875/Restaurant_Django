@@ -37,7 +37,7 @@
     padding: 10px;
     margin: 10px 0;
     box-sizing: border-box;
-    border: 2px solid #333; /* Darker border color */
+    border: 1px solid #ccc;
     border-radius: 5px;
 }
 

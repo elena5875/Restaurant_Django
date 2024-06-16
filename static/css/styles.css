@@ -78,7 +78,51 @@ nav a {
     margin-left: 20px; /* Add some space between the image and text */
 }
 
+/* Reviews Section */
+.section-heading  {
+    text-align: center;
+    font-family: sans-serif; 
+    font-weight: bold; 
+    color: blue; 
+    font-size: 30px; 
+    margin: 20px 0; 
+    padding: 10px; 
+}
 
+.reviews-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.review {
+    border: 2px solid #333; /* Dark border */
+    border-radius: 5px;
+    padding: 15px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: calc(33.333% - 40px); /* 3 columns with 20px gap */
+    box-sizing: border-box;
+}
+
+.review h3 {
+    margin-top: 0;
+}
+
+.review p {
+    margin-bottom: 0;
+}
+
+.comment-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.comment-list li {
+    border-top: 1px solid #ddd;
+    padding: 5px 0;
+}
 
 /* Footer styles */
 footer {
@@ -103,4 +147,3 @@ footer {
     height: 80px;
     margin-right: 10px;
 }
-

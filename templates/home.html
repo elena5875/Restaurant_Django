@@ -3,6 +3,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +11,7 @@
 
     <title>THE FORK</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/about.css' %}"> 
+    <link rel="stylesheet" type="text/css" href="{% static 'css/about.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/gallery.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/location.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/review.css' %}">
@@ -31,7 +32,7 @@
                     <li><a href="#about">About Us</a></li>
                     <li><a href="#location">Location</a></li>
                     <li><a href="#gallery">Gallery</a></li>
-                    <li><a href="{% url 'menu' %}" target="_blank">Menu</a></li> 
+                    <li><a href="{% url 'menu' %}" target="_blank">Menu</a></li>
                     <li><a href="{% url 'reservation' %}" target="_blank">Reservation</a></li>
                     <li><a href="{% url 'review_create' %}" target="_blank">Write a Review</a></li>
                 </ul>
@@ -61,8 +62,7 @@
             </div>
         </div>
     </section>
-    
-    
+
     <section id="gallery">
         <h2 class="gallery-heading">G A L L E R Y</h2>
         <div class="gallery-content">
@@ -92,21 +92,24 @@
 
     <!-- Reviews Section -->
     <section id="reviews">
-        <h2 class="reviews-heading">Reviews</h2>
+        <h2 class="section-heading">Reviews</h2>
         <div class="reviews-content">
-            <ul>
-                {% for review in reviews %}
-                <li>
-                    <h3>{{ review.name }}</h3>
-                    <p>{{ review.review_text }}</p>
-                </li>
-                {% endfor %}
-            </ul>
+            {% for review in reviews %}
+            <div class="review">
+                <h3>{{ review.name }}</h3>
+                <p>{{ review.review_text }}</p>
+                <ul class="comment-list">
+                    {% for comment in review.comments.all|slice:":5" %}
+                    <li>{{ comment.comment_text }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endfor %}
         </div>
     </section>
 
     <section id="location">
-        <h2>L O C A T I O N</h2>
+        <h2 class="section-heading">L O C A T I O N</h2>
         <div class="location-content">
             <div class="contact-info">
                 <h3>How to Contact Us:</h3>

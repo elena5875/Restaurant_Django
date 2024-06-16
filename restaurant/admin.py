@@ -40,7 +40,6 @@ class ReservationAdmin(admin.ModelAdmin):
             plain_message = strip_tags(message)
             send_mail(subject, plain_message, settings.DEFAULT_FROM_EMAIL, [reservation.email], html_message=message)
 
-
 class CommentInline(admin.TabularInline):
     model = Comment
     extra = 1
@@ -50,7 +49,7 @@ class ReviewAdmin(admin.ModelAdmin):
     list_filter = ['is_approved', 'is_posted', 'created_at']
     search_fields = ['name', 'email']
     inlines = [CommentInline]
-    actions = ['approve_reviews', 'reject_reviews', 'post_reviews']
+    actions = ['approve_reviews', 'reject_reviews', 'post_reviews', 'delete_reviews']
 
     def approve_reviews(self, request, queryset):
         queryset.update(is_approved=True)
@@ -63,6 +62,10 @@ class ReviewAdmin(admin.ModelAdmin):
     def post_reviews(self, request, queryset):
         queryset.update(is_posted=True)
         self.send_email(queryset, 'posted')
+
+    def delete_reviews(self, request, queryset):
+        for review in queryset:
+            review.delete()
 
     def send_email(self, queryset, status):
         subject = f'Review {status.capitalize()}'
@@ -79,7 +82,8 @@ class ReviewAdmin(admin.ModelAdmin):
     approve_reviews.short_description = "Approve selected reviews"
     reject_reviews.short_description = "Reject selected reviews"
     post_reviews.short_description = "Post selected reviews"
+    delete_reviews.short_description = "Delete selected reviews"
 
-admin.site.register(Reservation, ReservationAdmin)
 admin.site.register(Review, ReviewAdmin)
 admin.site.register(Comment)
+admin.site.register(Reservation, ReservationAdmin)
