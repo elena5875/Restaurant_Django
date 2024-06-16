@@ -46,15 +46,39 @@ class CommentInline(admin.TabularInline):
     extra = 1
 
 class ReviewAdmin(admin.ModelAdmin):
-    list_display = ['name', 'email', 'is_approved', 'created_at']
-    list_filter = ['is_approved', 'created_at']
+    list_display = ['name', 'email', 'is_approved', 'is_posted', 'created_at']
+    list_filter = ['is_approved', 'is_posted', 'created_at']
     search_fields = ['name', 'email']
     inlines = [CommentInline]
-    actions = ['approve_reviews']
+    actions = ['approve_reviews', 'reject_reviews', 'post_reviews']
 
     def approve_reviews(self, request, queryset):
         queryset.update(is_approved=True)
+        self.send_email(queryset, 'approved')
+
+    def reject_reviews(self, request, queryset):
+        queryset.update(is_approved=False)
+        self.send_email(queryset, 'rejected')
+
+    def post_reviews(self, request, queryset):
+        queryset.update(is_posted=True)
+        self.send_email(queryset, 'posted')
+
+    def send_email(self, queryset, status):
+        subject = f'Review {status.capitalize()}'
+        for review in queryset:
+            if status == 'approved':
+                message = render_to_string('review_approved.html', {'review': review})
+            elif status == 'rejected':
+                message = render_to_string('review_rejected.html', {'review': review})
+            else:
+                message = render_to_string('review_posted.html', {'review': review})
+            plain_message = strip_tags(message)
+            send_mail(subject, plain_message, settings.DEFAULT_FROM_EMAIL, [review.email], html_message=message)
+
     approve_reviews.short_description = "Approve selected reviews"
+    reject_reviews.short_description = "Reject selected reviews"
+    post_reviews.short_description = "Post selected reviews"
 
 admin.site.register(Reservation, ReservationAdmin)
 admin.site.register(Review, ReviewAdmin)

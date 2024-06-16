@@ -9,7 +9,8 @@ from django.conf import settings
 from django.core.mail import send_mail
 
 def home(request):
-    return render(request, 'home.html')
+    reviews = Review.objects.filter(is_posted=True).order_by('-created_at')
+    return render(request, 'home.html', {'reviews': reviews})
 
 def menu_view(request):
     menu_items = ['Item 1', 'Item 2', 'Item 3']

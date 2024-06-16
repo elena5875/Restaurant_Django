@@ -3,7 +3,6 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,7 +16,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/review.css' %}">
 
     <!-- Use CDN for jQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLR1Tfoq5+5zeLgBqJ6X7s6ZZ7r4Zz6F6ch0O9oZ5Z" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLR1Tfoq5+5zeLgBqJ6X7r4Zz6F6ch0O9oZ5Z" crossorigin="anonymous"></script>
 
     <!-- Use CDN for Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ775eu5yJmzih6MZ8TTpG44E8T8pN9FZDp6" crossorigin="anonymous">
@@ -34,12 +33,11 @@
                     <li><a href="#gallery">Gallery</a></li>
                     <li><a href="{% url 'menu' %}" target="_blank">Menu</a></li> 
                     <li><a href="{% url 'reservation' %}" target="_blank">Reservation</a></li>
-                    <li><a href="{% url 'review_create' %}" target="_blank">Write a Review</a></li> <!-- Add this line -->
+                    <li><a href="{% url 'review_create' %}" target="_blank">Write a Review</a></li>
                 </ul>
             </nav>
         </div>
     </header>
-   
 
     <section id="about">
         <div class="about-content">
@@ -83,36 +81,45 @@
                 <img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809877/icecream_ouue3d.jpg" alt="Ice_cream">
                 <img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809925/purplecake_jrfn58.jpg" alt="Purple_Cake">
                 <img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809898/location3_qr2l8j.jpg" alt="Location">
-                <img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809865/cake_pvhl8p.jpg" alt="Honey_cake">
                 <img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708195362/samples/food/pot-mussels.jpg" alt="Pot">
                 <img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708195360/samples/food/dessert.jpg" alt="Pie">
                 <img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809886/insidelocation4_umid2r.jpg" alt="Inside_resto">
                 <img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809896/location2_m21tor.jpg" alt="outdoor_seat">
                 <img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809946/topviewfood_o5v9ga.jpg" alt="Feast">
-                
             </div>
         </div>
-        
     </section>
-        <section id="location">
-            <h2>L O C A T I O N</h2>
-            <div class="location-content">
-                <div class="contact-info">
-                    <h3>How to Contact Us:</h3>
-                    <p>Email: thefork@gmail.com</p>
-                    <p>Phone: 0769258525</p>
-                    <p>Address: Eriksgrand 15, 17754 Stockholm City, Sweden</p>
-                    <a href="{% url 'reservation' %}">Make a Reservation</a>
-                </div>
-                <div class="map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d203287.8242936968!2d18.063240085694854!3d59.33459114215899!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f76436abacecf%3A0x4007f44ef17f5a1!2sStockholm%2C%20Sweden!5e0!3m2!1sen!2sus!4v1646055671067!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                </div>
+
+    <!-- Reviews Section -->
+    <section id="reviews">
+        <h2 class="reviews-heading">Reviews</h2>
+        <div class="reviews-content">
+            <ul>
+                {% for review in reviews %}
+                <li>
+                    <h3>{{ review.name }}</h3>
+                    <p>{{ review.review_text }}</p>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </section>
+
+    <section id="location">
+        <h2>L O C A T I O N</h2>
+        <div class="location-content">
+            <div class="contact-info">
+                <h3>How to Contact Us:</h3>
+                <p>Email: thefork@gmail.com</p>
+                <p>Phone: 0769258525</p>
+                <p>Address: Eriksgrand 15, 17754 Stockholm City, Sweden</p>
+                <a href="{% url 'reservation' %}">Make a Reservation</a>
             </div>
-        </section>
-    
-        
-    
-    
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d203287.8242936968!2d18.063240085694854!3d59.33459114215899!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f76436abacecf%3A0x4007f44ef17f5a1!2sStockholm%2C%20Sweden!5e0!3m2!1sen!2sus!4v1646055671067!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
 
     <footer>
         <!-- Facebook and Instagram icons -->
@@ -127,4 +134,3 @@
     <script src="{% static 'js/script.js' %}"></script>
 </body>
 </html>
-

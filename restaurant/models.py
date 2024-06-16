@@ -30,10 +30,12 @@ class Review(models.Model):
     email = models.EmailField()
     review_text = models.TextField()
     is_approved = models.BooleanField(default=False)
+    is_posted = models.BooleanField(default=False)  # Add this field
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.name
+
 
 class Comment(models.Model):
     review = models.ForeignKey(Review, related_name='comments', on_delete=models.CASCADE)
@@ -42,3 +44,4 @@ class Comment(models.Model):
 
     def __str__(self):
         return f'Comment on {self.review.name}'
+
