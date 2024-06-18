@@ -173,9 +173,10 @@ OPENING thru Heroku
   email is elenafreire75@gmail.com
   password is HRKU-3e5a6715-3b88-4520-b0b8-bc3aa1e90124
 4. To access the file write the code 
-  heroku git:remote -a restaurantdjango
+  heroku git:remote -a djagnoresto
 5. Push our code to Heroku using this code 
   git push heroku main
+  
 6. To run the code use 
   heroku run bash -a restaurantdjango
 
