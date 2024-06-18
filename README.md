@@ -63,38 +63,45 @@ The outline of the website is like this
 
 # Dependencies
 The project relies on several tools and packages to function properly. Here's a list of the main dependencies:
-Django
-Heroku
-Gitpod 
-Github
-cloudinary
-posrtgreSQL
+  Django
+  Heroku
+  Gitpod 
+  Github
+  cloudinary
+  posrtgreSQL
 
 Additionally, the project utilizes the following Python packages/modules:
-django-crispy-form
-django-environ
-django-extensions
-gunicorn
-whitenoise
-psycopg2
+  django-crispy-form
+  django-environ
+  django-extensions
+  gunicorn
+  whitenoise
+  psycopg2
 
 # INSTALLATION and DEPLOYMENT
 
 Before getting started, make sure you have the following:
 
-- A GitHub account
-- A Gitpod account 
-- A Heroku account
-- A Cloudinary account
-- Access to a PostgreSQL database
+  - A GitHub account
+  - A Gitpod account 
+  - A Heroku account
+  - A Cloudinary account
+  - Access to a PostgreSQL database
 
-## Setup Environment Variables
 
-This project requires some environment variables to be set. You can use the `.env.example` file as a template.
 
-1. Copy the `.env.example` file to `.env`:
+IDE was gitpod. I started with the following steps to install everything
 
-   SECRET_KEY=your-secret-key
+1. Create a New Directory
+
+2. Navigate to the Project Directory
+
+3. Initialize Git Repository
+
+4. Install Dependencies
+
+5. Create env.py with the following environment variables
+  SECRET_KEY=your-secret-key
   DEBUG=True
   DATABASE_URL=postgres://username:password@localhost:5432/mydatabase
   ALLOWED_HOSTS=your-allowed-hosts
@@ -106,86 +113,87 @@ This project requires some environment variables to be set. You can use the `.en
   EMAIL_BACKEND=django.core.mail.backends.console.EmailBackend
   ADMIN_EMAIL=your-admin-email
 
-2. Load the environment variables by running the init_env.sh script:
-  ./init_env.sh
+6. Set Up Cloudinary and PostgreSQL account
 
-3. Verify that the environment variables are set:
-  echo $DATABASE_URL
-  echo $SECRET_KEY
-
-
-
-4. Ensure `init_env.sh` is Correct
-
-Make sure your `init_env.sh` script is set up to load the environment variables.
-
-**Example `init_env.sh` Script:**
-
-```sh
-#!/bin/bash
-if [ -f .env ]; then
-    export $(cat .env | xargs)
-fi
-
-Run the script to make it executable
-
-5. Apply migrations and start the server:
-  python3 manage.py migrate
-  python3 manage.py runserver
-
-
-6. Ensure your settings.py is correctly set up to read from the environment variables.
-
-7. To run the application use the command 
-  python3 manage.py runserver
-
-IDE was gitpod. I started with the following steps to install everything
-1. Create a New Directory
-2. Navigate to the Project Directory
-3. Initialize Git Repository
-4. Install Dependencies
-5. Create env.py
-6. Set Up Cloudinary and PostgreSQL
 7. Create Project Files
+
 8. Start Coding
+
 9. Commit Changes
     using git add .
           git commit -m "initial commit"
           git push
     *before you push make sure debug is set to False
+
 10. Deploy to Heroku
 
 Here is the Url from heroku
-djagnoresto-267ab1695d73.herokuapp.com
+https://djagnoresto-267ab1695d73.herokuapp.com/
 
 If you want to deploy locally here is the Url
-8000-elena5875-restaurantdja-3bsxhmvzmgn.ws-eu108.gitpod.io
+https://8000-elena5875-restaurantdja-hlvxl9n5m7u.ws-eu114.gitpod.io/
 
 
-
-OPENING thru Heroku
+OPENING  Heroku thru CLI
 
 1. Install Heroku CLI using this code
   curl https://cli-assets.heroku.com/install.sh | sh
+
 2. Login to Heroku using this code
   heroku login -i
+
 3. You will be asked to enter email and password
   email is elenafreire75@gmail.com
   password is HRKU-3e5a6715-3b88-4520-b0b8-bc3aa1e90124
+
 4. To access the file write the code 
   heroku git:remote -a djagnoresto
+
 5. Push our code to Heroku using this code 
   git push heroku main
-  
-6. To run the code use 
-  heroku run bash -a restaurantdjango
+
+6. To open the app write
+  heroku open
+
+## To get inside the Django Admin 
+
+1. Copy paste the Url
+https://8000-elena5875-restaurantdja-hlvxl9n5m7u.ws-eu114.gitpod.io/admin/
+
+2. You will be asked to log in. As a user you can use
+  Username: Elena
+  Password: elenagwapa5804
+
+3. Once you are inside the Admin. You will be able to see 
+  Groups
+  User
+
+  Comments
+  Reservation 
+  Review.
+
+4. You can now edit by either delete, approve or reject both reservation and review. In 
+Review you can also add comments and post the review and comments to the website.
+
+## Mock Email.
+
+In the Django Admin, I created a mock email wherein when the admin either rejects, approves, or post a review or reservation
+an email is automatically sent to the customer. The mock email can be seen on the terminal in github or in the logs --tail in heroku.
+insert picture
+
+
 
 
 # Test
-Most of my test were done manually and locally from gitpod
+Most of my test were done manually using python3 manage.py runserver code to run the program and manually test all the forms in the website. I have also test my website in Heroku by either manually deploying it or thru Heroku CLI.
 
-The automated test should some failure with regard to restaurant/models.py code. 
-I have yet to address this issue
+The automated test I did was only using the python manage.py test. Which showed django was having issues connecting to PostPostgreSQL database on ElephantSQL when running the tests.
+I have address the issue by making some changes in the settings.py., utils.py and test.py. I have tested the reservation form which has shown no issues. While in my Review form, it has shown
+one issue which is AssertionError: False is not true : Couldn't find 'There was an error with your submission. Please correct the errors below.' in response. I tried to correct the issue but so far 
+I have not yet corrected the issue. 
+
+ insert pictures
+
 
 # Issues
 IDE's would sometimes not open or worst my work would just suddenly disappear. 
@@ -199,6 +207,7 @@ No matter what code I do the dropdown menu would not work in the website but wou
   Submit button: When the user clicks the submit button, it should automatically store the data to django admin
      and at the same time create a mock email stating that the reservation has been successful.
 
+I was able to address all the issues that I have mentioned earlier in my work and now the website is working properly both in the django admin site and also in the main website.
 
 # Credits
 
