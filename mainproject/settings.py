@@ -138,6 +138,9 @@ GITPOD_WORKSPACE_URL = os.environ.get('GITPOD_WORKSPACE_URL')
 if GITPOD_WORKSPACE_URL:
     CSRF_TRUSTED_ORIGINS.append(GITPOD_WORKSPACE_URL)
 
+# Add wildcard for Gitpod subdomains
+CSRF_TRUSTED_ORIGINS += ['https://*.gitpod.io']
+
 # Email settings
 DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL', 'theforkrestaurant@yahoo.com')
 EMAIL_BACKEND = os.environ.get('EMAIL_BACKEND', 'django.core.mail.backends.console.EmailBackend')

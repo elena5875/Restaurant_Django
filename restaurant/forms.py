@@ -5,6 +5,7 @@ from .models import Reservation
 import datetime
 from .models import Review, Comment
 
+
 class ReservationForm(forms.ModelForm):
     date = forms.DateField(widget=forms.SelectDateWidget)
 
