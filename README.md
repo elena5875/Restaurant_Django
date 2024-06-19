@@ -274,6 +274,8 @@ In the administrial side. The admin gets to approve, delete or reject the reserv
 The administration will also be able to approve, delete, post, reject and comment on the reviews written by the user based on their experience while at the restaurant.
 
 ![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1718781593/email_for_approved_review_trjcpy.png)
+![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1718781593/email_for_approved_review_trjcpy.png)
+
 
 
 ## Mock Email.
@@ -282,6 +284,7 @@ In the Django Admin, I created a mock email wherein when the admin either reject
 an email is automatically sent to the customer. The mock email can be seen on the terminal in github or in the logs --tail in heroku.
 
 ![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1718783246/reviewadmin_wyquss.png)
+![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1718781593/email_for_approved_review_trjcpy.png)
 
 
 
@@ -296,7 +299,6 @@ I have not yet corrected the issue.
 
 ![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1718781593/runtest_lkgppm.png)
 ![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1718781593/approved_test_reservation_yspr5x.png)
-![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1718781593/email_for_approved_review_trjcpy.png)
 
 
 # Issues
