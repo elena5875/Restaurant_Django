@@ -1,21 +1,28 @@
 # THE FORK RESTAURANT
 
 # Features
+
 This mock restaurant a newly opened restaurant where your palates will be excited to taste the finest and freshest food you'll ever get.
 We specialize in desserts and Italian Cuisine. We are also located at the heart of Stockholm City, Sweden.
 
 # Wireframing
+
 Before I started creating the website I had to visualize first what needs to be done. 
 The outline of the website is like this 
+
 ![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710487146/sketchomepage_azdo6s.jpg)
+
 ![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710487146/sketchmenu_d909wj.jpg)
+
 ![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710487146/scketchreservationpage_k8axeu.jpg)
+
 ![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1718783913/format_for_review_a8xnyb.png)
 
 
 
 
 # Dependencies
+
 The project relies on several tools and packages to function properly. Here's a list of the main dependencies:
 
     Django
@@ -61,11 +68,15 @@ IDE used is gitpod. I started with the following steps to install everything
 3. Set Up Virtual Environment and Install Dependencies
 
     -python3 -m venv venv
+
     -source venv/bin/activate
+
     -pip install django psycopg2-binary cloudinary django-environ gunicorn
 
 4. Set Up Cloudinary and PostgreSQL Accounts
+
     -Sign up for Cloudinary and get your cloud name, API key, and API secret.
+
     -Sign up for PostgreSQL (e.g., on ElephantSQL) and get your database URL.
 
 6. Create env.py with the following environment variables
@@ -90,8 +101,11 @@ IDE used is gitpod. I started with the following steps to install everything
 9. Commit Changes
 
     -using git add .
+
     -git commit -m "initial commit"
+
     -git push
+
     *before you push make sure debug is set to False
 
 
@@ -140,87 +154,125 @@ If you want to deploy locally here is the Url
 ## To get inside the Django Admin 
 
 1. Copy paste the Url
+
     https://8000-elena5875-restaurantdja-hlvxl9n5m7u.ws-eu114.gitpod.io/admin/
 
 2. You will be asked to log in. As a user you can use
+
     Username: Elena
+
     Password: elenagwapa5804
 
 3. Once you are inside the Admin. You will be able to see 
+
     Groups
+
     User
 
     Comments
+
     Reservation 
+
     Review.
 
 4. You can now edit by either delete, approve or reject both reservation and review. In 
 Review you can also add comments and post the review and comments to the website.
 
 ![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1718781593/django_admin2_aneh6w.png)
+
 ![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1718783246/reservation_admin_q2mcoj.png)
 
 # Here is the Result of the Fork Restaurant
 
 # Header
+
 The website will have a header with a green background with the following navigation links for the user to see 
+
 ![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710487146/homepage_django_vn2t75.jpg)
 
 
 # About Us. 
+
 Is a short preview of what the restaurant is all about. It has a picture of a fork in a round border.It also shows the opening hours of the restaurant with a pictuer of an OPEN word could be seen.
+
 ![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710487147/about_us-django_s9eqbl.jpg)
+
 ![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710487146/openinghours_django_mwhnbu.jpg)
 
 # Location: 
+
 It will show you the address, tel. number, and email address. User will also be shown how a google map and see where the restaurant is located
+
 ![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710487146/location_django_c1lzzc.jpg)
 
 # Gallery. 
+
 The user will see some great photo of what the restaurant is serving. It will also show the character and ambiance of the restaurant. If you hover the mouse in the photo it will increase its size to 5%
+
 ![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710491385/gallery_django2_khq1lp.jpg)
 
 # Review.
+
 The user will also see a review and comments section after the gallery. The user will be able to see the comments and reviews from previous users who ate in the restaurant.
+
 ![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1718781594/reviews_fkygbh.png)
 
 # Menu.
+
 Once the user clicks this navigation tool. It will open into a new page where the user will be shown the full list of what food the restuarant has to offer. It will show the price and what kind of food they prepare in the restaurant.
+
 ![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710487146/menu-django_idvtfi.jpg)
 
 # Reservation.
+
 This will open up to a new page and the user will be prompted to a site where the user will be asked for its name, email and telephone number. The User can then choose the data, time and how many people will come to eat at the restaurant. Once the user submits the form and has successfully submit it. The user will be prompted with a notice that its reservation has been a success and will await for approval.The approval email is only sent thru a mock email.
+
 The reservation form contains the following :
+
             Name:
+
             Email:
+
             Phone number:
+
             Date:
+
             Time: (user gets to choose between 3 pm till 11 pm)
+
             Number of people (user gets to choose from 1 till 9 people)
+
         a note will say if more than 9 people are coming please call the restaurant.
 
 ![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1718782752/toppage_cpy0za.png)
+
 ![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1718781594/successful_email_sent_dcviwx.png)
 
 
 # Write a Review
+
 Once the user clicks this icon, the user will be brought to another page where the user needs to input its name and a valid email address. The user can then write a comment about the experience he/she encountered while eating at the restaurant. 
 
 ![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1718782894/write_a_review_gnm3ha.png)
 
 
 # Footer: 
+
 In here you will see the icon of both facebook and instagram. If you click the icons you will be redirected to the restaurant's socila media sites. Another thing the user will see is the copy right of the fork Logo. 
+
 ![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710491385/footer_django_ytfmgn.jpg)
 
-# Django Administration. 
+# Django Administration
+. 
 In the administrial side. The admin gets to approve, delete or reject the reservations done by the customers. An automatic email will be generated once the admin has decide to approve or reject the reservation
+
 ![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1718781593/django_admin2_aneh6w.png)
 
 ![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1718781593/mock_email2_skipri.png)
+
 ![Alt text]("https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710487146/delete_approve_reject_fkwjwe.jpg")
 
 The administration will also be able to approve, delete, post, reject and comment on the reviews written by the user based on their experience while at the restaurant.
+
 ![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1718781593/email_for_approved_review_trjcpy.png)
 
 
@@ -264,16 +316,26 @@ Submit button: When the user clicks the submit button, it should automatically s
 # Credits
 
 All my pictures are downloaded from pexel.com
+
     https://www.pexels.com/
+
     And all the pictures were stored in cloudinary account
+
     https://console.cloudinary.com/pm/c-27ce96169f2fa7ccae6699f09c4863/developer-dashboard
 
 
 # References:
+
     https://docs.djangoproject.com/en/5.0/ref/contrib/admin/
+
     https://www.djangoproject.com/start/
+
     https://learndjango.com/tutorials/django-email-contact-form-tutorial
+
     https://whitenoise.readthedocs.io/en/stable/django.html#use-a-content-delivery-network
+
     https://dev.to/thomz/my-django-heroku-checklist-3p72
+
     https://www.atlassian.com/git/tutorials
+
     https://tutorial.djangogirls.org/en/django_installation/
