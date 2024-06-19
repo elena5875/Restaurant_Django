@@ -292,13 +292,42 @@ an email is automatically sent to the customer. The mock email can be seen on th
 # Test
 Most of my test were done manually using python3 manage.py runserver code to run the program and manually test all the forms in the website. I have also test my website in Heroku by either manually deploying it or thru Heroku CLI.
 
-The automated test I did was only using the python manage.py test. Which showed django was having issues connecting to PostPostgreSQL database on ElephantSQL when running the tests.
-I have address the issue by making some changes in the settings.py., utils.py and test.py. I have tested the reservation form which has shown no issues. While in my Review form, it has shown
-one issue which is AssertionError: False is not true : Couldn't find 'There was an error with your submission. Please correct the errors below.' in response. I tried to correct the issue but so far 
-I have not yet corrected the issue. 
+The automated test I did was only using the python manage.py test. Which showed the following:
+
+django was having issues connecting to PostPostgreSQL database on ElephantSQL when running the tests.
+solution:
+I have address the issue by making some changes in the settings.py., utils.py and test.py.
+ 
+I have tested the reservation form which has shown no issues. 
+
+While in my Review form, it has shown
+
+one issue which is AssertionError: False is not true : Couldn't find 'There was an error with your submission. 
+
+Please correct the errors below.' in response. I tried to correct the issue but so far 
+
+I have corrected the issue and was able to pass the test on both reservation and review forms
 
 ![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1718781593/runtest_lkgppm.png)
 ![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1718781593/approved_test_reservation_yspr5x.png)
+
+
+# Validation
+
+I have run some of the CSS file thru W3 validtor and showed no issues with the code
+
+![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1718788101/cssvalidation_e2zxnp.png)
+
+While I tried to validate my html file using also W3 validator and it had alot of errors showing. From research it shows that W3 validator could not evaluate Django template tag works hence the
+errors in validation. When I ignore these errors, it will show that there are no errors in my html code for home.html.
+
+![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1718788101/htmlvalidatonwitherrors_dore1h.png)
+
+![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1718788101/htmlvalidationnoerrors_zjxhex.png)
+
+I also validated my Js codes and it showed no issues in jshint validator
+
+![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1718788127/scriptvalidation_lfcsdl.png)
 
 
 # Issues
