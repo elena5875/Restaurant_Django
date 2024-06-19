@@ -10,6 +10,8 @@ The outline of the website is like this
 ![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710487146/sketchomepage_azdo6s.jpg)
 ![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710487146/sketchmenu_d909wj.jpg)
 ![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710487146/scketchreservationpage_k8axeu.jpg)
+![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1718783913/format_for_review_a8xnyb.png)
+
 
 
 
