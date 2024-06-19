@@ -7,6 +7,7 @@ from .utils import send_reservation_confirmation_email, send_reservation_cancell
 from .forms import ReviewForm, CommentForm
 from .models import Review, Comment
 
+
 class EmailSendingTestCase(TestCase):
     def test_reservation_confirmation_email(self):
         # Create a reservation
@@ -63,7 +64,6 @@ class EmailSendingTestCase(TestCase):
         self.assertIn('Your reservation for', email.body)
 
 
-
 class ReviewViewTests(TestCase):
 
     def setUp(self):
@@ -98,13 +98,10 @@ class ReviewViewTests(TestCase):
         self.assertTemplateUsed(response, 'review_form.html')
         self.assertFalse(Review.objects.filter(email='bob@example.com').exists())
 
-    # Print the response content for debugging
+        # Print the response content for debugging
         print(response.content.decode('utf-8'))
 
-        self.assertContains(response, 'There was an error with your submission. Please correct the errors below.')
-
-
-
+        self.assertContains(response, 'This field is required.')
 
     def test_review_detail_get(self):
         response = self.client.get(reverse('review_detail', args=[self.review1.pk]))

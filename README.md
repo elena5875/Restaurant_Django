@@ -13,6 +13,7 @@ The website will have a header with a green background with the following naviga
 Is a short preview of what the restaurant is all about. It has a picture of a fork in a round border.It also shows the opening hours of the restaurant with a pictuer of an OPEN word could be seen.
 ![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710487147/about_us-django_s9eqbl.jpg)
 ![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710487146/openinghours_django_mwhnbu.jpg)
+
 # Location: 
 It will show you the address, tel. number, and email address. User will also be shown how a google map and see where the restaurant is located
 ![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710487146/location_django_c1lzzc.jpg)
@@ -20,6 +21,10 @@ It will show you the address, tel. number, and email address. User will also be 
 # Gallery. 
 The user will see some great photo of what the restaurant is serving. It will also show the character and ambiance of the restaurant. If you hover the mouse in the photo it will increase its size to 5%
 ![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710491385/gallery_django2_khq1lp.jpg)
+
+# Review.
+The user will also see a review and comments section after the gallery. The user will be able to see the comments and reviews from previous users who ate in the restaurant.
+
 # Menu.
 Once the user clicks this navigation tool. It will open into a new page where the user will be shown the full list of what food the restuarant has to offer. It will show the price and what kind of food they prepare in the restaurant.
 ![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710487146/menu-django_idvtfi.jpg)
@@ -31,11 +36,15 @@ The reservation form contains the following :
             Email:
             Phone number:
             Date:
-            Time: (user gets to choose between 5 pm till 11 pm)
+            Time: (user gets to choose between 3 pm till 11 pm)
             Number of people (user gets to choose from 1 till 9 people)
         a note will say if more than 9 people are coming please call the restaurant.
 
-![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710487146/reservationformdjango_yfh2cx.jpg)
+![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1718781594/successful_email_sent_dcviwx.png)
+
+# Write a Review
+Once the user clicks this icon, the user will be brought to another page where the user needs to input its name and a valid email address. The user can then write a comment about the experience he/she encountered while eating at the restaurant. 
+![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1718781594/reviews_fkygbh.png)
 
 # Footer: 
 In here you will see the icon of both facebook and instagram. If you click the icons you will be redirected to the restaurant's socila media sites. Another thing the user will see is the copy right of the fork Logo. 
@@ -43,14 +52,14 @@ In here you will see the icon of both facebook and instagram. If you click the i
 
 # Django Administration. 
 In the administrial side. The admin gets to approve, delete or reject the reservations done by the customers. An automatic email will be generated once the admin has decide to approve or reject the reservation
-![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710487146/site_adminreservation_jo6vgd.jpg)
+![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1718781593/django_admin2_aneh6w.png)
 
-![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710487146/djangoadmin1_g8eaun.jpg)
-
-
+![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1718781593/mock_email2_skipri.png)
 ![Alt text]("https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710487146/delete_approve_reject_fkwjwe.jpg")
 
-
+The administration will also be able to approve, delete, post, reject and comment on the reviews written by the user based on their experience while at the restaurant.
+![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1718781593/email_for_approved_review_trjcpy.png)
+![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710487146/sketchomepage_azdo6s.jpg)
 
 # Wireframing
 Before I started creating the website I had to visualize first what needs to be done. 
@@ -90,30 +99,39 @@ Before getting started, make sure you have the following:
 
 
 
-IDE was gitpod. I started with the following steps to install everything
+IDE used is gitpod. I started with the following steps to install everything
 
 1. Create a New Directory
+  mkdir my_django_project
+  cd my_django_project
 
-2. Navigate to the Project Directory
 
-3. Initialize Git Repository
+2. Initialize Git Repository
+  git init
 
-4. Install Dependencies
+3. Set Up Virtual Environment and Install Dependencies
+  python3 -m venv venv
+  source venv/bin/activate
+  pip install django psycopg2-binary cloudinary django-environ gunicorn
 
-5. Create env.py with the following environment variables
+4. Set Up Cloudinary and PostgreSQL Accounts
+  Sign up for Cloudinary and get your cloud name, API key, and API secret.
+  Sign up for PostgreSQL (e.g., on ElephantSQL) and get your database URL.
+
+6. Create env.py with the following environment variables
+  # env.py
   SECRET_KEY=your-secret-key
   DEBUG=True
-  DATABASE_URL=postgres://username:password@localhost:5432/mydatabase
-  ALLOWED_HOSTS=your-allowed-hosts
+  DATABASE_URL=postgres://siuytvjs:FS4uTNpAhVt7_DUlJlZBAMazj_k5flvQ@cornelius.db.elephantsql.com/siuytvjs
+  ALLOWED_HOSTS=*
   CLOUDINARY_CLOUD_NAME=your-cloudinary-cloud-name
   CLOUDINARY_API_KEY=your-cloudinary-api-key
   CLOUDINARY_API_SECRET=your-cloudinary-api-secret
-  CSRF_TRUSTED_ORIGINS=your-csrf-trusted-origins
-  DEFAULT_FROM_EMAIL=your-default-from-email
+  CSRF_TRUSTED_ORIGINS=https://8000-elena5875-restaurantdja-vfwg9p1t2ot.ws-eu114.gitpod.io
+  GITPOD_WORKSPACE_URL=https://8000-elena5875-restaurantdja-vfwg9p1t2ot.ws-eu114.gitpod.io
+  DEFAULT_FROM_EMAIL=theforkrestaurant@yahoo.com
   EMAIL_BACKEND=django.core.mail.backends.console.EmailBackend
-  ADMIN_EMAIL=your-admin-email
-
-6. Set Up Cloudinary and PostgreSQL account
+  ADMIN_EMAIL=theforkrestaurant@gmail.com
 
 7. Create Project Files
 
@@ -125,13 +143,6 @@ IDE was gitpod. I started with the following steps to install everything
           git push
     *before you push make sure debug is set to False
 
-10. Deploy to Heroku
-
-Here is the Url from heroku
-https://djagnoresto-267ab1695d73.herokuapp.com/
-
-If you want to deploy locally here is the Url
-https://8000-elena5875-restaurantdja-hlvxl9n5m7u.ws-eu114.gitpod.io/
 
 
 OPENING  Heroku thru CLI
@@ -155,6 +166,17 @@ OPENING  Heroku thru CLI
 6. To open the app write
   heroku open
 
+Deploy to Heroku manually 
+
+Here is the Url from heroku
+https://djagnoresto-267ab1695d73.herokuapp.com/
+
+Deploying app locally
+
+If you want to deploy locally here is the Url
+https://8000-elena5875-restaurantdja-hlvxl9n5m7u.ws-eu114.gitpod.io/
+
+
 ## To get inside the Django Admin 
 
 1. Copy paste the Url
@@ -175,12 +197,16 @@ https://8000-elena5875-restaurantdja-hlvxl9n5m7u.ws-eu114.gitpod.io/admin/
 4. You can now edit by either delete, approve or reject both reservation and review. In 
 Review you can also add comments and post the review and comments to the website.
 
+![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710487146/sketchomepage_azdo6s.jpg)
+![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710487146/sketchomepage_azdo6s.jpg)
+
 ## Mock Email.
 
 In the Django Admin, I created a mock email wherein when the admin either rejects, approves, or post a review or reservation
 an email is automatically sent to the customer. The mock email can be seen on the terminal in github or in the logs --tail in heroku.
-insert picture
 
+![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710487146/sketchomepage_azdo6s.jpg)
+![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710487146/sketchomepage_azdo6s.jpg)
 
 
 
@@ -192,7 +218,8 @@ I have address the issue by making some changes in the settings.py., utils.py an
 one issue which is AssertionError: False is not true : Couldn't find 'There was an error with your submission. Please correct the errors below.' in response. I tried to correct the issue but so far 
 I have not yet corrected the issue. 
 
- insert pictures
+![Alt text](https://asset.cloudinary.com/dh5i9qtjf/8e1aedd16a7d9a7cbf18d59f1a2d3468)
+![Alt text](https://asset.cloudinary.com/dh5i9qtjf/acc72e50388d5243fa35cb14c14f3386)
 
 
 # Issues
