@@ -42,9 +42,12 @@ The reservation form contains the following :
         a note will say if more than 9 people are coming please call the restaurant.
 
 ![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1718781594/successful_email_sent_dcviwx.png)
+![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1718782752/toppage_cpy0za.png)
 
 # Write a Review
 Once the user clicks this icon, the user will be brought to another page where the user needs to input its name and a valid email address. The user can then write a comment about the experience he/she encountered while eating at the restaurant. 
+
+![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1718782894/write_a_review_gnm3ha.png)
 
 
 # Footer: 
@@ -60,7 +63,6 @@ In the administrial side. The admin gets to approve, delete or reject the reserv
 
 The administration will also be able to approve, delete, post, reject and comment on the reviews written by the user based on their experience while at the restaurant.
 ![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1718781593/email_for_approved_review_trjcpy.png)
-![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710487146/sketchomepage_azdo6s.jpg)
 
 # Wireframing
 Before I started creating the website I had to visualize first what needs to be done. 
@@ -155,58 +157,58 @@ OPENING  Heroku thru CLI
   heroku login -i
 
 3. You will be asked to enter email and password
-  email is elenafreire75@gmail.com
-  password is HRKU-3e5a6715-3b88-4520-b0b8-bc3aa1e90124
+    email is elenafreire75@gmail.com
+    password is HRKU-3e5a6715-3b88-4520-b0b8-bc3aa1e90124
 
 4. To access the file write the code 
-  heroku git:remote -a djagnoresto
+    heroku git:remote -a djagnoresto
 
 5. Push our code to Heroku using this code 
-  git push heroku main
+    git push heroku main
 
 6. To open the app write
-  heroku open
+    heroku open
 
 Deploy to Heroku manually 
 
 Here is the Url from heroku
-https://djagnoresto-267ab1695d73.herokuapp.com/
+    https://djagnoresto-267ab1695d73.herokuapp.com/
 
 Deploying app locally
 
 If you want to deploy locally here is the Url
-https://8000-elena5875-restaurantdja-hlvxl9n5m7u.ws-eu114.gitpod.io/
+    https://8000-elena5875-restaurantdja-hlvxl9n5m7u.ws-eu114.gitpod.io/
 
 
 ## To get inside the Django Admin 
 
 1. Copy paste the Url
-https://8000-elena5875-restaurantdja-hlvxl9n5m7u.ws-eu114.gitpod.io/admin/
+    https://8000-elena5875-restaurantdja-hlvxl9n5m7u.ws-eu114.gitpod.io/admin/
 
 2. You will be asked to log in. As a user you can use
-  Username: Elena
-  Password: elenagwapa5804
+    Username: Elena
+    Password: elenagwapa5804
 
 3. Once you are inside the Admin. You will be able to see 
-  Groups
-  User
+    Groups
+    User
 
-  Comments
-  Reservation 
-  Review.
+    Comments
+    Reservation 
+    Review.
 
 4. You can now edit by either delete, approve or reject both reservation and review. In 
 Review you can also add comments and post the review and comments to the website.
 
-![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710487146/sketchomepage_azdo6s.jpg)
-![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710487146/sketchomepage_azdo6s.jpg)
+![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1718781593/django_admin2_aneh6w.png)
+![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1718783246/reservation_admin_q2mcoj.png)
 
 ## Mock Email.
 
 In the Django Admin, I created a mock email wherein when the admin either rejects, approves, or post a review or reservation
 an email is automatically sent to the customer. The mock email can be seen on the terminal in github or in the logs --tail in heroku.
 
-![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710487146/sketchomepage_azdo6s.jpg)
+![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1718783246/reviewadmin_wyquss.png)
 ![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710487146/sketchomepage_azdo6s.jpg)
 
 
@@ -219,8 +221,9 @@ I have address the issue by making some changes in the settings.py., utils.py an
 one issue which is AssertionError: False is not true : Couldn't find 'There was an error with your submission. Please correct the errors below.' in response. I tried to correct the issue but so far 
 I have not yet corrected the issue. 
 
-![Alt text](https://asset.cloudinary.com/dh5i9qtjf/8e1aedd16a7d9a7cbf18d59f1a2d3468)
-![Alt text](https://asset.cloudinary.com/dh5i9qtjf/acc72e50388d5243fa35cb14c14f3386)
+![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1718781593/runtest_lkgppm.png)
+![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1718781593/approved_test_reservation_yspr5x.png)
+![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1718781593/email_for_approved_review_trjcpy.png)
 
 
 # Issues
