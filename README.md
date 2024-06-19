@@ -17,66 +17,66 @@ The outline of the website is like this
 
 # Dependencies
 The project relies on several tools and packages to function properly. Here's a list of the main dependencies:
-  Django
-  Heroku
-  Gitpod 
-  Github
-  cloudinary
-  posrtgreSQL
+    Django
+    Heroku
+    Gitpod 
+    Github
+    cloudinary
+    posrtgreSQL
 
 Additionally, the project utilizes the following Python packages/modules:
-  django-crispy-form
-  django-environ
-  django-extensions
-  gunicorn
-  whitenoise
-  psycopg2
+    django-crispy-form
+    django-environ
+    django-extensions
+    gunicorn
+    whitenoise
+    psycopg2
 
 # INSTALLATION and DEPLOYMENT
 
 Before getting started, make sure you have the following:
 
-  - A GitHub account
-  - A Gitpod account 
-  - A Heroku account
-  - A Cloudinary account
-  - Access to a PostgreSQL database
+    - A GitHub account
+    - A Gitpod account 
+    - A Heroku account
+    - A Cloudinary account
+    - Access to a PostgreSQL database
 
 
 
 IDE used is gitpod. I started with the following steps to install everything
 
 1. Create a New Directory
-  mkdir my_django_project
-  cd my_django_project
+    mkdir my_django_project
+    cd my_django_project
 
 
 2. Initialize Git Repository
-  git init
+    git init
 
 3. Set Up Virtual Environment and Install Dependencies
-  python3 -m venv venv
-  source venv/bin/activate
-  pip install django psycopg2-binary cloudinary django-environ gunicorn
+    python3 -m venv venv
+    source venv/bin/activate
+    pip install django psycopg2-binary cloudinary django-environ gunicorn
 
 4. Set Up Cloudinary and PostgreSQL Accounts
-  Sign up for Cloudinary and get your cloud name, API key, and API secret.
-  Sign up for PostgreSQL (e.g., on ElephantSQL) and get your database URL.
+    Sign up for Cloudinary and get your cloud name, API key, and API secret.
+    Sign up for PostgreSQL (e.g., on ElephantSQL) and get your database URL.
 
 6. Create env.py with the following environment variables
-  # env.py
-  SECRET_KEY=your-secret-key
-  DEBUG=True
-  DATABASE_URL=postgres://siuytvjs:FS4uTNpAhVt7_DUlJlZBAMazj_k5flvQ@cornelius.db.elephantsql.com/siuytvjs
-  ALLOWED_HOSTS=*
-  CLOUDINARY_CLOUD_NAME=your-cloudinary-cloud-name
-  CLOUDINARY_API_KEY=your-cloudinary-api-key
-  CLOUDINARY_API_SECRET=your-cloudinary-api-secret
-  CSRF_TRUSTED_ORIGINS=https://8000-elena5875-restaurantdja-vfwg9p1t2ot.ws-eu114.gitpod.io
-  GITPOD_WORKSPACE_URL=https://8000-elena5875-restaurantdja-vfwg9p1t2ot.ws-eu114.gitpod.io
-  DEFAULT_FROM_EMAIL=theforkrestaurant@yahoo.com
-  EMAIL_BACKEND=django.core.mail.backends.console.EmailBackend
-  ADMIN_EMAIL=theforkrestaurant@gmail.com
+    env.py
+    SECRET_KEY=your-secret-key
+    DEBUG=True
+    DATABASE_URL=postgres://siuytvjs:FS4uTNpAhVt7_DUlJlZBAMazj_k5flvQ@cornelius.db.elephantsql.com/siuytvjs
+    ALLOWED_HOSTS=*
+    CLOUDINARY_CLOUD_NAME=your-cloudinary-cloud-name
+    CLOUDINARY_API_KEY=your-cloudinary-api-key
+    CLOUDINARY_API_SECRET=your-cloudinary-api-secret
+    CSRF_TRUSTED_ORIGINS=https://8000-elena5875-restaurantdja-vfwg9p1t2ot.ws-eu114.gitpod.io
+    GITPOD_WORKSPACE_URL=https://8000-elena5875-restaurantdja-vfwg9p1t2ot.ws-eu114.gitpod.io
+    DEFAULT_FROM_EMAIL=theforkrestaurant@yahoo.com
+    EMAIL_BACKEND=django.core.mail.backends.console.EmailBackend
+    ADMIN_EMAIL=theforkrestaurant@gmail.com
 
 7. Create Project Files
 
@@ -184,8 +184,9 @@ The reservation form contains the following :
             Number of people (user gets to choose from 1 till 9 people)
         a note will say if more than 9 people are coming please call the restaurant.
 
-![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1718781594/successful_email_sent_dcviwx.png)
 ![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1718782752/toppage_cpy0za.png)
+![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1718781594/successful_email_sent_dcviwx.png)
+
 
 # Write a Review
 Once the user clicks this icon, the user will be brought to another page where the user needs to input its name and a valid email address. The user can then write a comment about the experience he/she encountered while eating at the restaurant. 
@@ -214,7 +215,7 @@ In the Django Admin, I created a mock email wherein when the admin either reject
 an email is automatically sent to the customer. The mock email can be seen on the terminal in github or in the logs --tail in heroku.
 
 ![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1718783246/reviewadmin_wyquss.png)
-![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710487146/sketchomepage_azdo6s.jpg)
+
 
 
 
@@ -237,27 +238,27 @@ I used codeanywhere and gitpod but both had alot of issue during the time I was 
 
 Due to time constraints, I was not able to link my reservation form to django administration. 
 Django administration is working as I want it to be but my reservation form has a lot of issues, namely:
-  time: the user was supposed to see a dropdown menu where the user can choose between 5pm till 11 pm
+time: the user was supposed to see a dropdown menu where the user can choose between 5pm till 11 pm
 No matter what code I do the dropdown menu would not work in the website but would work in django administration.
 
-  Submit button: When the user clicks the submit button, it should automatically store the data to django admin
+Submit button: When the user clicks the submit button, it should automatically store the data to django admin
      and at the same time create a mock email stating that the reservation has been successful.
 
-I was able to address all the issues that I have mentioned earlier in my work and now the website is working properly both in the django admin site and also in the main website.
+### I was able to address all the issues that I have mentioned earlier in my work and now the website is working properly both in the django admin site and also in the main website.
 
 # Credits
 
 All my pictures are downloaded from pexel.com
-https://www.pexels.com/
-And all the pictures were stored in cloudinary account
-https://console.cloudinary.com/pm/c-27ce96169f2fa7ccae6699f09c4863/developer-dashboard
+    https://www.pexels.com/
+    And all the pictures were stored in cloudinary account
+    https://console.cloudinary.com/pm/c-27ce96169f2fa7ccae6699f09c4863/developer-dashboard
 
 
 # References:
-https://docs.djangoproject.com/en/5.0/ref/contrib/admin/
-https://www.djangoproject.com/start/
-https://learndjango.com/tutorials/django-email-contact-form-tutorial
-https://whitenoise.readthedocs.io/en/stable/django.html#use-a-content-delivery-network
-https://dev.to/thomz/my-django-heroku-checklist-3p72
-https://www.atlassian.com/git/tutorials
-https://tutorial.djangogirls.org/en/django_installation/
+    https://docs.djangoproject.com/en/5.0/ref/contrib/admin/
+    https://www.djangoproject.com/start/
+    https://learndjango.com/tutorials/django-email-contact-form-tutorial
+    https://whitenoise.readthedocs.io/en/stable/django.html#use-a-content-delivery-network
+    https://dev.to/thomz/my-django-heroku-checklist-3p72
+    https://www.atlassian.com/git/tutorials
+    https://tutorial.djangogirls.org/en/django_installation/
