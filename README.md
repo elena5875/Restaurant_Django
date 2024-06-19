@@ -17,6 +17,7 @@ The outline of the website is like this
 
 # Dependencies
 The project relies on several tools and packages to function properly. Here's a list of the main dependencies:
+
     Django
     Heroku
     Gitpod 
@@ -25,6 +26,7 @@ The project relies on several tools and packages to function properly. Here's a 
     posrtgreSQL
 
 Additionally, the project utilizes the following Python packages/modules:
+
     django-crispy-form
     django-environ
     django-extensions
@@ -47,21 +49,24 @@ Before getting started, make sure you have the following:
 IDE used is gitpod. I started with the following steps to install everything
 
 1. Create a New Directory
-    mkdir my_django_project
-    cd my_django_project
+
+    -mkdir my_django_project
+    -cd my_django_project
 
 
 2. Initialize Git Repository
-    git init
+
+    -git init
 
 3. Set Up Virtual Environment and Install Dependencies
-    python3 -m venv venv
-    source venv/bin/activate
-    pip install django psycopg2-binary cloudinary django-environ gunicorn
+
+    -python3 -m venv venv
+    -source venv/bin/activate
+    -pip install django psycopg2-binary cloudinary django-environ gunicorn
 
 4. Set Up Cloudinary and PostgreSQL Accounts
-    Sign up for Cloudinary and get your cloud name, API key, and API secret.
-    Sign up for PostgreSQL (e.g., on ElephantSQL) and get your database URL.
+    -Sign up for Cloudinary and get your cloud name, API key, and API secret.
+    -Sign up for PostgreSQL (e.g., on ElephantSQL) and get your database URL.
 
 6. Create env.py with the following environment variables
     env.py
@@ -83,9 +88,10 @@ IDE used is gitpod. I started with the following steps to install everything
 8. Start Coding
 
 9. Commit Changes
-    using git add .
-          git commit -m "initial commit"
-          git push
+
+    -using git add .
+    -git commit -m "initial commit"
+    -git push
     *before you push make sure debug is set to False
 
 
@@ -93,32 +99,41 @@ IDE used is gitpod. I started with the following steps to install everything
 OPENING  Heroku thru CLI
 
 1. Install Heroku CLI using this code
+
   curl https://cli-assets.heroku.com/install.sh | sh
 
 2. Login to Heroku using this code
+
   heroku login -i
 
 3. You will be asked to enter email and password
+
     email is elenafreire75@gmail.com
+
     password is HRKU-3e5a6715-3b88-4520-b0b8-bc3aa1e90124
 
 4. To access the file write the code 
+
     heroku git:remote -a djagnoresto
 
 5. Push our code to Heroku using this code 
+
     git push heroku main
 
 6. To open the app write
+
     heroku open
 
 Deploy to Heroku manually 
 
 Here is the Url from heroku
+
     https://djagnoresto-267ab1695d73.herokuapp.com/
 
 Deploying app locally
 
 If you want to deploy locally here is the Url
+
     https://8000-elena5875-restaurantdja-hlvxl9n5m7u.ws-eu114.gitpod.io/
 
 
