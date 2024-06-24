@@ -333,6 +333,18 @@ I also validated my Js codes and it showed no issues in jshint validator
 
 ![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1718788127/scriptvalidation_lfcsdl.png)
 
+# Screen Responsive
+
+I tested the webpage for screen responsive and the webpage responds well to different screen types.
+For smaller screen the user can slide the webpage horizontally to see all the navigation menu.
+However, in phone screens in order to see the navigation menu bar it needs to be in a landscape mode and 
+it can also slide horizontally to see the complete navigation menu.
+
+
+![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1719220076/responsive_screenshot_smdxc1.png)
+![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1719220223/Screenshotforphonescreens_v0vm5v.png)
+
+
 
 # Issues
 IDE's would sometimes not open or worst my work would just suddenly disappear. 
