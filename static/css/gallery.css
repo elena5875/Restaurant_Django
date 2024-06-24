@@ -35,11 +35,4 @@
 .gallery-content {
     background-color: #f0f0f0; 
     padding: 20px; 
-
-@media (max-width: 600px) {
-    /* Adjust styles for smaller screens */
-    .gallery-images img {
-        width: 100px; 
-        height: auto; 
-    }
 }

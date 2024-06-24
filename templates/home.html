@@ -1,5 +1,4 @@
-<!-- home.html -->
-
+<!--home.html-->
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -15,6 +14,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/gallery.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/location.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/review.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/media_queries.css' %}">
 
     <!-- Use CDN for jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLR1Tfoq5+5zeLgBqJ6X7r4Zz6F6ch0O9oZ5Z" crossorigin="anonymous"></script>
@@ -23,23 +23,27 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ775eu5yJmzih6MZ8TTpG44E8T8pN9FZDp6" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 </head>
+
 <body>
     <header>
-        <div class="header-content">
-            <h1 class="logo">THE FORK</h1>
-            <nav>
-                <ul>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#location">Location</a></li>
-                    <li><a href="#gallery">Gallery</a></li>
-                    <li><a href="{% url 'menu' %}" target="_blank">Menu</a></li>
-                    <li><a href="{% url 'reservation' %}" target="_blank">Reservation</a></li>
-                    <li><a href="{% url 'review_create' %}" target="_blank">Write a Review</a></li>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">THE FORK</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#location">Location</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'menu' %}" target="_blank">Menu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'reservation' %}" target="_blank">Reservation</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'review_create' %}" target="_blank">Write a Review</a></li>
                 </ul>
-            </nav>
-        </div>
+            </div>
+        </nav>
     </header>
-
+    
     <section id="about">
         <div class="about-content">
             <div class="about-image-container">
@@ -90,7 +94,6 @@
         </div>
     </section>
 
-    <!-- Reviews Section -->
     <section id="reviews">
         <h2 class="section-heading">Reviews</h2>
         <div class="reviews-content">
@@ -136,4 +139,5 @@
 
     <script src="{% static 'js/script.js' %}"></script>
 </body>
+
 </html>

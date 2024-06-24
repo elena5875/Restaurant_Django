@@ -1,24 +1,23 @@
-// script.js
 window.addEventListener('load', function() {
-    adjustImagePlacement();
+    adjustGalleryImages();
+    window.addEventListener('resize', adjustGalleryImages);
 });
 
-function adjustImagePlacement() {
-    var gallery = document.getElementById('gallery');
+function adjustGalleryImages() {
+    var gallery = document.querySelector('.gallery-images');
     var images = gallery.getElementsByTagName('img');
 
-    var totalWidth = 0;
-    for (var i = 0; i < images.length; i++) {
-        totalWidth += images[i].offsetWidth;
-    }
-
-    var availableWidth = gallery.offsetWidth;
-    var imagesPerRow = Math.floor(availableWidth / (images[0].offsetWidth + 20));
-
-    var margin = (availableWidth - (imagesPerRow * images[0].offsetWidth)) / (6 * imagesPerRow);
-
-    for (var i = 0; i < images.length; i++) {
-        images[i].style.marginLeft = margin + 'px';
-        images[i].style.marginRight = margin + 'px';
+    if (window.innerWidth <= 600) {
+        for (var i = 0; i < images.length; i++) {
+            if (i >= 6) {
+                images[i].style.display = 'none';
+            } else {
+                images[i].style.display = 'block';
+            }
+        }
+    } else {
+        for (var i = 0; i < images.length; i++) {
+            images[i].style.display = 'block';
+        }
     }
 }

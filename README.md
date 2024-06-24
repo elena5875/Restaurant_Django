@@ -343,6 +343,9 @@ Django administration is working as I want it to be but my reservation form has 
 time: the user was supposed to see a dropdown menu where the user can choose between 5pm till 11 pm
 No matter what code I do the dropdown menu would not work in the website but would work in django administration.
 
+I have encountered also an issue where the in smaller screens the gallery pictures and the menu icons are not all displayed or 
+the pictures are too big.
+
 Submit button: When the user clicks the submit button, it should automatically store the data to django admin
      and at the same time create a mock email stating that the reservation has been successful.
 

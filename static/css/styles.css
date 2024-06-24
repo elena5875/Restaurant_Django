@@ -4,51 +4,51 @@
 header {
     background-image: url('https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809874/fork.jpg');
     background-size: cover;
-    padding: 40px 0; 
-    text-align: center; 
+    padding: 40px 0;
+    text-align: center;
 }
 
 .header-content {
-    margin-bottom: 40px; 
+    margin-bottom: 40px;
 }
 
 .logo {
-    color: white; 
-    margin: 0; 
-    font-size: 50px; 
+    color: white;
+    margin: 0;
+    font-size: 50px;
 }
 
 nav ul {
     list-style-type: none;
-    display: flex; 
-    justify-content: center; 
-    margin: 0; 
-    padding: 0; 
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
 }
 
 nav li {
-    margin-right: 40px; 
+    margin-right: 40px;
 }
 
 nav a {
-    color: white; 
-    text-decoration: none; 
+    color: white;
+    text-decoration: none;
 }
 
-
+/* Center content */
 .center-content {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+/* About section styles */
 .about-text {
-    text-align: center; 
-    padding: 30px; 
-    margin: 20px; 
+    text-align: center;
+    padding: 30px;
+    margin: 20px;
 }
 
-/* About section styles */
 .about-text p {
     font-size: 24px;
     font-family: sans-serif;
@@ -79,14 +79,14 @@ nav a {
 }
 
 /* Reviews Section */
-.section-heading  {
+.section-heading {
     text-align: center;
-    font-family: sans-serif; 
-    font-weight: bold; 
-    color: blue; 
-    font-size: 30px; 
-    margin: 20px 0; 
-    padding: 10px; 
+    font-family: sans-serif;
+    font-weight: bold;
+    color: blue;
+    font-size: 30px;
+    margin: 20px 0;
+    padding: 10px;
 }
 
 .reviews-content {
@@ -127,11 +127,11 @@ nav a {
 /* Footer styles */
 footer {
     margin-top: 50px; /* Push the footer down */
-    background-color: #444; 
-    text-align: center; 
-    display: flex; 
-    flex-direction: column; 
-    align-items: center; 
+    background-color: #444;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* Social icons and copyright styles */
@@ -146,4 +146,16 @@ footer {
     width: 80px;
     height: 80px;
     margin-right: 10px;
+}
+
+/* Navbar styles for horizontal scrolling on small screens */
+.navbar-nav {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS */
+}
+
+.nav-item {
+    flex: 0 0 auto; /* Prevent the items from shrinking or growing */
 }
