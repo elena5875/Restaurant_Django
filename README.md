@@ -340,8 +340,10 @@ For smaller screen the user can slide the webpage horizontally to see all the na
 However, in phone screens in order to see the navigation menu bar it needs to be in a landscape mode and 
 it can also slide horizontally to see the complete navigation menu.
 
-
+picture of screen responsive for the webpage
 ![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1719220076/responsive_screenshot_smdxc1.png)
+
+For phone screens in landscape mode
 ![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1719220223/Screenshotforphonescreens_v0vm5v.png)
 
 
