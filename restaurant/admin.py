@@ -5,8 +5,8 @@ from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 from django.conf import settings
-from .models import Reservation, Review, Comment
-from .forms import ReservationAdminForm
+from .forms import ReservationAdminForm  
+from .models import Reservation, Review, Comment 
 
 class ReservationAdmin(admin.ModelAdmin):
     form = ReservationAdminForm
@@ -39,6 +39,7 @@ class ReservationAdmin(admin.ModelAdmin):
             message = render_to_string('reservation_approved_email.html', {'reservation': reservation})
             plain_message = strip_tags(message)
             send_mail(subject, plain_message, settings.DEFAULT_FROM_EMAIL, [reservation.email], html_message=message)
+
 
 class CommentInline(admin.TabularInline):
     model = Comment

@@ -26,7 +26,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY", '(buk#6n2v%(rh_#nouc79jlt*4lbk-nh=(c_5
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DEBUG", "True") == "True"
 
-ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", '*').split(',')
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '8000-elena5875-restaurantdja-y713ht9ewxi.ws.codeinstitute-ide.net']
 
 # Application definition
 
@@ -140,14 +140,17 @@ cloudinary.config(
     api_secret=os.environ.get('CLOUDINARY_API_SECRET', '7ekPLUqJq0Od4eD2zBi5gufWl7w')
 )
 
-# Add CSRF trusted origins
+# CSRF Trusted Origins
 CSRF_TRUSTED_ORIGINS = os.environ.get('CSRF_TRUSTED_ORIGINS', '').split(',')
-GITPOD_WORKSPACE_URL = os.environ.get('GITPOD_WORKSPACE_URL')
-if GITPOD_WORKSPACE_URL:
-    CSRF_TRUSTED_ORIGINS.append(GITPOD_WORKSPACE_URL)
 
-# Add wildcard for Gitpod subdomains
-CSRF_TRUSTED_ORIGINS += ['https://*.gitpod.io']
+# Code Institute Workspace URL
+CODEINSTITUTE_WORKSPACE_URL = 'https://8000-elena5875-restaurantdja-y713ht9ewxi.ws.codeinstitute-ide.net'
+
+# Add Code Institute workspace URL to CSRF trusted origins
+CSRF_TRUSTED_ORIGINS.append(CODEINSTITUTE_WORKSPACE_URL)
+
+# Add wildcard for Code Institute subdomains
+CSRF_TRUSTED_ORIGINS += ['https://*.codeinstitute-ide.net']
 
 # Email settings
 DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL', 'theforkrestaurant@yahoo.com')
