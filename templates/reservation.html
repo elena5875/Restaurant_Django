@@ -1,15 +1,9 @@
 <!-- reservation.html -->
+{% extends "base.html" %}
 
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reservation</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/reservation.css' %}">
-</head>
-<body>
+{% block title %}Reservation - THE FORK{% endblock %}
+
+{% block content %}
     <div class="reservation-box">
         <h2 class="note">Reservation Form</h2>
         <form method="post" action="{% url 'reservation' %}">
@@ -18,6 +12,5 @@
             <input type="submit" value="Submit">
         </form>
     </div>
-    <script src="{% static 'js/reservation.js' %}"></script>
-</body>
-</html>
+    
+{% endblock %}

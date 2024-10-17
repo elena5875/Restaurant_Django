@@ -1,0 +1,287 @@
+/* media_queries.css */
+
+/* Media queries for gallery */
+@media (max-width: 600px) {
+    .gallery-images img {
+        width: 100px;
+        height: auto;
+    }
+
+    /* Show only 6 images on smaller screens */
+    .gallery-images img:nth-child(n+7) {
+        display: none;
+    }
+}
+
+/* Media queries for other sections */
+@media (max-width: 1200px) {
+    .reviews-content .review {
+        width: calc(50% - 20px); /* 2 columns with 10px gap */
+        margin: 10px;
+    }
+}
+
+@media (max-width: 800px) {
+    .logo {
+        font-size: 30px;
+    }
+
+    nav ul {
+        display: flex;
+        justify-content: flex-start;
+        overflow-x: auto;
+    }
+
+    nav li {
+        margin-right: 20px;
+    }
+
+    .navbar-nav {
+        padding: 0 10px; /* Add some padding to the nav */
+    }
+
+    .nav-item {
+        margin-right: 10px; /* Adjust spacing between nav items */
+    }
+
+    .reviews-content .review {
+        width: calc(100% - 20px); /* 1 column with 10px gap */
+        margin: 10px 0;
+    }
+
+    .about-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .open {
+        width: 150px;
+    }
+}
+
+@media (max-width: 600px) {
+    header {
+        padding: 20px 0;
+    }
+
+    .logo {
+        font-size: 30px;
+    }
+
+    .about-content {
+        padding: 10px;
+    }
+
+    .about-image {
+        width: 200px;
+        height: 200px;
+    }
+
+    .about-text {
+        font-size: 18px;
+        text-align: center;
+    }
+
+    .about-text h2 {
+        font-size: 30px;
+    }
+
+    .about-text p {
+        font-size: 24px;
+    }
+
+    .reservation-box {
+        padding: 10px;
+    }
+
+    .navbar-nav {
+        justify-content: flex-start;
+        padding: 0 10px; /* Add padding to make scrolling easier */
+    }
+
+    .navbar-collapse {
+        overflow-x: auto; /* Enable horizontal scrolling for the collapse area */
+        -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS */
+    }
+
+    .nav-item {
+        margin-right: 10px; /* Adjust spacing between nav items */
+    }
+
+    /* Ensure the navbar brand is visible and the menu toggler is functional */
+    .navbar-brand {
+        flex: 0 0 auto; /* Prevent shrinking */
+    }
+
+    .navbar-toggler {
+        margin-left: auto; /* Move toggler to the right */
+    }
+
+    .reviews-content .review {
+        width: calc(100% - 20px);
+        margin: 10px 0;
+    }
+}
+
+@media (max-width: 400px) {
+    .success-message p {
+        font-size: 20px;
+    }
+
+    .review-form-page .review-container {
+        padding: 10px;
+    }
+
+    .reservation-box h2 {
+        font-size: 18px;
+    }
+
+    .logo {
+        font-size: 24px; /* Adjust logo size for smaller screens */
+    }
+
+    .header-content {
+        padding: 20px 0;
+    }
+
+    .about-content {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .about-text p {
+        font-size: 16px;
+    }
+
+    .open {
+        width: 120px;
+    }
+
+    .reviews-content .review {
+        width: calc(100% - 20px);
+        margin: 10px 0;
+    }
+
+    .gallery-images img {
+        width: 80px;
+        height: auto;
+    }
+
+    /* Show only 4 images on smaller screens */
+    .gallery-images img:nth-child(n+5) {
+        display: none;
+    }
+
+    .success-message p {
+        font-size: 18px;
+    }
+
+    .review-form-page .review-container {
+        padding: 8px;
+    }
+
+    .reservation-box h2 {
+        font-size: 16px;
+    }
+
+    .reservation-box {
+        padding: 8px;
+    }
+
+    .navbar-nav {
+        justify-content: flex-start;
+        padding: 0 5px; /* Add padding to make scrolling easier */
+        overflow-x: auto; /* Enable horizontal scrolling */
+        -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS */
+    }
+
+    .navbar-collapse {
+        overflow-x: auto; /* Enable horizontal scrolling for the collapse area */
+        -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS */
+    }
+
+    .nav-item {
+        flex: 0 0 auto; /* Prevent the items from shrinking or growing */
+        margin-right: 5px; /* Adjust spacing between nav items */
+    }
+
+    .navbar-brand {
+        flex: 0 0 auto; /* Prevent shrinking */
+    }
+
+    .navbar-toggler {
+        margin-left: auto; /* Move toggler to the right */
+    }
+}
+
+/* Media queries specifically for very small phone screens */
+@media (max-width: 320px) {
+    .logo {
+        font-size: 20px; /* Adjust logo size for very small screens */
+    }
+
+    .about-text p {
+        font-size: 14px; /* Adjust text size for very small screens */
+    }
+
+    .open {
+        width: 100px; /* Adjust image size for very small screens */
+    }
+
+    .reviews-content .review {
+        width: 100%; /* Full width for reviews on very small screens */
+        margin: 5px 0; /* Adjust margin for reviews */
+    }
+
+    .gallery-images img {
+        width: 60px; /* Adjust image size for very small screens */
+        height: auto;
+    }
+
+    /* Show only 3 images on very small screens */
+    .gallery-images img:nth-child(n+4) {
+        display: none;
+    }
+
+    .success-message p {
+        font-size: 16px; /* Adjust text size for very small screens */
+    }
+
+    .review-form-page .review-container {
+        padding: 5px; /* Adjust padding for very small screens */
+    }
+
+    .reservation-box h2 {
+        font-size: 14px; /* Adjust heading size for very small screens */
+    }
+
+    .reservation-box {
+        padding: 5px; /* Adjust padding for very small screens */
+    }
+
+    .navbar-nav {
+        justify-content: flex-start;
+        padding: 0 2px; /* Add padding to make scrolling easier */
+        overflow-x: auto; /* Enable horizontal scrolling */
+        -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS */
+    }
+
+    .navbar-collapse {
+        overflow-x: auto; /* Enable horizontal scrolling for the collapse area */
+        -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS */
+    }
+
+    .nav-item {
+        flex: 0 0 auto; /* Prevent the items from shrinking or growing */
+        margin-right: 2px; /* Adjust spacing between nav items */
+    }
+
+    .navbar-brand {
+        flex: 0 0 auto; /* Prevent shrinking */
+    }
+
+    .navbar-toggler {
+        margin-left: auto; /* Move toggler to the right */
+    }
+}

@@ -35,27 +35,6 @@ nav a {
     text-decoration: none;
 }
 
-/* Navbar styles for horizontal scrolling on small screens */
-.navbar-nav {
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS */
-}
-
-.nav-item {
-    flex: 0 0 auto; /* Prevent the items from shrinking or growing */
-}
-
-.navbar-brand {
-    font-size: 80px;  /* Increase this value to make the text larger */
-    font-weight: bold;  /* Optional: make the text bold */
-    color: white;  /* Keep the text color white */
-    text-transform: uppercase;  /* Optional: make the text uppercase */
-}
-
-
-
 /* Center content */
 .center-content {
     display: flex;
@@ -165,8 +144,8 @@ footer {
 
 /* Facebook and Instagram icon styles */
 .social-icons-footer a img {
-    width: 30px; /* Reduced icon size */
-    height: 30px; /* Reduced icon size */
+    width: 20px; /* Reduced icon size */
+    height: 20px; /* Reduced icon size */
     margin-right: 5px; /* Reduced space between icons */
 }
 
@@ -182,8 +161,14 @@ footer p {
 }
 
 
-@media (max-width: 768px) {
-    .navbar-brand {
-        font-size: 50px;  /* Smaller size for smaller screens */
-    }
+/* Navbar styles for horizontal scrolling on small screens */
+.navbar-nav {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS */
+}
+
+.nav-item {
+    flex: 0 0 auto; /* Prevent the items from shrinking or growing */
 }

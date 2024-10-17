@@ -1,161 +1,97 @@
 /* styles.css */
+/* General Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    padding: 20px;
+}
 
 /* Header styles */
 header {
     background-image: url('https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809874/fork.jpg');
     background-size: cover;
+    background-position: center;
+    color: white;
     padding: 40px 0;
     text-align: center;
-}
-
-.header-content {
-    margin-bottom: 40px;
+    width: 100%;
 }
 
 .logo {
-    color: white;
-    margin: 0;
-    font-size: 50px;
-}
-
-nav ul {
-    list-style-type: none;
-    display: flex;
-    justify-content: center;
-    margin: 0;
-    padding: 0;
-}
-
-nav li {
-    margin-right: 40px;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-}
-
-/* Center content */
-.center-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-/* About section styles */
-.about-text {
-    text-align: center;
-    padding: 30px;
-    margin: 20px;
-}
-
-.about-text p {
-    font-size: 24px;
-    font-family: sans-serif;
-}
-
-.about-content {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.open {
-    width: 200px; /* Adjust size as needed */
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 50%; /* Make the image round */
-}
-
-.open-hours-section {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-.opening-hours {
-    color: white;
-    margin-left: 20px; /* Add some space between the image and text */
-}
-
-/* Reviews Section */
-.section-heading {
-    text-align: center;
-    font-family: sans-serif;
+    font-size: 100px; /* font size */
     font-weight: bold;
-    color: blue;
-    font-size: 30px;
-    margin: 20px 0;
-    padding: 10px;
-}
-
-.reviews-content {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-}
-
-.review {
-    border: 2px solid #333; /* Dark border */
-    border-radius: 5px;
-    padding: 15px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: calc(33.333% - 40px); /* 3 columns with 20px gap */
-    box-sizing: border-box;
-}
-
-.review h3 {
-    margin-top: 0;
-}
-
-.review p {
-    margin-bottom: 0;
-}
-
-.comment-list {
-    list-style-type: none;
-    padding: 0;
-}
-
-.comment-list li {
-    border-top: 1px solid #ddd;
-    padding: 5px 0;
+    color: white;
+    text-transform: uppercase;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
 }
 
 /* Footer styles */
 footer {
-    margin-top: 50px; /* Push the footer down */
     background-color: #444;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 20px;
 }
 
-/* Social icons and copyright styles */
-.social-icons-footer,
-.copyright {
-    margin-top: 20px;
-    color: white;
+.social-icons-footer {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
 }
 
-/* Facebook and Instagram icon styles */
 .social-icons-footer a img {
-    width: 80px;
-    height: 80px;
+    width: 24px;
+    height: 24px;
     margin-right: 10px;
 }
 
-/* Navbar styles for horizontal scrolling on small screens */
+.social-icons-footer a:last-child img {
+    margin-right: 0;
+}
+
+footer p {
+    color: white;
+    font-size: 12px;
+}
+
+/* Menu Page Specific */
+.menu {
+    text-align: center;
+}
+
+.menu-img {
+    max-width: 50%; /* Reduce the size of the menu images */
+    margin: 20px auto;
+    display: block;
+}
+
+/* Center the navbar items */
+.navbar {
+    justify-content: center; /* Center the navbar horizontally */
+}
+
 .navbar-nav {
     display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS */
+    justify-content: center; /* Center the nav items within the navbar */
+    width: 100%; /* Ensure the navbar spans the full width */
 }
 
 .nav-item {
-    flex: 0 0 auto; /* Prevent the items from shrinking or growing */
+    margin: 0 15px; /* Adjust spacing between nav items */
+}
+
+.navbar-brand {
+    font-size: 80px;  /* Larger font size for the brand */
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+    margin-right: 20px; /* Space the brand away from nav items */
 }

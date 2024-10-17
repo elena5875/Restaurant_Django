@@ -1,0 +1,49 @@
+<!--base.html-->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}THE FORK{% endblock %}</title>
+    <!-- Bootstrap and jQuery -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/media_queries.css' %}">
+    <link rel="stylesheet" href="{% static 'css/about.css' %}">
+    <link rel="stylesheet" href="{% static 'css/gallery.css' %}">
+    <link rel="stylesheet" href="{% static 'css/location.css' %}">
+    <link rel="stylesheet" href="{% static 'css/review.css' %}">
+
+    
+    
+    
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <a class="navbar-brand logo" href="#">THE FORK</a> <!-- Logo only -->
+    </header>
+
+    <!-- Content Block -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="social-icons-footer">
+            <a href="https://www.facebook.com"><img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1709145560/facebook_si0l95.png" alt="Facebook"></a>
+            <a href="https://www.instagram.com"><img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1709145560/instagram_kywtcn.png" alt="Instagram"></a>
+        </div>
+        <p>&copy; 2024 THE FORK. All rights reserved.</p>
+    </footer>
+
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

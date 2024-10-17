@@ -1,143 +1,105 @@
 <!--home.html-->
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-eval';">
+{% block title %}Home - THE FORK{% endblock %}
 
-    <title>THE FORK</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/about.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/gallery.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/location.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/review.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/media_queries.css' %}">
+{% block content %}
+<!-- Navigation Bar Section -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
+            <li class="nav-item"><a class="nav-link" href="#location">Location</a></li>
+            <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'menu' %}">Menu</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'reservation' %}">Reservation</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'review_create' %}">Write a Review</a></li>
+        </ul>
+    </div>
+</nav>
 
-    <!-- Use CDN for jQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLR1Tfoq5+5zeLgBqJ6X7r4Zz6F6ch0O9oZ5Z" crossorigin="anonymous"></script>
 
-    <!-- Use CDN for Bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ775eu5yJmzih6MZ8TTpG44E8T8pN9FZDp6" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-</head>
-
-<body>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="#">THE FORK</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#location">Location</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'menu' %}" target="_blank">Menu</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'reservation' %}" target="_blank">Reservation</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'review_create' %}" target="_blank">Write a Review</a></li>
-                </ul>
-            </div>
-        </nav>
-    </header>
-    
-    <section id="about">
-        <div class="about-content">
-            <div class="about-image-container">
-                <img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809874/fork.jpg" alt="Fork" class="about-image">
-            </div>
-            <div class="about-text">
-                <h2>About Us</h2>
-                <p>We are a newly opened restaurant where your palates will be excited to taste the finest and freshest food you'll ever get.</p>
-                <p> We specialize in desserts and Italian Cuisine. We are also located at the heart of Stockholm City, Sweden.</p>
-                <p>Come and have a great time at The Fork Restaurant!!!</p>
-            </div>
-            <div class="open-hours-section">
-                <img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809908/opensign_x6isu3.jpg" alt="Open" class="open">
-                <div class="opening-hours">
-                    <h2>OPENING HOURS</h2>
-                    <p>Tuesday till Sunday</p>
-                    <p>5pm till 12 midnight</p>
-                    <p> For inquiries call: 0769258525</p>
-                </div>
-            </div>
+<!-- Homepage Sections -->
+<section id="about">
+    <div class="about-content">
+        <div class="about-image-container">
+            <img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809874/fork.jpg" alt="Fork" class="about-image">
         </div>
-    </section>
-
-    <section id="gallery">
-        <h2 class="gallery-heading">G A L L E R Y</h2>
-        <div class="gallery-content">
-            <div class="gallery-images">
-                <img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809910/pancake_qtecba.jpg" alt="pancake">
-                <img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809936/salad_owwemr.jpg" alt="salad">
-                <img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809941/slicedcake_jajzwj.jpg" alt="sliced_cake">
-                <img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809943/steak_u2plrv.jpg" alt="steak">
-                <img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809913/pasta_qz2ndg.jpg" alt="pasta">
-                <img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809920/prepfood2_j2yipj.jpg" alt="Italian">
-                <img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809923/preparation_eprhrw.jpg" alt="food">
-                <img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809900/location4_lxwnaf.jpg" alt="outdoors">
-                <img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809890/insidelocation6_tb1azn.jpg" alt="indoors">
-                <img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809888/insidelocation5_agynax.jpg" alt="ambiance">
-                <img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809892/lecheflan_jq6fa7.jpg" alt="Flan">
-                <img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809877/icecream_ouue3d.jpg" alt="Ice_cream">
-                <img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809925/purplecake_jrfn58.jpg" alt="Purple_Cake">
-                <img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809898/location3_qr2l8j.jpg" alt="Location">
-                <img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708195362/samples/food/pot-mussels.jpg" alt="Pot">
-                <img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708195360/samples/food/dessert.jpg" alt="Pie">
-                <img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809886/insidelocation4_umid2r.jpg" alt="Inside_resto">
-                <img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809896/location2_m21tor.jpg" alt="outdoor_seat">
-                <img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809946/topviewfood_o5v9ga.jpg" alt="Feast">
-            </div>
+        <div class="open-hours-section">
+            <h2>About Us</h2>
+            <p>We are a newly opened restaurant where your palates will be excited to taste the finest and freshest food you'll ever get.</p>
+            <p>We specialize in desserts and Italian Cuisine. We are also located at the heart of Stockholm City, Sweden.</p>
+            <p>Come and have a great time at The Fork Restaurant!</p>
+            <h2>OPENING HOURS</h2>
+            <p>Tuesday till Sunday</p>
+            <p>5pm till 12 midnight</p>
+            <p>For inquiries call: 0769258525</p>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section id="reviews">
-        <h2 class="section-heading">Reviews</h2>
-        <div class="reviews-content">
-            {% for review in reviews %}
-            <div class="review">
-                <h3>{{ review.name }}</h3>
-                <p>{{ review.review_text }}</p>
-                <ul class="comment-list">
-                    {% for comment in review.comments.all|slice:":5" %}
-                    <li>{{ comment.comment_text }}</li>
-                    {% endfor %}
-                </ul>
-            </div>
-            {% endfor %}
+
+<section id="gallery">
+    <h2 class="gallery-heading">G A L L E R Y</h2>
+    <div class="gallery-content">
+        <div class="gallery-images">
+            <img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809910/pancake_qtecba.jpg" alt="pancake">
+            <img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809936/salad_owwemr.jpg" alt="salad">
+            <img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809941/slicedcake_jajzwj.jpg" alt="sliced_cake">
+            <img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809943/steak_u2plrv.jpg" alt="steak">
+            <img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809913/pasta_qz2ndg.jpg" alt="pasta">
+            <img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809920/prepfood2_j2yipj.jpg" alt="Italian">
+            <img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809923/preparation_eprhrw.jpg" alt="food">
+            <img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809900/location4_lxwnaf.jpg" alt="outdoors">
+            <img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809890/insidelocation6_tb1azn.jpg" alt="indoors">
+            <img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809888/insidelocation5_agynax.jpg" alt="ambiance">
+            <img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809892/lecheflan_jq6fa7.jpg" alt="Flan">
+            <img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809877/icecream_ouue3d.jpg" alt="Ice_cream">
+            <img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809925/purplecake_jrfn58.jpg" alt="Purple_Cake">
+            <img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809898/location3_qr2l8j.jpg" alt="Location">
+            <img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708195362/samples/food/pot-mussels.jpg" alt="Pot">
+            <img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708195360/samples/food/dessert.jpg" alt="Pie">
+            <img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809886/insidelocation4_umid2r.jpg" alt="Inside_resto">
+            <img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809896/location2_m21tor.jpg" alt="outdoor_seat">
+            <img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809946/topviewfood_o5v9ga.jpg" alt="Feast">
         </div>
-    </section>
+    </div>
+</section>
 
-    <section id="location">
-        <h2 class="section-heading">L O C A T I O N</h2>
-        <div class="location-content">
-            <div class="contact-info">
-                <h3>How to Contact Us:</h3>
-                <p>Email: thefork@gmail.com</p>
-                <p>Phone: 0769258525</p>
-                <p>Address: Eriksgrand 15, 17754 Stockholm City, Sweden</p>
-                <a href="{% url 'reservation' %}">Make a Reservation</a>
-            </div>
-            <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d203287.8242936968!2d18.063240085694854!3d59.33459114215899!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f76436abacecf%3A0x4007f44ef17f5a1!2sStockholm%2C%20Sweden!5e0!3m2!1sen!2sus!4v1646055671067!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-            </div>
+<section id="reviews">
+    <h2 class="section-heading">Reviews</h2>
+    <div class="reviews-content">
+        {% for review in reviews %}
+        <div class="review-card">
+            <h3>{{ review.name }}</h3>
+            <p class="review-text">{{ review.review_text }}</p>
+            <ul class="comment-list">     
+                {% for comment in review.comments.all|slice:":5" %}
+                <li>{{ comment.comment_text }}</li>
+                {% endfor %}
+            </ul>
         </div>
-    </section>
+        {% endfor %}
+    </div>
+</section>
 
-    <footer>
-        <!-- Facebook and Instagram icons -->
-        <div class="social-icons-footer">
-            <a href="https://www.facebook.com"><img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1709145560/facebook_si0l95.png" alt="Facebook"></a>
-            <a href="https://www.instagram.com"><img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1709145560/instagram_kywtcn.png" alt="Instagram"></a>
+
+<section id="location">
+    <h2 class="section-heading">L O C A T I O N</h2>
+    <div class="location-content">
+        <div class="contact-info">
+            <h3>How to Contact Us:</h3>
+            <p>Email: thefork@gmail.com</p>
+            <p>Phone: 0769258525</p>
+            <p>Address: Eriksgrand 15, 17754 Stockholm City, Sweden</p>
+            <a href="{% url 'reservation' %}">Make a Reservation</a>
         </div>
-        <!-- Copyright notice -->
-        <p>&copy; 2024 THE FORK. All rights reserved.</p>
-    </footer>
-
-    <script src="{% static 'js/script.js' %}"></script>
-</body>
-
-</html>
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d203287.8242936968!2d18.063240085694854!3d59.33459114215899!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f76436abacecf%3A0x4007f44ef17f5a1!2sStockholm%2C%20Sweden!5e0!3m2!1sen!2sus!4v1646055671067!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </div>
+</section>
+{% endblock %}

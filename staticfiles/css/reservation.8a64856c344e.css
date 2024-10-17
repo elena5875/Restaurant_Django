@@ -1,45 +1,18 @@
 /* reservation.css */
 
+
 body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
     background-image: url('https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809932/reserved_ri1tln.jpg');
-    background-size: contain; /* Ensure the whole image is visible */
-    background-repeat: no-repeat;
+    background-size: cover;
     background-position: center;
     height: 100vh; /* Ensure full height */
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    color: white;
-}
-
-/* Header styles */
-header {
-    background-image: url('https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809874/fork.jpg'); /* Use the same background as other pages */
-    background-size: cover;
-    background-position: center;
-    color: white;
-    padding: 40px 0;
-    text-align: center;
-    width: 100%;
-}
-
-.logo {
-    font-size: 70px; /* Font size for the logo text */
-    font-weight: bold;
-    text-transform: uppercase;
-    color: white;
-}
-
-/* Footer styles */
-footer {
-    background-color: rgba(0, 0, 0, 0.5); /* Keep the footer consistent with other pages */
-    color: white;
-    padding: 20px;
-    text-align: center;
-    width: 100%;
+    justify-content: center;
+    align-items: center;
+    color: white; /* Set font color to white */
 }
 
 .reservation-box {
@@ -48,12 +21,12 @@ footer {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Drop shadow */
     max-width: 400px;
-    margin: 0 auto; /* Center the form horizontally */
+    width: 100%;
 }
 
 .reservation-box h2 {
     text-align: center;
-    font-weight: bold;
+    font-weight: bold; /* Make font bold */
 }
 
 .reservation-box form {
@@ -84,6 +57,8 @@ footer {
     background-color: #45a049;
 }
 
+/* reservation.css */
+
 /* Add space between phone input and submit button */
 #phone, input[type="submit"] {
     margin-top: 10px;
@@ -102,9 +77,9 @@ label, select, input[type="email"], input[type="tel"] {
 
 /* Style for the error message */
 .errorlist {
-    color: #000;
-    font-weight: bold;
-    font-size: 14px;
+    color: #000; /* Set the color to black */
+    font-weight: bold;  /* Optional: make the message stand out */
+    font-size: 14px;  /* Optional: adjust the font size */
 }
 
 /* Centered message box */
@@ -114,22 +89,23 @@ label, select, input[type="email"], input[type="tel"] {
     align-items: center;
     height: 100vh; /* Ensure full height */
     background-image: url('https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809932/reserved_ri1tln.jpg');
-    background-size: contain; /* Ensure the whole image is visible */
+    background-size: cover;
     background-position: center;
 }
 
 .message-box {
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    border: 2px solid #4CAF50;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Drop shadow */
+    border: 2px solid #4CAF50; /* Green border */
 }
 
+/* Style the message text */
 .message-text {
     text-align: center;
-    font-weight: bold;
-    color: black;
+    font-weight: bold; 
+    color: black; 
 }
 
 .note {

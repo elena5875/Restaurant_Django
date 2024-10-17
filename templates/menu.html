@@ -1,26 +1,22 @@
 <!--menu.html-->
+{% extends "base.html" %}
 
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/menu.css' %}">
+{% block title %}Menu - THE FORK{% endblock %}
 
-</head>
-<body class="menu">
-    <!-- Menu 1 -->
+<!-- Override the navbar block to remove the navigation bar -->
+{% block navbar %}
+<!-- No navigation bar here -->
+{% endblock %}
+
+{% block content %}
+<section class="menu">
     <h1>Appetizers and Main Course</h1>
-    <img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1709586665/Screenshot_20240304_220625_Drive_rdenzp.jpg" alt="Menu 1">
+    <img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1709586665/Screenshot_20240304_220625_Drive_rdenzp.jpg" alt="Menu 1" class="menu-img">
 
-    <!-- Menu 2 -->
     <h1>Desserts and Drinks</h1>
-    <img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1709586664/Screenshot_20240304_220533_Drive_jnfwue.jpg" alt="Menu 2">
+    <img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1709586664/Screenshot_20240304_220533_Drive_jnfwue.jpg" alt="Menu 2" class="menu-img">
 
-    <!-- Menu 3 -->
     <h1>Cocktails and Whiskey</h1>
-    <img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1709586664/Screenshot_20240304_220552_Drive_pogygw.jpg" alt="Menu 3">
-</body>
-</html>
+    <img src="https://res.cloudinary.com/dh5i9qtjf/image/upload/v1709586664/Screenshot_20240304_220552_Drive_pogygw.jpg" alt="Menu 3" class="menu-img">
+</section>
+{% endblock %}

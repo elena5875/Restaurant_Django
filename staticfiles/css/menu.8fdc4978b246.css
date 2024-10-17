@@ -1,0 +1,73 @@
+/* Menu Section Styles */
+/* Menu Section Styles */
+.menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.menu img {
+    max-width: 50%; /* Adjusted to make the images 50% of their original size */
+    height: auto;  /* Maintain aspect ratio */
+    margin-bottom: 40px;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Header styles matching home page */
+header {
+    background-image: url('https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809874/fork.jpg');
+    background-size: cover;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.logo {
+    color: white;
+    font-size: 80px; /* Increased size for the logo */
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Footer styles */
+footer {
+    margin-top: 50px;
+    background-color: #444;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px; /* Adjusted padding */
+}
+
+/* Social icons container */
+.social-icons-footer {
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Facebook and Instagram icon styles */
+.social-icons-footer a img {
+    width: 24px; /* Reduced icon size */
+    height: 24px;
+    margin-right: 5px;
+}
+
+.social-icons-footer a:last-child img {
+    margin-right: 0;
+}
+
+/* Copyright text */
+footer p {
+    color: white;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar-brand {
+        font-size: 50px;  /* Adjust size for smaller screens */
+    }
+}
