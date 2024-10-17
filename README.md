@@ -363,9 +363,11 @@ the pictures are too big.
 Submit button: When the user clicks the submit button, it should automatically store the data to django admin
      and at the same time create a mock email stating that the reservation has been successful.
 
-I had an issue in making sure that there is uniformity in the website as the user opens another tab. I would like
+I had an issue in making sure that there is uniformity in the website as the user opens another tab. I would like make sure that both header and footer are also seen in the reservation, menu and review pages.
+
 
 ### I was able to address all the issues that I have mentioned earlier in my work and now the website is working properly both in the django admin site and also in the main website.
+For the issue in uniformity. I had to create a base html where the header and the footer is found and can be easily copied to the any new html formed in the website.
 
 # Credits
 
