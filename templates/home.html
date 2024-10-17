@@ -69,11 +69,11 @@
     </div>
 </section>
 
-<section id="reviews" style="background-color: #add8e6;">
-    <h2 class="section-heading" style="color: black; font-weight: bold; text-align: center;">REVIEWS</h2>
-    <div class="reviews-content" style="display: flex; justify-content: center; flex-wrap: wrap; gap: 20px;">
+<section id="reviews">
+    <h2 class="section-heading">REVIEWS</h2>
+    <div class="reviews-content">
         {% for review in reviews %}
-        <div class="review-card" style="background-color: lightblue; padding: 20px; border: 1px solid black; margin: 10px;">
+        <div class="review-card">
             <h3>{{ review.name }}</h3>
             <p class="review-text">{{ review.review_text }}</p>
             <ul class="comment-list">
@@ -85,6 +85,7 @@
         {% endfor %}
     </div>
 </section>
+
 
 
 

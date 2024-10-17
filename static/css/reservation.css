@@ -1,88 +1,24 @@
 /* reservation.css */
-
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-image: url('https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809932/reserved_ri1tln.jpg');
-    background-size: contain; /* Ensure the whole image is visible */
-    background-repeat: no-repeat;
-    background-position: center;
-    height: 100vh; /* Ensure full height */
+/* Form container styling to center the form */
+.form-container {
+    position: absolute;
+    top: 30%; /* Adjust this to control how high the form is */
+    left: 50%;
+    transform: translate(-50%, 0); /* Center horizontally */
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    color: white;
-}
-
-/* Header styles */
-header {
-    background-image: url('https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809874/fork.jpg'); /* Use the same background as other pages */
-    background-size: cover;
-    background-position: center;
-    color: white;
-    padding: 40px 0;
-    text-align: center;
+    justify-content: center;
     width: 100%;
 }
 
-.logo {
-    font-size: 70px; /* Font size for the logo text */
-    font-weight: bold;
-    text-transform: uppercase;
-    color: white;
-}
-
-/* Footer styles */
-footer {
-    background-color: rgba(0, 0, 0, 0.5); /* Keep the footer consistent with other pages */
-    color: white;
-    padding: 20px;
-    text-align: center;
-    width: 100%;
-}
-
-.reservation-box {
-    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+form {
+    background-color: white;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Drop shadow */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     max-width: 400px;
-    margin: 0 auto; /* Center the form horizontally */
+    width: 100%;
 }
 
-.reservation-box h2 {
-    text-align: center;
-    font-weight: bold;
-}
-
-.reservation-box form {
-    display: flex;
-    flex-direction: column;
-}
-
-.reservation-box form input[type="date"],
-.reservation-box form input[type="time"],
-.reservation-box form select {
-    margin-bottom: 10px;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    outline: none;
-}
-
-.reservation-box form input[type="submit"] {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.reservation-box form input[type="submit"]:hover {
-    background-color: #45a049;
-}
 
 /* Add space between phone input and submit button */
 #phone, input[type="submit"] {
@@ -96,7 +32,7 @@ label, select, input[type="email"], input[type="tel"] {
 }
 
 .note {
-    color: black; 
+    color: black;
     font-size: smaller; /* Reduce font size */
 }
 
@@ -129,9 +65,5 @@ label, select, input[type="email"], input[type="tel"] {
 .message-text {
     text-align: center;
     font-weight: bold;
-    color: black;
-}
-
-.note {
     color: black;
 }

@@ -4,13 +4,13 @@
 {% block title %}Reservation - THE FORK{% endblock %}
 
 {% block content %}
-    <div class="reservation-box">
-        <h2 class="note">Reservation Form</h2>
-        <form method="post" action="{% url 'reservation' %}">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <input type="submit" value="Submit">
-        </form>
-    </div>
+<div class="form-container">
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Submit">
+    </form>
+</div>
+
     
 {% endblock %}
