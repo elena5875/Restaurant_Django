@@ -12,8 +12,8 @@ body {
 /* Header styles */
 header {
     background-image: url('https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809874/fork.jpg');
-    background-size: auto;
-    background-position: center; 
+    background-size: 100%;
+    background-position: bottom; 
     color: gray;
     padding: 40px 0;
     text-align: center;
@@ -28,8 +28,11 @@ header {
     text-align: center;
     display: block;
     margin: 0 auto;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); /* Shadow effect */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9); /* Shadow effect */
+    text-decoration: none; /* Remove underline, if any */
 }
+
+
 
 /* Footer styles */
 footer {
