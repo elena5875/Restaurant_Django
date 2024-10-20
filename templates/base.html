@@ -24,23 +24,36 @@
 
     <!-- Header Section -->
     <header>
-        <a class="navbar-brand logo" href="#">THE FORK</a>
+        <a class="navbar-brand logo" href="{% url 'home' %}">THE FORK</a> <!-- Ensure the logo links to the homepage -->
         <nav class="navbar navbar-expand-lg">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#location">Location</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'menu' %}">Menu</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'reservation' %}">Reservation</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'review_create' %}">Write a Review</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'home' %}#about">About Us</a> <!-- Link to About Us section on homepage -->
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'home' %}#location">Location</a> <!-- Link to Location section on homepage -->
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'home' %}#gallery">Gallery</a> <!-- Link to Gallery section on homepage -->
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'menu' %}">Menu</a> <!-- Link to the Menu page -->
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'reservation' %}">Reservation</a> <!-- Link to the Reservation page -->
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'review_create' %}">Write a Review</a> <!-- Link to the Review page -->
+                    </li>
                 </ul>
             </div>
         </nav>
     </header>
+    
 
     <!-- Content Block -->
     <main>
