@@ -90,6 +90,7 @@ footer p {
 /* Center the navbar items */
 .navbar {
     justify-content: center; /* Center the navbar horizontally */
+    background-color: transparent; /* Transparent to blend with the header */
 }
 
 .navbar-nav {
@@ -108,4 +109,13 @@ footer p {
     color: white;
     text-transform: uppercase;
     margin-right: 20px; /* Space the brand away from nav items */
+}
+
+.nav-link {
+    color: white !important; /* Ensure nav links are white */
+    padding: 0 15px; /* Space out the links */
+}
+
+.nav-link:hover {
+    color: #f0f0f0 !important; /* Lighter color on hover */
 }
