@@ -21,8 +21,8 @@ main {
 /* Header styles */
 header {
     background-image: url('https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809874/fork.jpg');
-    background-size: 100%;
-    background-position: bottom; 
+    background-size: cover;
+    background-position: right; 
     color: gray;
     padding: 40px 0;
     text-align: center;
@@ -30,17 +30,12 @@ header {
 }
 
 .logo {
-    font-size: 100px; /* Font size */
+    font-size: 100px; /* Default font size */
     font-weight: bold;
-    color: #1E90FF; /* Bright blue color */
+    color: #1E90FF;
     text-transform: uppercase;
-    text-align: center;
-    display: block;
-    margin: 0 auto;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9); /* Shadow effect */
-    text-decoration: none; /* Remove underline, if any */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
 }
-
 
 
 /* Footer styles */

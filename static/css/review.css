@@ -1,7 +1,7 @@
 /* #reviews Section Styling */
 #reviews {
     padding: 50px 20px;
-    background-color: #87ceeb; /* Light blue background */
+    background-color: rgba(0, 0, 255, 0.5); 
 }
 
 /* Section Heading Styling */
