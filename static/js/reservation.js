@@ -60,3 +60,24 @@ document.getElementById("reservation-form").addEventListener("submit", function(
         // Optionally, show an error message to the user
     }
 });
+
+// Script to adjust the form position when the navbar is toggled
+document.addEventListener('DOMContentLoaded', function () {
+    const navBarToggler = document.querySelector('.navbar-toggler');
+    const formContainer = document.querySelector('.form-container');
+
+    if (navBarToggler && formContainer) {
+        navBarToggler.addEventListener('click', function () {
+            setTimeout(function () {
+                if (document.querySelector('.navbar-collapse').classList.contains('show')) {
+                    // Add margin to push the form down when the nav is open
+                    formContainer.style.marginTop = '250px'; /* Adjust this value */
+                } else {
+                    // Revert margin when nav is closed
+                    formContainer.style.marginTop = '120px'; /* Default margin */
+                }
+            }, 300); // Delay to wait for the collapse animation
+        });
+    }
+});
+

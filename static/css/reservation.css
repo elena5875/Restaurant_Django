@@ -1,4 +1,5 @@
-/* reservation.css */
+
+
 /* Form container styling to center the form */
 .form-container {
     position: absolute;
@@ -17,12 +18,17 @@ form {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     max-width: 400px;
     width: 100%;
+    position: relative; /* Needed for positioning the button inside */
 }
-
 
 /* Add space between phone input and submit button */
 #phone, input[type="submit"] {
-    margin-top: 10px;
+    margin-top: 30px;
+}
+
+/* Add space between submit button and Back to Home button */
+input[type="submit"] {
+    margin-bottom: 30px; /* Adds space below the submit button */
 }
 
 /* Add space between form elements */
@@ -31,9 +37,19 @@ label, select, input[type="email"], input[type="tel"] {
     color: black;
 }
 
-.note {
-    color: black;
-    font-size: smaller; /* Reduce font size */
+/* Button container to make sure button stays at the bottom */
+.button-container {
+    text-align: center; /* Center the button */
+    margin-top: 20px; /* Adds space above the Back to Home button */
+}
+
+.button-container a {
+    text-decoration: none;
+    padding: 10px 20px;
+    color: white;
+    background-color: #007bff; /* Bootstrap's primary button color */
+    border-radius: 5px;
+    display: inline-block;
 }
 
 /* Style for the error message */
