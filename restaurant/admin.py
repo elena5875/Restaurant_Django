@@ -7,6 +7,9 @@ from django.utils.html import strip_tags
 from django.conf import settings
 from .forms import ReservationAdminForm  
 from .models import Reservation, Review, Comment 
+from django.contrib import messages
+from django.contrib import admin, messages
+
 
 class ReservationAdmin(admin.ModelAdmin):
     form = ReservationAdminForm
@@ -45,6 +48,10 @@ class CommentInline(admin.TabularInline):
     model = Comment
     extra = 1
 
+class CommentInline(admin.TabularInline):
+    model = Comment
+    extra = 1
+
 class ReviewAdmin(admin.ModelAdmin):
     list_display = ['name', 'email', 'is_approved', 'is_posted', 'created_at']
     list_filter = ['is_approved', 'is_posted', 'created_at']
@@ -55,18 +62,37 @@ class ReviewAdmin(admin.ModelAdmin):
     def approve_reviews(self, request, queryset):
         queryset.update(is_approved=True)
         self.send_email(queryset, 'approved')
+    approve_reviews.short_description = "Approve selected reviews"
 
     def reject_reviews(self, request, queryset):
         queryset.update(is_approved=False)
         self.send_email(queryset, 'rejected')
+    reject_reviews.short_description = "Reject selected reviews"
 
     def post_reviews(self, request, queryset):
         queryset.update(is_posted=True)
         self.send_email(queryset, 'posted')
+    post_reviews.short_description = "Post selected reviews"
 
     def delete_reviews(self, request, queryset):
         for review in queryset:
             review.delete()
+        messages.warning(request, "Selected reviews were deleted successfully.")  # Use messages.warning for warnings
+    delete_reviews.short_description = "Delete selected reviews"
+
+    def delete_model(self, request, obj):
+        """
+        Overrides the delete functionality to add a warning message when deleting a review.
+        """
+        super().delete_model(request, obj)
+        messages.warning(request, "The review was deleted successfully!")  # Add a warning message
+
+    def delete_queryset(self, request, queryset):
+        """
+        Overrides the delete action for bulk deletion in the admin.
+        """
+        super().delete_queryset(request, queryset)
+        messages.warning(request, "The selected reviews were deleted successfully!")  # Add a bulk deletion message
 
     def send_email(self, queryset, status):
         subject = f'Review {status.capitalize()}'
@@ -79,11 +105,6 @@ class ReviewAdmin(admin.ModelAdmin):
                 message = render_to_string('review_posted.html', {'review': review})
             plain_message = strip_tags(message)
             send_mail(subject, plain_message, settings.DEFAULT_FROM_EMAIL, [review.email], html_message=message)
-
-    approve_reviews.short_description = "Approve selected reviews"
-    reject_reviews.short_description = "Reject selected reviews"
-    post_reviews.short_description = "Post selected reviews"
-    delete_reviews.short_description = "Delete selected reviews"
 
 admin.site.register(Review, ReviewAdmin)
 admin.site.register(Comment)

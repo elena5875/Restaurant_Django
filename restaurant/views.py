@@ -7,6 +7,8 @@ from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 from django.conf import settings
 from django.core.mail import send_mail
+from django.utils import timezone
+
 
 def home(request):
     reviews = Review.objects.filter(is_posted=True).order_by('-created_at')
@@ -17,10 +19,21 @@ def menu_view(request):
     return render(request, 'menu.html', {'menu_items': menu_items})
 
 def reservation_view(request):
+    """
+    Handles table reservations.
+    Validates the form and creates a reservation if the form is valid.
+    """
     if request.method == 'POST':
         form = ReservationForm(request.POST)
         if form.is_valid():
             reservation = form.save()
+
+            # Prevent reservation for past dates
+            if reservation.date < timezone.now().date():
+                messages.error(request, 'You cannot make a reservation for a past date.')
+                return redirect('reservation')
+
+            # Send confirmation email
             send_reservation_confirmation_email(reservation)
             messages.success(request, 'Reservation submitted successfully and is pending approval!')
             return redirect('reservation_success')
@@ -28,7 +41,9 @@ def reservation_view(request):
             messages.error(request, 'There was an error with your submission. Please correct the errors and try again.')
     else:
         form = ReservationForm()
+
     return render(request, 'reservation.html', {'form': form})
+
 
 def send_reservation_confirmation_email(reservation):
     subject = 'Reservation Received'
@@ -82,10 +97,16 @@ def review_list(request):
     return render(request, 'review_list.html', {'reviews': reviews})
 
 def review_create(request):
+    """
+    Handles the review creation.
+    Validates the form and creates a review if valid.
+    """
     if request.method == 'POST':
         form = ReviewForm(request.POST)
         if form.is_valid():
-            form.save()
+            review = form.save(commit=False)
+            review.is_approved = False  # You might want to approve reviews manually
+            review.save()
             messages.success(request, 'Review submitted successfully and is pending approval!')
             return redirect('review_list')
         else:
@@ -94,16 +115,30 @@ def review_create(request):
         form = ReviewForm()
     return render(request, 'review_form.html', {'form': form})
 
+
 def review_detail(request, pk):
+    """
+    Displays review details and handles comment submission.
+    Validates the comment form and saves the comment if valid.
+    """
     review = get_object_or_404(Review, pk=pk)
     comments = review.comments.all()
+    
     if request.method == 'POST':
         form = CommentForm(request.POST)
         if form.is_valid():
             comment = form.save(commit=False)
             comment.review = review
             comment.save()
+            messages.success(request, 'Comment added successfully!')
             return redirect('review_detail', pk=review.pk)
+        else:
+            messages.error(request, 'There was an error with your comment. Please correct the errors and try again.')
     else:
         form = CommentForm()
-    return render(request, 'review_detail.html', {'review': review, 'comments': comments, 'form': form})
+
+    return render(request, 'review_detail.html', {
+        'review': review,
+        'comments': comments,
+        'form': form
+    })

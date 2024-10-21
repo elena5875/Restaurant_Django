@@ -33,6 +33,8 @@ ALLOWED_HOSTS = [
     '8000-elena5875-restaurantdja-y713ht9ewxi.ws.codeinstitute-ide.net'
 ]
 
+# In urls.py
+handler404 = 'mainproject.views.custom_404'
 
 # Application definition
 
