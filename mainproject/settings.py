@@ -24,9 +24,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get("SECRET_KEY", '(buk#6n2v%(rh_#nouc79jlt*4lbk-nh=(c_5^ihx+lggn8akt')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get("DEBUG", "True") == "True"
+DEBUG = os.environ.get("DEBUG", "False") == "True"
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '8000-elena5875-restaurantdja-y713ht9ewxi.ws.codeinstitute-ide.net']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'djagnoresto-267ab1695d73.herokuapp.com']
+
 
 # Application definition
 
@@ -151,6 +152,11 @@ CSRF_TRUSTED_ORIGINS.append(CODEINSTITUTE_WORKSPACE_URL)
 
 # Add wildcard for Code Institute subdomains
 CSRF_TRUSTED_ORIGINS += ['https://*.codeinstitute-ide.net']
+
+# Ensure Heroku URL is also included
+CSRF_TRUSTED_ORIGINS.append('https://djagnoresto-267ab1695d73.herokuapp.com')
+
+
 
 # Email settings
 DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL', 'theforkrestaurant@yahoo.com')
