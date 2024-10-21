@@ -1,14 +1,14 @@
-/* #reviews Section Styling */
+/* Reviews Section Styling */
 #reviews {
     padding: 50px 20px;
-    background-color: rgba(0, 0, 255, 0.5); 
+    background-color: rgba(0, 0, 255, 0.1); /* Light background for better readability */
 }
 
 /* Section Heading Styling */
 .section-heading {
     text-align: center;
-    font-size: 2em;
-    color: black;
+    font-size: 2rem;
+    color: #333;
     font-weight: bold;
     margin-bottom: 30px;
 }
@@ -25,10 +25,9 @@
 .review-card {
     background-color: white;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
     width: 250px;
-    height: 300px; /* Fixed height for uniformity */
     text-align: center;
     transition: transform 0.3s ease;
     display: flex;
@@ -37,22 +36,23 @@
 }
 
 .review-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-5px); /* Interactive hover effect */
 }
 
 .review-card h3 {
-    font-size: 1.5em;
-    color: #4CAF50;
+    font-size: 1.5rem;
+    color: #007bff; /* Brand color for consistency */
     margin-bottom: 10px;
 }
 
 .review-text {
-    font-size: 1em;
-    color: #666;
+    font-size: 1rem;
+    color: #555;
     margin-bottom: 15px;
     flex-grow: 1;
 }
 
+/* Comment List Styling */
 .comment-list {
     list-style: none;
     padding: 0;
@@ -60,8 +60,8 @@
 }
 
 .comment-list li {
-    font-size: 0.9em;
-    color: #555;
+    font-size: 0.9rem;
+    color: #666;
     padding: 5px 0;
     border-top: 1px solid #eee;
 }
@@ -70,37 +70,39 @@
     border-top: none;
 }
 
-
+/* Review Form Styling */
 .review-form-page {
-    font-family: 'OpenDyslexic', Arial, sans-serif;
+    font-family: Arial, sans-serif;
     background: url('https://res.cloudinary.com/dh5i9qtjf/image/upload/v1718532612/goodvibes-skylar-kang-6430730_ieki1f.jpg') no-repeat center center fixed;
     background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 0;
-    padding: 0;
+    padding: 20px;
 }
 
 .review-container {
     background: rgba(255, 255, 255, 0.8);
-    padding: 20px;
+    padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     text-align: center;
     width: 90%;
     max-width: 500px;
 }
 
 .review-container h1 {
+    font-size: 2rem;
     color: #333;
+    margin-bottom: 20px;
 }
 
 .review-container form {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
 }
 
 .review-container form input,
@@ -111,20 +113,22 @@
     box-sizing: border-box;
     border: 1px solid #ccc;
     border-radius: 5px;
+    font-size: 1rem;
 }
 
 .review-container form button {
-    background-color: #4CAF50;
+    background-color: #007bff;
     color: white;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     margin-top: 10px;
+    width: 100%;
 }
 
 .review-container form button:hover {
-    background-color: #45a049;
+    background-color: #0056b3;
 }
 
 .review-container a {

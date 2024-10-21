@@ -107,12 +107,13 @@ def review_create(request):
             review = form.save(commit=False)
             review.is_approved = False  # You might want to approve reviews manually
             review.save()
-            messages.success(request, 'Review submitted successfully and is pending approval!')
-            return redirect('review_list')
+            messages.success(request, 'Review submitted successfully and is pending approval by the administration.')
+            return redirect('review_create')  # Reload the form with a success message
         else:
             messages.error(request, 'There was an error with your submission. Please correct the errors and try again.')
     else:
         form = ReviewForm()
+
     return render(request, 'review_form.html', {'form': form})
 
 

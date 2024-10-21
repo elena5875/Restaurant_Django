@@ -1,34 +1,32 @@
-
-
 /* Form container styling to center the form */
 .form-container {
     position: absolute;
-    top: 30%; /* Adjust this to control how high the form is */
+    top: 30%;
     left: 50%;
     transform: translate(-50%, 0); /* Center horizontally */
     display: flex;
     justify-content: center;
     width: 100%;
+    padding: 20px; /* Add padding for mobile responsiveness */
 }
 
 form {
     background-color: white;
-    padding: 20px;
+    padding: 30px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     max-width: 400px;
     width: 100%;
-    position: relative; /* Needed for positioning the button inside */
 }
 
 /* Add space between phone input and submit button */
 #phone, input[type="submit"] {
-    margin-top: 30px;
+    margin-top: 15px;
 }
 
 /* Add space between submit button and Back to Home button */
 input[type="submit"] {
-    margin-bottom: 30px; /* Adds space below the submit button */
+    margin-bottom: 20px;
 }
 
 /* Add space between form elements */
@@ -37,49 +35,44 @@ label, select, input[type="email"], input[type="tel"] {
     color: black;
 }
 
-/* Button container to make sure button stays at the bottom */
+/* Button container to ensure buttons are aligned and spaced */
 .button-container {
-    text-align: center; /* Center the button */
-    margin-top: 20px; /* Adds space above the Back to Home button */
+    text-align: center;
+    margin-top: 20px;
 }
 
 .button-container a {
     text-decoration: none;
     padding: 10px 20px;
     color: white;
-    background-color: #007bff; /* Bootstrap's primary button color */
+    background-color: #007bff;
     border-radius: 5px;
     display: inline-block;
 }
 
-/* Style for the error message */
-.errorlist {
-    color: #000;
-    font-weight: bold;
-    font-size: 14px;
-}
-
-/* Centered message box */
+/* Style for success message */
 .success-message {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Ensure full height */
+    height: 100vh; /* Full height for viewport */
     background-image: url('https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809932/reserved_ri1tln.jpg');
-    background-size: contain; /* Ensure the whole image is visible */
+    background-size: contain; /* Ensure background fits well */
     background-position: center;
 }
 
 .message-box {
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.9);
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    border: 2px solid #4CAF50;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 90%;
+    max-width: 500px;
 }
 
 .message-text {
-    text-align: center;
+    font-size: 1.2rem;
     font-weight: bold;
-    color: black;
+    color: #333;
 }
