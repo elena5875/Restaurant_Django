@@ -22,7 +22,7 @@ main {
 header {
     background-image: url('https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809874/fork.jpg');
     background-size: cover;
-    background-position: right; 
+    background-position: bottom; 
     color: gray;
     padding: 40px 0;
     text-align: center;

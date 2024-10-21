@@ -26,7 +26,12 @@ SECRET_KEY = os.environ.get("SECRET_KEY", '(buk#6n2v%(rh_#nouc79jlt*4lbk-nh=(c_5
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DEBUG", "False") == "True"
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'djagnoresto-267ab1695d73.herokuapp.com']
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    'djagnoresto-267ab1695d73.herokuapp.com',
+    '8000-elena5875-restaurantdja-y713ht9ewxi.ws.codeinstitute-ide.net'
+]
 
 
 # Application definition
