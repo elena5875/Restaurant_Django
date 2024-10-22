@@ -136,9 +136,8 @@ STATIC_URL = '/static/'  # URL to access static files
 STATIC_ROOT = BASE_DIR / 'staticfiles'  # Directory to collect static files
 
 STATICFILES_DIRS = [
-    BASE_DIR / 'static',  # Additional directories to search for static files
+    BASE_DIR / 'static',  # Ensure this directory contains 'css/media_queries.css'
 ]
-
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'  # Storage backend for static files
 
 # Default primary key field type

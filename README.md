@@ -1,9 +1,13 @@
-# THE FORK RESTAURANT
+## Overview
 
-# Features
+The Fork is a newly opened restaurant where your palates will be excited to taste the finest and freshest food you'll ever get. We specialize in desserts and Italian cuisine, and we are located in the heart of Stockholm City, Sweden.
 
-This mock restaurant a newly opened restaurant where your palates will be excited to taste the finest and freshest food you'll ever get.
-We specialize in desserts and Italian Cuisine. We are also located at the heart of Stockholm City, Sweden.
+## Features
+
+- **User-Friendly Interface**: A seamless experience for users to explore the menu, make reservations, and leave reviews.
+- **Dynamic Reservations**: Users can easily reserve tables, with confirmation emails sent upon approval.
+- **Review System**: Customers can share their dining experiences through reviews and comments.
+- **Responsive Design**: The website is designed to be fully responsive, ensuring a great experience on mobile and desktop devices.
 
 # Wireframing
 
@@ -52,27 +56,27 @@ Before getting started, make sure you have the following:
     - Access to a PostgreSQL database
 
 
+### Installation Steps
 
 IDE used is gitpod. I started with the following steps to install everything
 
 1. Create a New Directory
-
-    -mkdir my_django_project
-    -cd my_django_project
-
+```bash
+    mkdir my_django_project
+    cd my_django_project
+    ```
 
 2. Initialize Git Repository
-
-    -git init
+```bash
+    git init
+    ```
 
 3. Set Up Virtual Environment and Install Dependencies
-
-    -python3 -m venv venv
-
-    -source venv/bin/activate
-
-    -pip install django psycopg2-binary cloudinary django-environ gunicorn
-
+```bash
+    python3 -m venv venv
+    source venv/bin/activate
+    pip install django psycopg2-binary cloudinary django-environ gunicorn
+    ```
 4. Set Up Cloudinary and PostgreSQL Accounts
 
     -Sign up for Cloudinary and get your cloud name, API key, and API secret.
@@ -95,17 +99,16 @@ IDE used is gitpod. I started with the following steps to install everything
     ADMIN_EMAIL=theforkrestaurant@gmail.com
 
 7. Create Project Files
+    -Create the necessary Django files and directories.
 
 8. Start Coding
+    -Begin implementing features and functionalities.
 
 9. Commit Changes
-
-    -using git add .
-
-    -git commit -m "initial commit"
-
-    -git push
-
+```bash
+    git add .
+    git commit -m "initial commit"
+    ```
     *before you push make sure debug is set to False
 
 
@@ -120,42 +123,32 @@ OPENING  Heroku thru CLI
 
   heroku login -i
 
-3. You will be asked to enter email and password
+3. Set up your App
 
-    email is elenafreire75@gmail.com
+    heroku git:remote -a your-app-name
 
-    password is HRKU-3e5a6715-3b88-4520-b0b8-bc3aa1e90124
-
-4. To access the file write the code 
-
-    heroku git:remote -a djagnoresto
-
-5. Push our code to Heroku using this code 
+4. Push your Code to Heroku
 
     git push heroku main
 
-6. To open the app write
+5. Open your App
 
     heroku open
 
-Deploy to Heroku manually 
 
-Here is the Url from heroku
+For Local Deployment
+    To run the application Locally, access the following URl:
 
-    https://djagnoresto-267ab1695d73.herokuapp.com/
+Go to Admin URL
 
-Deploying app locally
-
-If you want to deploy locally here is the Url
-
-    https://8000-elena5875-restaurantdja-hlvxl9n5m7u.ws-eu114.gitpod.io/
+    https://8000-elena5875-restaurantdja-y713ht9ewxi.ws.codeinstitute-ide.net/
 
 
 ## To get inside the Django Admin 
 
 1. Copy paste the Url
 
-    https://8000-elena5875-restaurantdja-hlvxl9n5m7u.ws-eu114.gitpod.io/admin/
+    https://8000-elena5875-restaurantdja-y713ht9ewxi.ws.codeinstitute-ide.net/admin/restaurant/reservation/
 
 2. You will be asked to log in. As a user you can use
 
@@ -182,7 +175,7 @@ Review you can also add comments and post the review and comments to the website
 
 ![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1718783246/reservation_admin_q2mcoj.png)
 
-# Here is the Result of the Fork Restaurant
+# Website Layout
 
 # Header
 
@@ -399,16 +392,23 @@ All my pictures are downloaded from pexel.com
 
 # References:
 
+    Django Admin Documentation
     https://docs.djangoproject.com/en/5.0/ref/contrib/admin/
 
+    Django Getting Started
     https://www.djangoproject.com/start/
 
+    Django Email Tutorial
     https://learndjango.com/tutorials/django-email-contact-form-tutorial
 
+    Whitenoise Documentation
     https://whitenoise.readthedocs.io/en/stable/django.html#use-a-content-delivery-network
 
+    Heroku Deployment Checklist
     https://dev.to/thomz/my-django-heroku-checklist-3p72
 
+    Git Tutorial
     https://www.atlassian.com/git/tutorials
 
+    Django Girls Tutorial
     https://tutorial.djangogirls.org/en/django_installation/
