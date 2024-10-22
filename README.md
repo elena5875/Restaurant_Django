@@ -358,35 +358,48 @@ For phone screens in landscape mode
 
 
 
-# Issues
-IDE's would sometimes not open or worst my work would just suddenly disappear. 
-I used codeanywhere and gitpod but both had alot of issue during the time I was building my website
+# Issues Encountered 
+Development Environment Challenges
+During the development of my website, I faced some challenges with the Integrated Development Environments (IDEs) I used, specifically CodeAnywhere and Gitpod. These platforms sometimes failed to open, and there were instances where my work would unexpectedly disappear. This made the development process more difficult and time-consuming.
 
-Due to time constraints, I was not able to link my reservation form to django administration. 
-Django administration is working as I want it to be but my reservation form has a lot of issues, namely:
-time: the user was supposed to see a dropdown menu where the user can choose between 5pm till 11 pm
-No matter what code I do the dropdown menu would not work in the website but would work in django administration.
+Reservation Form Integration
+Due to time constraints, I was unable to fully integrate my reservation form with the Django administration panel. While the Django admin interface works as intended, the reservation form presents several issues:
 
-I have encountered also an issue where the in smaller screens the gallery pictures and the menu icons are not all displayed or 
-the pictures are too big.
+Responsive Design Issues
+I encountered problems with how certain elements displayed on smaller screens:
 
-Submit button: When the user clicks the submit button, it should automatically store the data to django admin
-     and at the same time create a mock email stating that the reservation has been successful.
+Gallery and Menu Icons: 
+On smaller screens, some gallery images and menu icons do not display properly or appear too large. This affects the overall user experience on mobile devices.
 
-I had an issue in making sure that there is uniformity in the website as the user opens another tab. I would like make sure that both header and footer are also seen in the reservation, menu and review pages.
+Header and Form Overlap: 
+The header does not resize correctly on small screens, causing overlapping issues with the reservation and review forms. Despite numerous trial-and-error adjustments, I ran out of time to find a permanent solution. However, the webpage remains functional and is still readable on smaller screens. As a workaround, since the navigation bar is not visible on both the reservation and review pages, I created a link on the forms that directs users back to the homepage.
 
+Submit Button Functionality
 
-### I was able to address all the issues that I have mentioned earlier in my work and now the website is working properly both in the django admin site and also in the main website.
-For the issue in uniformity. I had to create a base html where the header and the footer is found and can be easily copied to the any new html formed in the website.
+Reservation Submission: 
+When a user clicks the submit button on the reservation form, the expectation is that it should automatically save the reservation data in the Django admin and send a mock email confirming that the reservation has been successful. Currently, this functionality is not working as expected.
+
+Consistency Across Pages
+Another challenge was ensuring consistency across different pages of the website:
+
+I aimed to maintain a uniform appearance, specifically that the header and footer should be visible across all pages (reservation, menu, and review pages).
+Resolution of Issues
+I managed to address several of the issues mentioned above. The website is now functioning properly in both the Django admin interface and the main website.
+
+To resolve the issue of uniformity, I created a base HTML file containing the header and footer, which can be easily reused across any new HTML pages within the website.
+
+Resolution of Issues
+I managed to address several of the issues mentioned above. The website is now functioning properly in both the Django admin interface and the main website.
+
+To resolve the issue of uniformity, I created a base HTML file containing the header and footer, which can be easily reused across any new HTML pages within the website.
+
 
 # Credits
 
 All my pictures are downloaded from pexel.com
-
     https://www.pexels.com/
 
     And all the pictures were stored in cloudinary account
-
     https://console.cloudinary.com/pm/c-27ce96169f2fa7ccae6699f09c4863/developer-dashboard
 
 
