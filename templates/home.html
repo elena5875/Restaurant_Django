@@ -5,9 +5,9 @@
 
 {% block content %}
 
-
-
 <!-- Homepage Sections -->
+
+<!-- About Us Section -->
 <section id="about">
     <div class="about-content">
         <div class="about-image-container">
@@ -26,7 +26,7 @@
     </div>
 </section>
 
-
+<!-- Gallery Section -->
 <section id="gallery">
     <h2 class="gallery-heading">G A L L E R Y</h2>
     <div class="gallery-content">
@@ -54,16 +54,17 @@
     </div>
 </section>
 
+<!-- Reviews Section -->
 <section id="reviews">
     <h2 class="section-heading">REVIEWS</h2>
     <div class="reviews-content">
         {% for review in reviews %}
         <div class="review-card">
-            <h3>{{ review.name }}</h3>
-            <p class="review-text">{{ review.review_text }}</p>
+            <h3>{{ review.name }}</h3> <!-- Display the name of the reviewer -->
+            <p class="review-text">{{ review.review_text }}</p> <!-- Display the review text -->
             <ul class="comment-list">
-                {% for comment in review.comments.all|slice:":5" %}
-                <li>{{ comment.comment_text }}</li>
+                {% for comment in review.comments.all|slice:":5" %} <!-- Limit comments to the first 5 -->
+                <li>{{ comment.comment_text }}</li> <!-- Display each comment -->
                 {% endfor %}
             </ul>
         </div>
@@ -71,22 +72,22 @@
     </div>
 </section>
 
-
-
-
+<!-- Location Section -->
 <section id="location">
     <h2 class="section-heading">L O C A T I O N</h2>
     <div class="location-content">
         <div class="contact-info">
             <h3>How to Contact Us:</h3>
-            <p>Email: thefork@gmail.com</p>
-            <p>Phone: 0769258525</p>
-            <p>Address: Eriksgrand 15, 17754 Stockholm City, Sweden</p>
-            <a href="{% url 'reservation' %}">Make a Reservation</a>
+            <p>Email: thefork@gmail.com</p> <!-- Contact email -->
+            <p>Phone: 0769258525</p> <!-- Contact phone number -->
+            <p>Address: Eriksgrand 15, 17754 Stockholm City, Sweden</p> <!-- Physical address -->
+            <a href="{% url 'reservation' %}">Make a Reservation</a> <!-- Link to the reservation page -->
         </div>
         <div class="map-container">
+            <!-- Embed Google Map iframe for location -->
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d203287.8242936968!2d18.063240085694854!3d59.33459114215899!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f76436abacecf%3A0x4007f44ef17f5a1!2sStockholm%2C%20Sweden!5e0!3m2!1sen!2sus!4v1646055671067!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
     </div>
 </section>
+
 {% endblock %}

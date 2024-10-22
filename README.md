@@ -292,27 +292,44 @@ an email is automatically sent to the customer. The mock email can be seen on th
 
 
 # Test
-Most of my test were done manually using python3 manage.py runserver code to run the program and manually test all the forms in the website. I have also test my website in Heroku by either manually deploying it or thru Heroku CLI.
 
-The automated test I did was only using the python manage.py test. Which showed the following:
+Most of my tests were done manually using the `python3 manage.py runserver` command to run the program and manually test all the forms on the website. I have also tested my website on Heroku by either manually deploying it or using the Heroku CLI.
 
-django was having issues connecting to PostPostgreSQL database on ElephantSQL when running the tests.
-solution:
-I have address the issue by making some changes in the settings.py., utils.py and test.py.
- 
-I have tested the reservation form which has shown no issues. 
+The automated tests I conducted were done using the `python manage.py test` command, which showed the following issues:
 
-While in my Review form, it has shown
+- **Database Connection**: Django encountered issues connecting to the PostgreSQL database on ElephantSQL when running the tests.
+  - **Solution**: I addressed this issue by making some changes in the `settings.py`, `utils.py`, and `test.py` files.
 
-one issue which is AssertionError: False is not true : Couldn't find 'There was an error with your submission. 
+### Test Coverage
 
-Please correct the errors below.' in response. I tried to correct the issue but so far 
+I have tested the following functionalities:
 
-I have corrected the issue and was able to pass the test on both reservation and review forms
+- **Reservation Form**: Successfully tested, and no issues were found.
+  
+- **Review Form**: Initially encountered an issue with the assertion:
+  - `AssertionError: False is not true : Couldn't find 'There was an error with your submission. Please correct the errors below.' in response.`
+  - After debugging and making necessary corrections, I was able to pass the tests on both the reservation and review forms.
+
+### Automated Test Cases
+This project includes a comprehensive suite of automated tests to ensure the functionality and reliability of the application.
+
+#### Overview
+- The tests are written using Django's built-in testing framework, `unittest`.
+- Key features tested include:
+  - Email functionality for sending confirmation and cancellation emails.
+  - Review management processes, including creation, listing, and detail views.
+
+#### Running Tests
+To run the automated tests, navigate to your project directory in the terminal and execute the following command:
+
+```bash
+python manage.py test
+
 
 ![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1718781593/runtest_lkgppm.png)
 
 ![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1718781593/approved_test_reservation_yspr5x.png)
+
 
 
 # Validation

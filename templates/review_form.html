@@ -1,32 +1,33 @@
 <!-- review_form.html -->
-{% extends "base.html" %}
-{% load static %}
+{% extends "base.html" %} <!-- Extend the base template -->
+{% load static %} <!-- Load static files -->
 
-{% block title %}Write a Review - THE FORK{% endblock %}
+{% block title %}Write a Review - THE FORK{% endblock %} <!-- Title of the review form page -->
 
 {% block content %}
+<!-- Main content for the review form page -->
 <div class="review-form-page">
     <div class="review-container">
-        <h1>Write a Review</h1>
+        <h1>Write a Review</h1> <!-- Main heading for the review form -->
         
         <!-- Display success/error messages, if any -->
         {% if messages %}
-          <ul class="messages">
+          <ul class="messages"> <!-- List for displaying messages -->
             {% for message in messages %}
-              <li class="{{ message.tags }}">{{ message }}</li>
+              <li class="{{ message.tags }}">{{ message }}</li> <!-- Display each message with its corresponding tag -->
             {% endfor %}
           </ul>
         {% endif %}
         
         <!-- Review Form -->
-        <form method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit">Submit Review</button>
+        <form method="post"> <!-- Start of the review submission form -->
+            {% csrf_token %} <!-- CSRF token for security -->
+            {{ form.as_p }} <!-- Render the form fields as paragraphs -->
+            <button type="submit">Submit Review</button> <!-- Submit button for the form -->
         </form>
         
         <!-- Back to Home button -->
-        <a href="{% url 'home' %}" class="btn btn-primary">Back to Home</a>
+        <a href="{% url 'home' %}" class="btn btn-primary">Back to Home</a> <!-- Link to navigate back to the homepage -->
     </div>
 </div>
 {% endblock %}

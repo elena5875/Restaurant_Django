@@ -11,6 +11,17 @@ from django.contrib import messages
 from django.contrib import admin, messages
 
 
+"""
+    Admin interface for managing reservations.
+
+    Attributes:
+        form: The form class to use for reservations.
+        list_display: Fields to display in the list view.
+        list_filter: Fields to filter by in the admin list view.
+        search_fields: Fields to search by in the admin interface.
+        actions: Actions available in the admin list view.
+    """
+
 class ReservationAdmin(admin.ModelAdmin):
     form = ReservationAdminForm
     list_display = ['name', 'email', 'phone_number', 'date', 'time', 'number_of_people', 'status']
@@ -21,14 +32,16 @@ class ReservationAdmin(admin.ModelAdmin):
     def approve_reservations(self, request, queryset):
         queryset.update(status='confirmed')
         self.send_approval_email(queryset)
+   
 
     def reject_reservations(self, request, queryset):
         queryset.update(status='canceled')
         self.send_rejection_email(queryset)
+    
 
     def delete_reservations(self, request, queryset):
         queryset.delete()
-
+    
     def send_rejection_email(self, reservations):
         subject = 'Reservation Rejected'
         for reservation in reservations:
@@ -43,12 +56,24 @@ class ReservationAdmin(admin.ModelAdmin):
             plain_message = strip_tags(message)
             send_mail(subject, plain_message, settings.DEFAULT_FROM_EMAIL, [reservation.email], html_message=message)
 
-
+"""
+    Inline admin interface for comments related to reviews.
+    """
 
 
 class CommentInline(admin.TabularInline):
     model = Comment
     extra = 1
+"""
+    Admin interface for managing reviews.
+    
+    Attributes:
+        list_display: Fields to display in the list view.
+        list_filter: Fields to filter by in the admin list view.
+        search_fields: Fields to search by in the admin interface.
+        inlines: Related models to display inline in the admin interface.
+    """
+
 
 class ReviewAdmin(admin.ModelAdmin):
     list_display = ['name', 'email', 'is_approved', 'is_posted', 'created_at']

@@ -1,18 +1,19 @@
 <!-- reservation.html -->
 {% extends "base.html" %}
 
-{% block title %}Reservation - THE FORK{% endblock %}
+{% block title %}Reservation - THE FORK{% endblock %} <!-- Title of the reservation page -->
 
 {% block content %}
+<!-- Main content for the reservation form -->
 <div class="form-container">
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Submit">
+    <form method="post"> <!-- Start of the reservation form -->
+        {% csrf_token %} <!-- CSRF token for security -->
+        {{ form.as_p }} <!-- Render the form fields as paragraphs -->
+        <input type="submit" value="Submit"> <!-- Submit button for the form -->
         
-        <!-- Add button at the bottom -->
+        <!-- Button container for additional navigation -->
         <div class="button-container">
-            <a href="{% url 'home' %}" class="btn btn-primary">Back to Home</a>
+            <a href="{% url 'home' %}" class="btn btn-primary">Back to Home</a> <!-- Link to navigate back to the homepage -->
         </div>
     </form>
 </div>

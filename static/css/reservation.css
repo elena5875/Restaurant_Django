@@ -1,78 +1,82 @@
 /* Form container styling to center the form */
 .form-container {
-    position: absolute;
-    top: 30%;
-    left: 50%;
+    position: absolute; /* Position the container absolutely */
+    top: 30%; /* Position from the top of the viewport */
+    left: 50%; /* Position from the left of the viewport */
     transform: translate(-50%, 0); /* Center horizontally */
-    display: flex;
-    justify-content: center;
-    width: 100%;
+    display: flex; /* Use flexbox for layout */
+    justify-content: center; /* Center align content within the container */
+    width: 100%; /* Full width of the parent element */
     padding: 20px; /* Add padding for mobile responsiveness */
 }
 
+/* Styles for the form element */
 form {
-    background-color: white;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    max-width: 400px;
-    width: 100%;
+    background-color: white; /* White background for the form */
+    padding: 30px; /* Add padding inside the form */
+    border-radius: 10px; /* Round the corners of the form */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+    max-width: 400px; /* Maximum width for the form */
+    width: 100%; /* Full width of the parent element */
 }
 
 /* Add space between phone input and submit button */
 #phone, input[type="submit"] {
-    margin-top: 15px;
+    margin-top: 15px; /* Space above the phone input and submit button */
 }
 
 /* Add space between submit button and Back to Home button */
 input[type="submit"] {
-    margin-bottom: 20px;
+    margin-bottom: 20px; /* Space below the submit button */
 }
 
 /* Add space between form elements */
 label, select, input[type="email"], input[type="tel"] {
-    margin-bottom: 10px;
-    color: black;
+    margin-bottom: 10px; /* Space below each form element */
+    color: black; /* Text color for form elements */
 }
 
 /* Button container to ensure buttons are aligned and spaced */
 .button-container {
-    text-align: center;
-    margin-top: 20px;
+    text-align: center; /* Center align text within the button container */
+    margin-top: 20px; /* Space above the button container */
 }
 
+/* Styles for the buttons in the button container */
 .button-container a {
-    text-decoration: none;
-    padding: 10px 20px;
-    color: white;
-    background-color: #007bff;
-    border-radius: 5px;
-    display: inline-block;
+    text-decoration: none; /* Remove underline from links */
+    padding: 10px 20px; /* Add padding inside the button */
+    color: white; /* White text color */
+    background-color: #007bff; /* Blue background color */
+    border-radius: 5px; /* Round the corners of the button */
+    display: inline-block; /* Make the link display as a block for padding */
 }
 
-/* Style for success message */
+/* Style for the success message section */
 .success-message {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* Full height for viewport */
-    background-image: url('https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809932/reserved_ri1tln.jpg');
+    display: flex; /* Use flexbox for layout */
+    justify-content: center; /* Center align content horizontally */
+    align-items: center; /* Center align content vertically */
+    height: 100vh; /* Full height for the viewport */
+    background-image: url('https://res.cloudinary.com/dh5i9qtjf/image/upload/v1708809932/reserved_ri1tln.jpg'); /* Background image */
     background-size: contain; /* Ensure background fits well */
-    background-position: center;
+    background-position: center; /* Center the background image */
 }
 
+/* Styles for the message box displaying the success message */
 .message-box {
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    width: 90%;
-    max-width: 500px;
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+    padding: 20px; /* Add padding inside the message box */
+    border-radius: 10px; /* Round the corners of the message box */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+    text-align: center; /* Center align text inside the message box */
+    width: 90%; /* Set width to 90% of the parent container */
+    max-width: 500px; /* Maximum width for the message box */
 }
 
+/* Styles for the message text */
 .message-text {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #333;
+    font-size: 1.2rem; /* Set font size for the message text */
+    font-weight: bold; /* Make the message text bold */
+    color: #333; /* Dark gray color for the message text */
 }

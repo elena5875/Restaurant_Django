@@ -1,31 +1,35 @@
-
+/* Global styles for the body element */
 body {
-    text-align: center;
-    padding: 150px;
-    background-color: #f8f9fa;
+    text-align: center; /* Center align text in the body */
+    padding: 150px; /* Add padding around the body content */
+    background-color: #f8f9fa; /* Light gray background color for the body */
 }
 
+/* Styles for main headings (h1) */
 h1 {
-    font-size: 60px;
-    margin-bottom: 20px;
-    color: #000; /* Changed to black */
+    font-size: 60px; /* Set font size for the heading */
+    margin-bottom: 20px; /* Space below the heading */
+    color: #000; /* Changed to black for better contrast */
 }
 
+/* Styles for paragraph text (p) */
 p {
-    font-size: 20px;
-    color: #000; /* Changed to black */
+    font-size: 20px; /* Set font size for paragraph text */
+    color: #000; /* Changed to black for better readability */
 }
 
+/* Styles for the home link/button */
 .home-link {
-    display: inline-block;
-    padding: 10px 20px;
-    text-decoration: none;
-    background-color: #007bff;
-    color: #fff;
-    border-radius: 5px;
-    margin-top: 20px;
+    display: inline-block; /* Make the link display as a block for padding */
+    padding: 10px 20px; /* Add padding inside the link */
+    text-decoration: none; /* Remove the default underline from the link */
+    background-color: #007bff; /* Blue background color for the link */
+    color: #fff; /* White text color for contrast */
+    border-radius: 5px; /* Round the corners of the button */
+    margin-top: 20px; /* Space above the button */
 }
 
+/* Styles for hover effect on the home link/button */
 .home-link:hover {
-    background-color: #0056b3;
+    background-color: #0056b3; /* Darker blue background on hover */
 }

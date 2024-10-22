@@ -1,20 +1,22 @@
-/* success.css*/
+/* success.css */
 
+/* Styles for the body of the success page */
 body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    font-family: Arial, sans-serif; /* Set font family to Arial or sans-serif fallback */
+    background-color: #f0f0f0; /* Light gray background color */
 }
 
+/* Styles for the success message container */
 .success-message {
-    width: 100%;
-    text-align: center;
-    margin-top: 50px;
+    width: 100%; /* Full width of the container */
+    text-align: center; /* Center align text within the message container */
+    margin-top: 50px; /* Space above the success message */
 }
 
+/* Styles for the paragraph inside the success message */
 .success-message p {
-    font-size: 24px;
-    color: #4CAF50;
+    font-size: 24px; /* Set font size for the message text */
+    color: #4CAF50; /* Green color for the success message text */
 }
-
