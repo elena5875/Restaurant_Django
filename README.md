@@ -425,3 +425,6 @@ All my pictures are downloaded from pexel.com
 
     Django Girls Tutorial
     https://tutorial.djangogirls.org/en/django_installation/
+
+![Test Run](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1718781593/runtest_lkgppm.png)
+![Approved Test Reservation](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1718781593/approved_test_reservation_yspr5x.png)
