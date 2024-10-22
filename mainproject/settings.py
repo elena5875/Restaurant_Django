@@ -31,7 +31,12 @@ ALLOWED_HOSTS = [
     '127.0.0.1',  # Allow local development
     'djagnoresto-267ab1695d73.herokuapp.com',  # Heroku production URL
     '8000-elena5875-restaurantdja-y713ht9ewxi.ws.codeinstitute-ide.net'  # Code Institute IDE URL
+    '8001-elena5875-restaurantdja-y713ht9ewxi.ws.codeinstitute-ide.net'
+    '*'
 ]
+
+ALLOWED_HOSTS.append('8000-elena5875-restaurantdja-y713ht9ewxi.ws.codeinstitute-ide.net')
+
 
 # Custom error handler for 404 errors
 handler404 = 'mainproject.views.custom_404'
