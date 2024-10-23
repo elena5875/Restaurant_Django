@@ -87,19 +87,15 @@ class ReservationAdminForm(forms.ModelForm):
         return reservation_date
 
 
-from django import forms
-from .models import Reservation
-import datetime
-
 class ReservationForm(forms.ModelForm):
     """
     Form for customers to make reservations on the website.
     """
-    
+
     # Placeholder for date field
     date = forms.DateField(widget=forms.SelectDateWidget(empty_label=("Select Year", "Select Month", "Select Day")))
 
-    # Define time choices: From 3 PM to 11 PM with 30-minute intervals
+    # Define time choices with a placeholder
     TIME_CHOICES = [
         ('', 'Select a time'),  # Placeholder option
     ] + [
@@ -116,7 +112,9 @@ class ReservationForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         # Set the number of people choices from 1 to 9, with a placeholder option
-        self.fields['number_of_people'].widget = forms.Select(choices=[('', 'Select number of people')] + [(i, i) for i in range(1, 10)])
+        self.fields['number_of_people'].widget = forms.Select(
+            choices=[('', 'Select number of people')] + [(i, i) for i in range(1, 10)]
+        )
 
     def clean_number_of_people(self):
         number_of_people = self.cleaned_data['number_of_people']
@@ -138,7 +136,6 @@ class ReservationForm(forms.ModelForm):
         if reservation_date < datetime.date.today():
             raise forms.ValidationError("Reservation date cannot be in the past.")
         return reservation_date
-
 
 
 class ReviewForm(forms.ModelForm):
