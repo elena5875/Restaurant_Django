@@ -87,23 +87,27 @@ class ReservationAdminForm(forms.ModelForm):
         return reservation_date
 
 
-# ReservationForm for customers to use on the website
+from django import forms
+from .models import Reservation
+import datetime
+
 class ReservationForm(forms.ModelForm):
     """
     Form for customers to make reservations on the website.
-
-    This form provides an interface for customers to input their reservation details,
-    including name, email, phone number, date, time, and number of people.
     """
-
-    date = forms.DateField(widget=forms.SelectDateWidget)
+    
+    # Placeholder for date field
+    date = forms.DateField(widget=forms.SelectDateWidget(empty_label=("Select Year", "Select Month", "Select Day")))
 
     # Define time choices: From 3 PM to 11 PM with 30-minute intervals
     TIME_CHOICES = [
+        ('', 'Select a time'),  # Placeholder option
+    ] + [
         (datetime.time(hour, minute).strftime('%H:%M'), datetime.time(hour, minute).strftime('%I:%M %p'))
         for hour in range(15, 24) for minute in (0, 30)
     ]
-    time = forms.ChoiceField(choices=TIME_CHOICES)
+
+    time = forms.ChoiceField(choices=TIME_CHOICES, required=True)
 
     class Meta:
         model = Reservation
@@ -111,34 +115,16 @@ class ReservationForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        # Set the number of people choices from 1 to 9
-        self.fields['number_of_people'].widget = forms.Select(choices=[(i, i) for i in range(1, 10)])
+        # Set the number of people choices from 1 to 9, with a placeholder option
+        self.fields['number_of_people'].widget = forms.Select(choices=[('', 'Select number of people')] + [(i, i) for i in range(1, 10)])
 
     def clean_number_of_people(self):
-        """
-        Validate the number of people for the reservation.
-
-        Returns:
-            int: The validated number of people.
-
-        Raises:
-            forms.ValidationError: If the number of people exceeds 9.
-        """
         number_of_people = self.cleaned_data['number_of_people']
         if number_of_people > 9:
             raise forms.ValidationError("You can reserve a maximum of 9 people. For larger groups, please call the restaurant.")
         return number_of_people
 
     def clean_time(self):
-        """
-        Validate the selected reservation time.
-
-        Returns:
-            datetime.time: The validated time.
-
-        Raises:
-            forms.ValidationError: If the selected time is outside the allowed range.
-        """
         time_str = self.cleaned_data['time']
         time = datetime.datetime.strptime(time_str, '%H:%M').time()
         min_time = datetime.time(15, 0)  # 3 PM
@@ -148,19 +134,11 @@ class ReservationForm(forms.ModelForm):
         return time
 
     def clean_date(self):
-        """
-        Validate the reservation date.
-
-        Returns:
-            datetime.date: The validated reservation date.
-
-        Raises:
-            forms.ValidationError: If the reservation date is in the past.
-        """
         reservation_date = self.cleaned_data['date']
         if reservation_date < datetime.date.today():
             raise forms.ValidationError("Reservation date cannot be in the past.")
         return reservation_date
+
 
 
 class ReviewForm(forms.ModelForm):
