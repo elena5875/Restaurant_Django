@@ -181,7 +181,7 @@ Review you can also add comments and post the review and comments to the website
 
 The website will have a header with a green background with the following navigation links for the user to see 
 
-![header](https://asset.cloudinary.com/dh5i9qtjf/f7318db5d8e1096a90a1bc4d11e7ddff)
+![header](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1718782752/toppage_cpy0za.png)
 
 
 # About Us. 
