@@ -6,6 +6,7 @@ from dotenv import load_dotenv  # Library to load environment variables from a .
 import cloudinary  # Library for managing images with Cloudinary
 import cloudinary.uploader
 import cloudinary.api
+from cloudinary.utils import cloudinary_url
 
 # Load environment variables from .env if it exists
 load_dotenv()
@@ -154,7 +155,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'  # Default field type for p
 cloudinary.config(
     cloud_name=os.environ.get('CLOUDINARY_CLOUD_NAME', 'dh5i9qtjf'),  # Cloudinary cloud name
     api_key=os.environ.get('CLOUDINARY_API_KEY', '771193164774472'),  # Cloudinary API key
-    api_secret=os.environ.get('CLOUDINARY_API_SECRET', '7ekPLUqJq0Od4eD2zBi5gufWl7w')  # Cloudinary API secret
+    api_secret=os.environ.get('CLOUDINARY_API_SECRET', '7ekPLUqJq0Od4eD2zBi5gufWl7w'),  # Cloudinary API secret
+    secure=True  # Use secure URLs
 )
 
 # CSRF Trusted Origins configuration
