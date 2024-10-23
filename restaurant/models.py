@@ -73,6 +73,8 @@ class Review(models.Model):
         return self.name
 
 
+from django.db import models
+
 class Comment(models.Model):
     """
     Model representing a comment on a review.
@@ -81,11 +83,13 @@ class Comment(models.Model):
         review (ForeignKey): The review that this comment is associated with.
         comment_text (str): The text of the comment.
         created_at (datetime): The timestamp when the comment was created.
+        is_approved (bool): Indicates whether the comment is approved.
     """
-    
+
     review = models.ForeignKey(Review, related_name='comments', on_delete=models.CASCADE)
     comment_text = models.TextField()
-    created_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(auto_now_add=True)      
+    is_approved = models.BooleanField(default=False)  # Add default value
 
     def __str__(self):
         """Return a string representation of the comment."""
