@@ -171,9 +171,9 @@ Go to Admin URL
 4. You can now edit by either delete, approve or reject both reservation and review. In 
 Review you can also add comments and post the review and comments to the website.
 
-![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1718781593/django_admin2_aneh6w.png)
+![reservation](https://asset.cloudinary.com/dh5i9qtjf/a9e6d64802a1b34e34b8b8b914122dff)
 
-![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1718783246/reservation_admin_q2mcoj.png)
+![review](https://asset.cloudinary.com/dh5i9qtjf/08ec2c5fbc1a9e1ea78a0815e52483cd)
 
 # Website Layout
 
@@ -181,22 +181,22 @@ Review you can also add comments and post the review and comments to the website
 
 The website will have a header with a green background with the following navigation links for the user to see 
 
-![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710487146/homepage_django_vn2t75.jpg)
+![header](https://asset.cloudinary.com/dh5i9qtjf/f7318db5d8e1096a90a1bc4d11e7ddff)
 
 
 # About Us. 
 
 Is a short preview of what the restaurant is all about. It has a picture of a fork in a round border.It also shows the opening hours of the restaurant with a pictuer of an OPEN word could be seen.
 
-![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710487147/about_us-django_s9eqbl.jpg)
+![forkinround](https://asset.cloudinary.com/dh5i9qtjf/64470d071bfda7279c006c9d1b833393)
 
-![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710487146/openinghours_django_mwhnbu.jpg)
+![openinghours](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710487146/openinghours_django_mwhnbu.jpg)
 
 # Location: 
 
 It will show you the address, tel. number, and email address. User will also be shown how a google map and see where the restaurant is located
 
-![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710487146/location_django_c1lzzc.jpg)
+![location](https://asset.cloudinary.com/dh5i9qtjf/65f40f2e47c4ebf5b5d7086b7125203e)
 
 # Gallery. 
 
