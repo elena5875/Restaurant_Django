@@ -1,9 +1,14 @@
 # THE FORK RESTAURANT
+## Overview
 
-# Features
+The Fork is a newly opened restaurant where your palates will be excited to taste the finest and freshest food you'll ever get. We specialize in desserts and Italian cuisine, and we are located in the heart of Stockholm City, Sweden.
 
-This mock restaurant a newly opened restaurant where your palates will be excited to taste the finest and freshest food you'll ever get.
-We specialize in desserts and Italian Cuisine. We are also located at the heart of Stockholm City, Sweden.
+## Features
+
+- **User-Friendly Interface**: A seamless experience for users to explore the menu, make reservations, and leave reviews.
+- **Dynamic Reservations**: Users can easily reserve tables, with confirmation emails sent upon approval.
+- **Review System**: Customers can share their dining experiences through reviews and comments.
+- **Responsive Design**: The website is designed to be fully responsive, ensuring a great experience on mobile and desktop devices.
 
 # Wireframing
 
@@ -52,6 +57,7 @@ Before getting started, make sure you have the following:
     - Access to a PostgreSQL database
 
 
+###Installation Steps
 
 IDE used is gitpod. I started with the following steps to install everything
 
@@ -95,9 +101,10 @@ IDE used is gitpod. I started with the following steps to install everything
     ADMIN_EMAIL=theforkrestaurant@gmail.com
 
 7. Create Project Files
+    -Create the necessary Django files and directories.
 
 8. Start Coding
-
+    Begin implementing features and functionalities
 9. Commit Changes
 
     -using git add .
@@ -120,42 +127,36 @@ OPENING  Heroku thru CLI
 
   heroku login -i
 
-3. You will be asked to enter email and password
+3. Set up your App
 
-    email is elenafreire75@gmail.com
+    heroku git:remote -a your-app-name
 
-    password is HRKU-3e5a6715-3b88-4520-b0b8-bc3aa1e90124
-
-4. To access the file write the code 
-
-    heroku git:remote -a djagnoresto
-
-5. Push our code to Heroku using this code 
+4. Push your Code to Heroku
 
     git push heroku main
 
-6. To open the app write
+5. Open your App
 
     heroku open
 
-Deploy to Heroku manually 
+For Local Deployment
 
 Here is the Url from heroku
 
     https://djagnoresto-267ab1695d73.herokuapp.com/
 
-Deploying app locally
+To run the application Locally, access the following URl:
 
-If you want to deploy locally here is the Url
+Go to Admin URL
 
-    https://8000-elena5875-restaurantdja-hlvxl9n5m7u.ws-eu114.gitpod.io/
+    https://8000-elena5875-restaurantdja-y713ht9ewxi.ws.codeinstitute-ide.net/
 
 
 ## To get inside the Django Admin 
 
 1. Copy paste the Url
 
-    https://8000-elena5875-restaurantdja-hlvxl9n5m7u.ws-eu114.gitpod.io/admin/
+    https://8000-elena5875-restaurantdja-y713ht9ewxi.ws.codeinstitute-ide.net/admin/restaurant/reservation/
 
 2. You will be asked to log in. As a user you can use
 
@@ -182,9 +183,10 @@ Review you can also add comments and post the review and comments to the website
 
 ![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1718783246/reservation_admin_q2mcoj.png)
 
-# Here is the Result of the Fork Restaurant
+# Website Layout
 
 # Header
+
 
 The website will have a header with a green background with the following navigation links for the user to see 
 
@@ -215,13 +217,14 @@ The user will see some great photo of what the restaurant is serving. It will al
 
 The user will also see a review and comments section after the gallery. The user will be able to see the comments and reviews from previous users who ate in the restaurant.
 
-![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1718781594/reviews_fkygbh.png)
+![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/review5_kvtcib.png)
 
 # Menu.
 
 Once the user clicks this navigation tool. It will open into a new page where the user will be shown the full list of what food the restuarant has to offer. It will show the price and what kind of food they prepare in the restaurant.
 
-![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710487146/menu-django_idvtfi.jpg)
+![Alt text](![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/menu_ovgxw4.png)
+)
 
 # Reservation.
 
@@ -243,7 +246,7 @@ The reservation form contains the following :
 
         a note will say if more than 9 people are coming please call the restaurant.
 
-![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1718782752/toppage_cpy0za.png)
+![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/reservation_oidlmg.png)
 
 ![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1718781594/successful_email_sent_dcviwx.png)
 
@@ -252,7 +255,7 @@ The reservation form contains the following :
 
 Once the user clicks this icon, the user will be brought to another page where the user needs to input its name and a valid email address. The user can then write a comment about the experience he/she encountered while eating at the restaurant. 
 
-![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1718782894/write_a_review_gnm3ha.png)
+![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/review4_iwbzqh.png)
 
 
 # Footer: 
@@ -262,8 +265,21 @@ In here you will see the icon of both facebook and instagram. If you click the i
 ![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710491385/footer_django_ytfmgn.jpg)
 
 # Django Administration
-. 
-In the administrial side. The admin gets to approve, delete or reject the reservations done by the customers. An automatic email will be generated once the admin has decide to approve or reject the reservation
+#### Log in
+Before you can go in the administration. YOu need to log in and must have a valid password and username. 
+
+![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/login_xzf6qf.png)
+
+#### Administration
+In the administrial side. The admin gets to approve, delete or reject the reservations and review done by the customers. An automatic email will be generated once the admin has decide to approve or reject the reservation. The Administration can also make a comment to the review done.
+
+![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/adminhomepage_lld8zt.png)
+
+
+## Mock Email.
+
+In the Django Admin, I created a mock email wherein when the admin either rejects, approves, or post a review or reservation
+an email is automatically sent to the customer. The mock email can be seen on the terminal in github or in the logs --tail in heroku.
 
 ![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1718781593/django_admin2_aneh6w.png)
 
@@ -278,37 +294,43 @@ The administration will also be able to approve, delete, post, reject and commen
 ![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1718781593/email_for_approved_review_trjcpy.png)
 
 
-
-## Mock Email.
-
-In the Django Admin, I created a mock email wherein when the admin either rejects, approves, or post a review or reservation
-an email is automatically sent to the customer. The mock email can be seen on the terminal in github or in the logs --tail in heroku.
-
-![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1718783246/reviewadmin_wyquss.png)
-
-![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1718781593/email_for_approved_review_trjcpy.png)
-
-
-
-
 # Test
-Most of my test were done manually using python3 manage.py runserver code to run the program and manually test all the forms in the website. I have also test my website in Heroku by either manually deploying it or thru Heroku CLI.
 
-The automated test I did was only using the python manage.py test. Which showed the following:
+Most of my tests were done manually using the 
 
-django was having issues connecting to PostPostgreSQL database on ElephantSQL when running the tests.
-solution:
-I have address the issue by making some changes in the settings.py., utils.py and test.py.
- 
-I have tested the reservation form which has shown no issues. 
+python3 manage.py runserver 
 
-While in my Review form, it has shown
+command to run the program and manually test all the forms on the website. I have also tested my website on Heroku by either manually deploying it or using the Heroku CLI.
 
-one issue which is AssertionError: False is not true : Couldn't find 'There was an error with your submission. 
+The automated tests I conducted were done using the `python manage.py test` command, which showed the following issues:
 
-Please correct the errors below.' in response. I tried to correct the issue but so far 
+- **Database Connection**: Django encountered issues connecting to the PostgreSQL database on ElephantSQL when running the tests.
+  - **Solution**: I addressed this issue by making some changes in the `settings.py`, `utils.py`, and `test.py` files.
 
-I have corrected the issue and was able to pass the test on both reservation and review forms
+### Test Coverage
+
+I have tested the following functionalities:
+
+- **Reservation Form**: Successfully tested, and no issues were found.
+  
+- **Review Form**: Initially encountered an issue with the assertion:
+  - `AssertionError: False is not true : Couldn't find 'There was an error with your submission. Please correct the errors below.' in response.`
+  - After debugging and making necessary corrections, I was able to pass the tests on both the reservation and review forms.
+
+### Automated Test Cases
+This project includes a comprehensive suite of automated tests to ensure the functionality and reliability of the application.
+
+#### Overview
+- The tests are written using Django's built-in testing framework, `unittest`.
+- Key features tested include:
+  - Email functionality for sending confirmation and cancellation emails.
+  - Review management processes, including creation, listing, and detail views.
+
+#### Running Tests
+To run the automated tests, navigate to your project directory in the terminal and execute the following command:
+
+python manage.py test
+
 
 ![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1718781593/runtest_lkgppm.png)
 
@@ -348,50 +370,108 @@ For phone screens in landscape mode
 
 
 
-# Issues
-IDE's would sometimes not open or worst my work would just suddenly disappear. 
-I used codeanywhere and gitpod but both had alot of issue during the time I was building my website
+# Issues Encountered 
+### Development Environment Challenges
+During the development of my website, I faced some challenges with the Integrated Development Environments (IDEs) I used, specifically CodeAnywhere and Gitpod. These platforms sometimes failed to open, and there were instances where my work would unexpectedly disappear. This made the development process more difficult and time-consuming.
 
-Due to time constraints, I was not able to link my reservation form to django administration. 
-Django administration is working as I want it to be but my reservation form has a lot of issues, namely:
-time: the user was supposed to see a dropdown menu where the user can choose between 5pm till 11 pm
-No matter what code I do the dropdown menu would not work in the website but would work in django administration.
+#### Reservation Form Integration
+Due to time constraints, I was unable to fully integrate my reservation form with the Django administration panel. While the Django admin interface works as intended, the reservation form presents several issues:
 
-I have encountered also an issue where the in smaller screens the gallery pictures and the menu icons are not all displayed or 
-the pictures are too big.
+#### Responsive Design Issues
+I encountered problems with how certain elements displayed on smaller screens:
 
-Submit button: When the user clicks the submit button, it should automatically store the data to django admin
-     and at the same time create a mock email stating that the reservation has been successful.
+UPADTE: I still have some issue on my reservation  website when viewed in the small screen. The footer is always covered by the reservation form. I am still trying to figure it out how to correct this issue.  
 
-I had an issue in making sure that there is uniformity in the website as the user opens another tab. I would like make sure that both header and footer are also seen in the reservation, menu and review pages.
+#### Gallery and Menu Icons: 
+On smaller screens, some gallery images and menu icons do not display properly or appear too large. This affects the overall user experience on mobile devices.
+
+#### Header and Form Overlap: 
+The header does not resize correctly on small screens, causing overlapping issues with the reservation and review forms. Despite numerous trial-and-error adjustments, I ran out of time to find a permanent solution. However, the webpage remains functional and is still readable on smaller screens. As a workaround, since the navigation bar is not visible on both the reservation and review pages, I created a link on the forms that directs users back to the homepage.
+
+## Submit Button Functionality
+
+#### Reservation Submission: 
+When a user clicks the submit button on the reservation form, the expectation is that it should automatically save the reservation data in the Django admin and send a mock email confirming that the reservation has been successful. Currently, this functionality is not working as expected.
+
+#### Consistency Across Pages
+Another challenge was ensuring consistency across different pages of the website:
+
+I aimed to maintain a uniform appearance, specifically that the header and footer should be visible across all pages (reservation, menu, and review pages).
+Resolution of Issues
+I managed to address several of the issues mentioned above. The website is now functioning properly in both the Django admin interface and the main website.
+
+To resolve the issue of uniformity, I created a base HTML file containing the header and footer, which can be easily reused across any new HTML pages within the website.
+
+#### Resolution of Issues
+I managed to address several of the issues mentioned above. The website is now functioning properly in both the Django admin interface and the main website.
+
+To resolve the issue of uniformity, I created a base HTML file containing the header and footer, which can be easily reused across any new HTML pages within the website.
+
+### HTML Validation Errors in reservation.html
+
+During the development of the application, I encountered the following HTML validation errors related to improper nesting of elements:
+
+### Error Message
+![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/reservationassessment_uhspx2.png)
+### Explanation
+
+The error indicates that a `<div>` element is being used as a child of a `<button>` element, which is not allowed in HTML. According to the HTML5 specification, the contents of a `<button>` must be phrasing content, meaning it cannot contain block-level elements like `<div>`.
+
+### Decision to Ignore
+We tried to fix the error but due to time constraint we have not found the solution to the error.
+For the time being, we have chosen to ignore these validation issues, as the toggle buttons are not currently essential to the functionality of the application. Therefore, we do not see an immediate need to correct the HTML structure. 
+
+### Suggested Fix
+
+If the need arises in the future to implement the toggle buttons, the following adjustment can be made to resolve the issue:
+
+## HTML Validation Errors in adjango.html 
+
+During the development of the application, I encountered the following HTML validation errors related to improper nesting of elements:
+
+### Error Message
+![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/adminassessment_ptcu0l.png)
+
+### Explanation
+
+The error indicates that a `<div>` element is being used as a child of a `<button>` element, which is not allowed in HTML. According to the HTML5 specification, the contents of a `<button>` must be phrasing content, meaning it cannot contain block-level elements like `<div>`.
+
+### Attempts to Fix
+
+We attempted to resolve this error but, due to time constraints, we were unable to implement a fix before the project deadline. Therefore, we have chosen to ignore this issue for now, as the website remains functional. We will continue to monitor the situation and consider addressing this error in future updates.
 
 
-### I was able to address all the issues that I have mentioned earlier in my work and now the website is working properly both in the django admin site and also in the main website.
-For the issue in uniformity. I had to create a base html where the header and the footer is found and can be easily copied to the any new html formed in the website.
+
+
 
 # Credits
 
 All my pictures are downloaded from pexel.com
-
     https://www.pexels.com/
 
     And all the pictures were stored in cloudinary account
-
     https://console.cloudinary.com/pm/c-27ce96169f2fa7ccae6699f09c4863/developer-dashboard
 
 
 # References:
 
+    Django Admin Documentation
     https://docs.djangoproject.com/en/5.0/ref/contrib/admin/
 
+    Django Getting Started
     https://www.djangoproject.com/start/
 
+    Django Email Tutorial
     https://learndjango.com/tutorials/django-email-contact-form-tutorial
 
+    Whitenoise Documentation
     https://whitenoise.readthedocs.io/en/stable/django.html#use-a-content-delivery-network
 
+    Heroku Deployment Checklist
     https://dev.to/thomz/my-django-heroku-checklist-3p72
 
+    Git Tutorial
     https://www.atlassian.com/git/tutorials
 
+    Django Girls Tutorial
     https://tutorial.djangogirls.org/en/django_installation/
