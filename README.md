@@ -171,9 +171,9 @@ Go to Admin URL
 4. You can now edit by either delete, approve or reject both reservation and review. In 
 Review you can also add comments and post the review and comments to the website.
 
-![reservation](https://asset.cloudinary.com/dh5i9qtjf/a9e6d64802a1b34e34b8b8b914122dff)
+![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1718781593/django_admin2_aneh6w.png)
 
-![review](https://asset.cloudinary.com/dh5i9qtjf/08ec2c5fbc1a9e1ea78a0815e52483cd)
+![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1718783246/reservation_admin_q2mcoj.png)
 
 # Website Layout
 
@@ -181,40 +181,41 @@ Review you can also add comments and post the review and comments to the website
 
 The website will have a header with a green background with the following navigation links for the user to see 
 
-![header](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1718782752/toppage_cpy0za.png)
+![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710487146/homepage_django_vn2t75.jpg)
 
 
 # About Us. 
 
 Is a short preview of what the restaurant is all about. It has a picture of a fork in a round border.It also shows the opening hours of the restaurant with a pictuer of an OPEN word could be seen.
 
-![forkinround](https://asset.cloudinary.com/dh5i9qtjf/64470d071bfda7279c006c9d1b833393)
+    ![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710487147/about_us-django_s9eqbl.jpg)
 
-![openinghours](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710487146/openinghours_django_mwhnbu.jpg)
+    ![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710487146/openinghours_django_mwhnbu.jpg)
 
 # Location: 
 
 It will show you the address, tel. number, and email address. User will also be shown how a google map and see where the restaurant is located
 
-![location](https://asset.cloudinary.com/dh5i9qtjf/65f40f2e47c4ebf5b5d7086b7125203e)
+    ![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710487146/location_django_c1lzzc.jpg)
+
 
 # Gallery. 
 
 The user will see some great photo of what the restaurant is serving. It will also show the character and ambiance of the restaurant. If you hover the mouse in the photo it will increase its size to 5%
 
-![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710491385/gallery_django2_khq1lp.jpg)
+    ![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710491385/gallery_django2_khq1lp.jpg)
 
 # Review.
 
 The user will also see a review and comments section after the gallery. The user will be able to see the comments and reviews from previous users who ate in the restaurant.
 
-![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1718781594/reviews_fkygbh.png)
+    ![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1718781594/reviews_fkygbh.png)
 
 # Menu.
 
 Once the user clicks this navigation tool. It will open into a new page where the user will be shown the full list of what food the restuarant has to offer. It will show the price and what kind of food they prepare in the restaurant.
 
-![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710487146/menu-django_idvtfi.jpg)
+    ![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710487146/menu-django_idvtfi.jpg)
 
 # Reservation.
 
@@ -236,10 +237,10 @@ The reservation form contains the following :
 
         a note will say if more than 9 people are coming please call the restaurant.
 
-![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1718782752/toppage_cpy0za.png)
+    ![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1718782752/toppage_cpy0za.png)
 
 ![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1718781594/successful_email_sent_dcviwx.png)
-
+![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710487146/sketchomepage_azdo6s.jpg)
 
 # Write a Review
 
@@ -250,7 +251,7 @@ Once the user clicks this icon, the user will be brought to another page where t
 
 # Footer: 
 
-In here you will see the icon of both facebook and instagram. If you click the icons you will be redirected to the restaurant's socila media sites. Another thing the user will see is the copy right of the fork Logo. 
+    In here you will see the icon of both facebook and instagram. If you click the icons you will be redirected to the restaurant's socila media sites. Another thing the user will see is the copy right of the fork Logo. 
 
 ![Alt text](https://res.cloudinary.com/dh5i9qtjf/image/upload/v1710491385/footer_django_ytfmgn.jpg)
 

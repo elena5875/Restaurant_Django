@@ -9,6 +9,7 @@ from django.conf import settings
 from django.core.mail import send_mail
 from django.utils import timezone
 
+
 def home(request):
     """
     Render the home page with posted reviews.
